@@ -1,63 +1,32 @@
 ---
-title: "Image Node: Generate and Transform Visuals in FLORA"
+title: "Image Node: Generate and Transform Visuals"
 sidebarTitle: "Image Node"
-description: "Generate images from text prompts, transform existing visuals with style presets, and wire image outputs into the rest of your FLORA workflow."
+description: "Generate images from text prompts or transform existing images using the Image Node in Canopy AI."
 ---
 
-The Image Node is your canvas for visual elaboration, concept exploration, information layering, and structured visual composition. It bridges textual ideas and visual output, letting you iterate on design concepts, experiment with aesthetic styles and color palettes, and build complex visual narratives by combining multiple images. Wire text nodes in as prompts, feed image outputs into video nodes for animation, or connect them to text nodes for visual analysis — the Image Node sits at the center of most FLORA workflows.
+## Overview
+
+The Image Node lets you generate visuals from scratch or transform existing images using state-of-the-art AI models. It supports Elements for character and style consistency.
 
 ## Modes
 
-The Image Node offers two modes of generation. Switch between them using the tabs below.
+### Text-to-Image
 
-<Tabs>
-  <Tab title="Text to Image">
-    Text to Image generates a new image from a text prompt. It's the default mode when you place an Image Node on the canvas, and it uses **Flux Dev** as the default model.
+Write a text prompt describing the image you want. Adjust resolution, aspect ratio, and model settings to fine-tune results. Attach an [Element](/editor/elements) to maintain visual identity across generations.
 
-    **Ways to interact:**
-    - Type a prompt directly into the node's prompt field and click **Generate**
-    - Connect a Text Node's output to the Image Node to populate the prompt automatically
-    - Use the **prompt improver button** to either generate a prompt from scratch (leave the prompt field empty) or enhance your existing prompt (with text already in the field)
+### Image-to-Image
 
-    **Connecting text nodes:**
-    Drag a noodle from any Text Node's output handle to the Image Node's input. The image node uses that text as its prompt. You can connect multiple upstream text nodes to blend their outputs into a single generation.
+Connect an upstream Image Node or upload a reference image. The model will transform it based on your prompt while preserving the structure and composition of the original. Control the transformation strength with the **influence** slider.
 
-    <Tip>
-      The **prompt improver button** is one of the fastest ways to get better results. Start with a rough description, hit the improver, review the enhanced prompt, then generate — the difference in output quality is significant.
-    </Tip>
+<Tip>Use a low influence value (0.2-0.4) for subtle style changes and a high value (0.7-0.9) for dramatic transformations.</Tip>
 
-    **Explore image models:**
-    FLORA supports multiple text-to-image models beyond Flux Dev. Visit the [Image Models](/models/image-models) section for a full list of available models and their capabilities.
-  </Tab>
+## Settings
 
-  <Tab title="Image to Image">
-    Image to Image transforms an existing visual by using it as structural or stylistic input for a new generation. Connect any image source — an Image Node output, an uploaded image, or a Document Node page — and use a combination of prompt, style preset, and strength to guide the transformation.
+| Setting | Description |
+|---|---|
+| **Model** | Select from available image generation models |
+| **Resolution** | Output dimensions (up to 2048x2048 on supported models) |
+| **Element** | Attach a character, product, or style Element |
+| **Seed** | Lock the seed for reproducible results |
 
-    **Parameters:**
-
-    | Parameter | Options | Effect |
-    |---|---|---|
-    | **Prompt** | Text | Guides the transformation. Processed through visual extraction models (Canny, Depth, Redux) that each interpret different features of the source image. |
-    | **Style** | 18 presets (see full list below) | Applies a stylistic preset that influences color, texture, and artistic technique in the output. |
-    | **Strength** | 0–100% | Controls how much the text prompt influences the output versus the source image. Higher strength = more transformation from the original. |
-    | **Image Size** | Auto, Landscape 16:9, Portrait 4:3, Square 1:1, Landscape 4:3, Portrait 9:16 | Sets the output dimensions. |
-    | **Seed** | Number | A deterministic value that reproduces the same output when all other parameters are identical. Randomized by default; set manually to lock in a result. |
-
-    **Available Style Presets:** 3D, Anime, Cyberpunk, Extreme Detailer, Game Asset, Logo, Midjourney, Motion Blur, Panorama, Pixar, Pixel, Retrofuturism, Studio Ghibli, Tarot Card, Thermal Image, Vector, Victorian Drawing, Watercolor.
-
-    <Note>
-      The Strength parameter is particularly powerful for iteration. Set it low (10–30%) to preserve the source image's structure while nudging the style, or crank it high (70–100%) to use the source purely as a loose compositional reference.
-    </Note>
-  </Tab>
-</Tabs>
-
-## Inpainting and Outpainting
-
-Beyond the node modes above, FLORA also supports **inpainting** (editing specific regions of an image) and **outpainting** (extending an image beyond its original boundaries) directly from the canvas. These tools are covered in the [Editor and Canvas](/editor) documentation.
-
-## Connecting to Other Nodes
-
-- **Text Node → Image Node** — Passes text as the generation prompt. Wire multiple upstream text nodes to blend ideas.
-- **Image Node → Text Node** — Sends the generated image for visual analysis (composition, mood, style extraction).
-- **Image Node → Video Node** — Uses the image as a first frame or reference for animation.
-- **Image Node → Image Node** — Chains generations for iterative style refinement.
+<Note>Image generation consumes credits based on resolution and model. Check your usage at [app.trycanopy.space](https://app.trycanopy.space).</Note>

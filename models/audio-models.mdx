@@ -1,70 +1,22 @@
 ---
-title: "Audio Models for Voice, Music, and Sound Effects in FLORA"
+title: "Audio Models for Voice, Music, and Sound Effects"
 sidebarTitle: "Audio Models"
-description: "FLORA's audio models cover TTS, transcription, music, and sound effects. ElevenLabs, Gemini, and more — available on all plans including Free."
+description: "TTS, transcription, music, and sound effects. Available on all plans including Free."
 ---
 
-FLORA's Audio Node brings voice, music, and sound effects into your creative workflows. Connect it to text nodes to produce voiceovers, feed it audio files for transcription, or use it as a terminal node to generate background music and sound effects. Audio outputs are delivered as MP3 files and can be routed into any downstream node — including video models that accept audio input for lipsync or audio-driven generation.
+<Note>Audio models are available on **all plans, including Free**.</Note>
 
-<Note>
-  Audio models are available on **all plans, including Free**. You don't need a paid subscription to start generating audio in FLORA.
-</Note>
+## Speech & Voice
 
-## Available Models
+| Model | Type | Est. Time |
+|-------|------|-----------|
+| [ElevenLabs Multilingual v2](/models/audio/elevenlabs-multilingual-v2) | Text→Speech | ~15s |
+| [ElevenLabs Scribe v2](/models/audio/elevenlabs-scribe-v2) | Audio→Text | ~10s |
+| [Gemini 3.1 Flash TTS](/models/audio/gemini-flash-tts) | Text→Speech | ~10s |
 
-| Model | Provider | Est. Time | Best For |
-|---|---|---|---|
-| ElevenLabs Scribe v2 | ElevenLabs | 10s | Transcription, subtitles, meeting notes, content indexing |
-| Gemini 3.1 Flash TTS | Google | 10s | Expressive voiceovers, character dialogue, stylized narration |
-| ElevenLabs Multilingual v2 | ElevenLabs | 15s | Natural TTS, multilingual voiceovers, accessible media |
-| ElevenLabs Sound Effects | ElevenLabs | 15s | Foley, ambient soundscapes, UI sounds, game audio |
-| ElevenLabs Music v1 | ElevenLabs | 30s | Background tracks, musical stings, prompt-driven composition |
+## Sound & Music
 
-## Model Details
-
-<Tabs>
-  <Tab title="Text-to-Speech">
-    FLORA offers two TTS models with complementary strengths:
-
-    **ElevenLabs Multilingual v2** is the go-to for natural, production-ready voiceovers across multiple languages. It produces human-sounding narration suitable for explainer videos, podcasts, and any content that needs a clear, neutral voice.
-
-    **Gemini 3.1 Flash TTS** is built for expressiveness. Use it when you want a narrator that responds to tone cues in your prompt — ideal for character dialogue, dramatic narration, and stylized creative content.
-
-    <Warning>
-      **ElevenLabs Multilingual v2** has a **450-character limit per generation**. For longer scripts, split your text across multiple Audio Nodes and connect them sequentially in your workflow.
-    </Warning>
-  </Tab>
-  <Tab title="Transcription">
-    **ElevenLabs Scribe v2** converts speech to text with high accuracy. Feed it an audio file from an upstream node — or import a recording directly — and it outputs a clean transcript you can pipe into a Text Node for summarization, translation, or editing.
-
-    Common use cases: subtitle generation, meeting notes, content indexing, and accessibility workflows.
-  </Tab>
-  <Tab title="Sound Effects">
-    **ElevenLabs Sound Effects** generates Foley and ambient audio from text descriptions. Describe the sound you need — a creaking door, crowd chatter, a UI click, rain on glass — and the model produces a short audio clip you can layer into your video output.
-
-    Works well as a companion to video generation nodes when you want bespoke audio rather than a full music track.
-  </Tab>
-  <Tab title="Music">
-    **ElevenLabs Music v1** composes original music from a text prompt. Describe the mood, tempo, instrumentation, or genre — or combine several descriptors — and the model returns a background track ready to drop under a video or use as a standalone asset.
-
-    Typical generation time is 30 seconds. For longer compositions, chain multiple Music nodes together.
-  </Tab>
-</Tabs>
-
-## Output Format
-
-<Info>
-  All audio models output **MP3 at 128 kbps**. WAV and lossless formats are not currently available. If your downstream workflow requires uncompressed audio, export the MP3 and convert it in your DAW or audio editor.
-</Info>
-
-## Pricing
-
-| Model | Cost per Generation |
-|---|---|
-| ElevenLabs Scribe v2 | $0.0036 |
-| Gemini 3.1 Flash TTS | $0.0126 |
-| ElevenLabs Multilingual v2 | $0.1206 |
-| ElevenLabs Sound Effects | $0.1440 |
-| ElevenLabs Music v1 | $0.3601 |
-
-Audio model costs are fixed per generation and don't vary with clip length. For the complete pricing reference across all model categories, see [Model Pricing](/plans-and-billing/model-pricing).
+| Model | Type | Est. Time |
+|-------|------|-----------|
+| [ElevenLabs Music v1](/models/audio/elevenlabs-music-v1) | Text→Music | ~30s |
+| [ElevenLabs Sound Effects](/models/audio/elevenlabs-sound-effects) | Text→Sound | ~15s |

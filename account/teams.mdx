@@ -1,88 +1,30 @@
 ---
-title: "How to Set Up and Manage Your FLORA Team and Seats"
+title: "How to Set Up and Manage Your Team and Seats"
 sidebarTitle: "Teams"
-description: "Add teammates to your FLORA workspace, configure shared or per-user budgets, set per-member spending caps, and manage on-demand overage."
+description: "Invite team members, assign roles, and manage seats in your Canopy AI workspace."
 ---
 
-FLORA workspaces support multiple users so your whole creative team can collaborate on projects with shared or separate usage budgets. You can have up to **8 seats** on a self-serve plan, with each new seat adding both cost to your subscription and budget to your workspace's usage pool. For teams larger than 8, or for teams that need SSO and invoice billing, see [Organizations](/account/organizations).
+## Inviting Team Members
 
-## Adding Seats
+Open **Workspace Settings > Members** and click **Invite**. Enter email addresses and select a role. Invitees receive an email with a link to join your workspace at [app.trycanopy.space](https://app.trycanopy.space).
 
-To add team members, go to **Settings → People & Seats** and click **Invite**. You can invite by email address or by copying a shareable invite link. Each person you add occupies one seat on your plan.
+<Steps>
+  <Step title="Open Members">Go to Workspace Settings and click the Members tab.</Step>
+  <Step title="Invite">Click **Invite Member**, enter the email, and choose a role.</Step>
+  <Step title="Confirm">The invitee accepts via email and gains access to the workspace.</Step>
+</Steps>
 
-<Note>
-  Self-serve workspaces support up to **8 seats**. If you need more, contact [support@florafauna.ai](mailto:support@florafauna.ai) to explore Enterprise options.
-</Note>
+## Roles
 
-## Budget Modes
+| Role | Permissions |
+|---|---|
+| **Viewer** | View projects and outputs |
+| **Editor** | Create and edit projects, run workflows |
+| **Admin** | All Editor permissions plus member management and billing |
+| **Owner** | Full control including workspace deletion |
 
-By default, all team members draw from a single shared pool. Admins can change this at any time from **Settings → People & Seats → Plan & Usage**.
+## Managing Seats
 
-<Tabs>
-  <Tab title="Pooled (Default)">
-    All team members share one usage budget. The first person to generate uses from the pool, and everyone else draws from the same balance. This is the simplest setup and works well for small, collaborative teams.
-  </Tab>
-  <Tab title="Per-User">
-    Each member gets their own individual usage budget for the billing period. Use this mode when teammates have separate clients or cost centers and you want clear per-person accountability.
-  </Tab>
-</Tabs>
+Your plan determines the number of included seats. Additional seats can be purchased from **Workspace Settings > Billing**. Remove a member at any time to free up a seat.
 
-## Per-Member Spending Caps
-
-Regardless of which budget mode you choose, you can set a dollar cap on any individual team member. Once a member reaches their cap, their generations pause until the budget resets or you raise the limit.
-
-<Tip>
-  Use per-member caps to prevent a single teammate's heavy usage from draining the shared pool or accumulating unexpected overage charges.
-</Tip>
-
-To set a cap, go to **Settings → People & Seats**, find the member's row, and enter a cap amount.
-
-## On-Demand Spending (Overage)
-
-When your workspace's monthly usage budget runs out, generations stop — unless you've opted in to on-demand (overage) spending. Overage lets your team keep creating and charges the additional usage at the same published rates with no markup.
-
-<Accordion title="How on-demand billing works">
-  On-demand spending is **opt-in per workspace**. To enable it, go to **Settings → People & Seats → Plan & Usage** and turn on **On-Demand Spending**. You can also set a **maximum overage cap** for the billing period to keep costs predictable.
-
-  Once enabled, your workspace is charged when any of the following thresholds is reached — not only at the end of the billing cycle:
-
-  - Your max overage cap is reached
-  - Unpaid overage reaches **$200**
-  - Unpaid overage reaches your workspace's monthly subscription total
-  - A daily check finds more than **$5** in unpaid overage
-
-  Charges use the same published per-model rates — there is no markup for on-demand usage.
-</Accordion>
-
-## Managing Your Team
-
-All team management lives in **Settings → People & Seats**. From there you can:
-
-<CardGroup cols={2}>
-  <Card title="Invite Members" icon="user-plus" href="#adding-seats">
-    Add teammates by email or shareable link, and assign their workspace role on the way in.
-  </Card>
-  <Card title="Adjust Seats" icon="users" href="#adding-seats">
-    Add or remove seats from your plan. Removing a seat also removes that member's workspace access.
-  </Card>
-  <Card title="Set Budget Mode" icon="chart-pie" href="#budget-modes">
-    Switch between pooled and per-user budgets without losing usage history.
-  </Card>
-  <Card title="Set Per-Member Caps" icon="gauge" href="#per-member-spending-caps">
-    Cap how much any individual member can spend in a billing period.
-  </Card>
-</CardGroup>
-
-## Upgrading to Enterprise
-
-Self-serve teams max out at 8 seats and use Stripe card billing. If you need more, FLORA's Enterprise tier adds:
-
-- **Custom seat count** — no upper limit on team size
-- **SSO** — connect your identity provider for centralized login management
-- **Audit logs** — full activity history for compliance and security review
-- **Invoice billing** — net-60 invoicing instead of per-cycle card charges
-- **Multiple workspaces** — manage all workspaces under one bill via Organizations
-
-<Card title="Learn About Organizations" icon="building" href="/account/organizations">
-  Enterprise customers can group multiple workspaces under one account with shared seats, a shared usage pool, and a single bill.
-</Card>
+<Note>Removing a member does not delete their contributions -- all projects and outputs remain in the workspace.</Note>

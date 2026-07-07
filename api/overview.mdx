@@ -1,48 +1,32 @@
 ---
-title: "FLORA API: Integrate AI Workflows Programmatically"
+title: "Canopy AI API: Integrate AI Workflows Programmatically"
 sidebarTitle: "Overview"
-description: "The FLORA API lets you trigger workflow executions, access generation history, and embed FLORA's AI capabilities directly into your own applications."
+description: "Use the Canopy AI API to run Techniques, generate media, and integrate AI workflows into your applications programmatically."
 ---
 
-The FLORA API is a REST API that gives you programmatic access to FLORA's AI workflow capabilities. Whether you want to trigger generations from your own backend, retrieve history for your users, or embed FLORA into a larger product, the API is the foundation for building on top of FLORA outside the canvas. The API is out of public beta and available on the Starter plan and above. Full developer documentation — including the complete endpoint reference, request/response schemas, and SDK guides — lives at [developer.flora.ai](https://developer.flora.ai).
+## Overview
 
-<Warning>
-  The FLORA API is not available on the Free plan. You must be on a **Starter plan or above** to generate an API key and make requests.
-</Warning>
+The Canopy AI API lets you run any Technique or generation workflow programmatically. Build AI-powered features into your own apps, automate content pipelines, or integrate Canopy AI into your existing toolchain.
 
-## What you can do with the API
+<Note>API access requires a **Starter plan** or above. Upgrade at [app.trycanopy.space](https://app.trycanopy.space).</Note>
 
-The FLORA API gives you direct, scriptable access to the same capabilities you use in the canvas:
-
-- **Trigger workflow executions** — kick off any workflow programmatically and receive the output in your application
-- **Access generation history** — retrieve past generations for a user or workflow to power dashboards, logs, or downstream processing
-- **Integrate FLORA into your own applications** — embed FLORA's AI outputs into your product, pipeline, or automation without requiring users to visit the canvas
-
-## Getting started
+## Getting Started
 
 <Steps>
-  <Step title="Upgrade to Starter plan or above">
-    The API is not available on the Free plan. Visit your account's billing settings to upgrade to a Starter plan or higher before proceeding.
-  </Step>
-  <Step title="Get your API key">
-    Once you're on an eligible plan, navigate to **Settings → API** in the FLORA app. From there you can generate a new API key or copy an existing one.
-  </Step>
-  <Step title="Read the full API docs">
-    Head to [developer.flora.ai](https://developer.flora.ai) for the complete API reference, including all available endpoints, authentication details, request examples, and SDK documentation.
-  </Step>
+  <Step title="Get Your API Key">Generate an API key from **Workspace Settings > API** in your Canopy AI dashboard.</Step>
+  <Step title="Read the Docs">Full API reference and guides are available at [developer.trycanopy.space](https://developer.trycanopy.space).</Step>
+  <Step title="Make Your First Call">Use the API to run a Technique or generate media -- see [Authentication](/api/authentication) for setup.</Step>
 </Steps>
 
-## Explore further
+## What You Can Do
 
 <CardGroup cols={2}>
-  <Card title="Authentication" icon="key" href="/api/authentication">
-    Get your API key and authenticate requests to the FLORA API.
-  </Card>
-  <Card title="MCP" icon="plug" href="/api/mcp">
-    Connect FLORA to Claude, Cursor, and other MCP-compatible AI tools.
-  </Card>
+  <Card title="Run Techniques">Execute any Technique via API with custom inputs and receive outputs programmatically.</Card>
+  <Card title="Generate Media">Create images, video, audio, and text using the same models available on the canvas.</Card>
+  <Card title="Manage Projects">Create, list, and manage projects and their contents via API.</Card>
+  <Card title="MCP Integration">Connect Canopy AI to Claude, Cursor, and other AI tools via MCP -- see [MCP](/api/mcp).</Card>
 </CardGroup>
 
-<Note>
-  The full API reference — including all endpoints, parameters, and response schemas — is hosted at [developer.flora.ai](https://developer.flora.ai). The pages in this section cover setup and orientation; head to the developer site for complete technical details.
-</Note>
+## Rate Limits
+
+Rate limits depend on your plan tier. See [developer.trycanopy.space](https://developer.trycanopy.space) for current limits and best practices.

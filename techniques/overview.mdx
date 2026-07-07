@@ -1,101 +1,27 @@
 ---
-title: "Techniques: Pre-Built Multi-Step AI Workflows in FLORA"
+title: "Techniques: Pre-Built Multi-Step AI Workflows"
 sidebarTitle: "Overview"
-description: "Techniques are pre-built, multi-step AI workflows you can drop onto your canvas and run with a single click — no pipeline setup required."
+description: "Discover Techniques in Canopy AI -- pre-built, shareable multi-step AI workflows that you can run with one click or customize to fit your needs."
 ---
 
-Techniques are FLORA's answer to complex creative pipelines. Instead of building a multi-step workflow from scratch every time, you get access to a curated library of proven "recipes" — each one packages multiple AI models and processing steps into a single node with clearly defined inputs, outputs, a usage cost, and an estimated run time. You provide the ingredients; the Technique handles the rest.
+## What Are Techniques?
 
-## Accessing Techniques
+Techniques are pre-built multi-step AI workflows in Canopy AI. Each Technique is a complete node graph that performs a specific creative task -- from generating product photography to creating social media video series. Browse the library, run a Technique with one click, or fork it to customize.
 
-You can add a Technique to your canvas in three ways:
+<Tip>Open the Techniques panel from the sidebar or visit [app.trycanopy.space](https://app.trycanopy.space) to browse the full library.</Tip>
 
-- **Sidebar library** — Open the Techniques Library from the sidebar to browse by category, search by name or tag, and preview sample outputs before committing.
-- **+ menu** — Click **+** on the canvas toolbar to open the add-node menu, then select **Technique** from the Media section.
-- **Keyboard shortcut** — Press **Shift+T** to jump directly to the Technique picker, which surfaces recent and featured Techniques. Click any result (or press its **1–9** shortcut key) to place it at your cursor position.
+## How Techniques Work
+
+A Technique is a saved canvas configuration: nodes, connections, prompts, and settings packaged as a reusable template. When you run a Technique, Canopy AI recreates the workflow on your canvas and executes it with your inputs.
 
 ## Categories
 
-Techniques are organized into nine categories so you can quickly find the right workflow for your project:
-
-| Category | Focus |
+| Category | Examples |
 |---|---|
-| Brand & Visual Design | Logo treatments, brand assets, visual identity |
-| Product Visualization | Product shots, mockups, lifestyle imagery |
-| Marketing & Ads | Ad creatives, social media content, campaigns |
-| Video & Animation | Motion graphics, animated sequences, video ads |
-| Fashion & Apparel Editorial | Lookbooks, fashion photography, styling |
-| Content Packaging | Thumbnails, covers, promotional materials |
-| Print Film/VFX | Film-quality effects, cinematic treatments |
-| Space & Architecture | Interior design, architectural visualization |
-| Fun & Inspiration | Creative experiments, artistic styles |
+| **Content Creation** | Blog post to social media graphics, script to video |
+| **Product** | Product photo variations, lifestyle mockups |
+| **Brand** | Brand kit generation, style guide assets |
+| **Video** | Talking head, explainer video, music video |
+| **Audio** | Podcast intro, voiceover with music bed |
 
-## Running a Technique
-
-When you run a Technique, FLORA walks through a predictable sequence of steps:
-
-<Steps>
-  <Step title="Connect Inputs">
-    Drag connections from compatible nodes on your canvas to each input slot on the Technique node. You can also right-click an input slot to upload a file or insert a built-in preset.
-  </Step>
-  <Step title="Click Run">
-    Once all required inputs are connected, click the **Run** button on the Technique node.
-  </Step>
-  <Step title="Validation">
-    FLORA verifies that every required input is connected and valid before proceeding.
-  </Step>
-  <Step title="Usage Check">
-    FLORA confirms you have sufficient budget to cover the Technique's usage cost. The cost is deducted at the start of the run and automatically refunded if the Technique fails.
-  </Step>
-  <Step title="Execution">
-    The internal workflow executes step by step — including both AI generation steps and any deterministic action steps. A progress bar on the node shows real-time completion percentage and the current step.
-  </Step>
-  <Step title="Output Nodes Created">
-    When the run completes, result nodes appear on your canvas connected to the Technique's output slots, ready to use in downstream workflows.
-  </Step>
-</Steps>
-
-## Parameter Overrides
-
-When a Technique author has enabled **user-editable parameters** on an output, a settings icon appears on that output slot. Click it to override generation settings — such as model, aspect ratio, or quality — before running. Overrides are validated server-side so that only safe parameters can be changed (you cannot, for example, override quantity or seed). The usage cost updates automatically to reflect your chosen settings.
-
-## Collection Outputs
-
-Techniques that include a Batch node internally produce **collection outputs** — multiple items surfaced as a scrollable collection on the Technique node's output slot. Each item in the collection can be inspected individually in the sidebar, the detail view, or App Mode.
-
-## Detaching a Technique
-
-You can expand a Technique into its individual constituent nodes by selecting the node and clicking **Detach**. Detaching replaces the Technique node with all of its internal nodes and preserves connections. Action nodes appear as labeled "Action" blocks derived from the action's function name.
-
-<Warning>
-  Detaching is a one-way operation — you cannot re-collapse the expanded nodes back into a Technique node. Duplicate the Technique node before detaching if you want to keep the original.
-</Warning>
-
-Use Detach when you need to customize a Technique's internals beyond what parameter overrides allow.
-
-## Viewing a Technique's Workflow
-
-To inspect a Technique's internal graph without detaching it, click **View workflow** in the Technique node toolbar. This opens a **read-only overlay** showing all generation nodes, action nodes, and their connections. Action nodes are rendered in a distinctive violet style so they stand out from generation steps.
-
-## App Mode
-
-Every Technique can be run outside the canvas through **App Mode** — a streamlined interface where you provide inputs and click Run without any canvas setup. App Mode is ideal for repeated use of a favorite Technique or for sharing a Technique with collaborators who don't need to work in a full project. Click the **App** link on any Technique to open it.
-
-## Batch Processing with Techniques
-
-To apply a Technique to a collection of items in one pass, connect a **Batch Node** as the Technique's input. Each item in the batch is processed through the full Technique pipeline independently, and outputs are created for every batch item with carousel navigation to browse results.
-
-<Tip>
-  Batch processing is great for use cases like applying a lifestyle photography Technique across an entire product catalog or generating branded ad creatives from multiple source images in a single run.
-</Tip>
-
-## Go Further
-
-<CardGroup cols={2}>
-  <Card title="Using Techniques" icon="play" href="/techniques/using-techniques">
-    Step-by-step walkthrough of adding, running, and working with Techniques on your canvas.
-  </Card>
-  <Card title="Technique Builder" icon="wrench" href="/techniques/technique-builder">
-    Package your own canvas workflows into reusable, publishable Techniques.
-  </Card>
-</CardGroup>
+<Note>Community-published Techniques are reviewed for quality. You can publish your own -- see [Technique Builder](/techniques/technique-builder).</Note>

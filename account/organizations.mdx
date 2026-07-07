@@ -1,151 +1,28 @@
 ---
-title: "Organizations: Manage Multiple FLORA Workspaces Easily"
+title: "Organizations: Manage Multiple Workspaces"
 sidebarTitle: "Organizations"
-description: "Organizations group multiple FLORA workspaces under one Enterprise account with a single bill, shared seat pool, and unified usage budget."
+description: "Use Organizations in Canopy AI to manage multiple workspaces under a single billing and admin umbrella."
 ---
 
-Organizations are an Enterprise feature designed for teams that need to run more than one workspace under a single account. Instead of juggling separate bills and separate seat pools, an Organization gives you one bill, one shared seat pool, and one shared usage budget that spans every workspace inside it. If you're on a self-serve plan with a single workspace, Organizations don't apply to you — everything you need is covered in [Workspaces](/account/workspaces).
+## What Is an Organization?
 
-## How Organizations Work
+An Organization groups multiple Canopy AI workspaces under a single admin and billing structure. Ideal for agencies, studios, and companies managing separate client or team workspaces.
 
-FLORA has two levels: the **organization** (your commercial account) and **workspaces** (where work actually happens).
+<Tip>Organizations are available on the Team plan and above. Contact prateek@justvouch.club to get started.</Tip>
 
-- **Organization** — holds your billing, plan, seats, and the shared usage pool. It's the entity you pay for.
-- **Workspaces** — hold projects, the canvas, assets, folders, members, and API keys. It's where people create.
+## Organization Features
 
-Every workspace belongs to exactly one organization. An Enterprise organization can contain several workspaces, all drawing from the same pool.
+- **Unified billing** -- one invoice for all workspaces
+- **Central admin** -- manage members across workspaces from a single dashboard
+- **SSO support** -- enable single sign-on for your organization (Enterprise plan)
+- **Usage reporting** -- aggregate credit usage across all workspaces
 
-```
-Your Organization        ← billing, plan, seats, shared usage pool
-  ├── Workspace A         ← projects, canvas, members
-  ├── Workspace B
-  └── Workspace C
-```
-
-A person needs two things to work in your org: an **organization membership** (their role and seat) and a **workspace membership** (access to specific workspaces). Being an Admin does not automatically grant access to every workspace — workspace access is always assigned explicitly.
-
-## Organization Roles
-
-Roles are set at the organization level. A person has one role that applies across every workspace they belong to — you can't give someone Admin in one workspace and Member in another.
-
-| Role | Permissions | Uses a Seat? |
-|---|---|---|
-| **Admin** | Manage members, roles, workspaces, and billing. | Yes |
-| **Member** | Create and edit in the workspaces they're assigned to. | Yes |
-| **Guest** | View and comment only in assigned workspaces. | **No** |
-
-<Note>
-  Guests do **not** consume a seat. Add clients or stakeholders as Guests to give them visibility without adding to your seat count.
-</Note>
-
-## Managing Members and Roles
-
-Go to **Settings → Organization → Members & Roles** to manage everyone on your account. At the top of the page you'll see your organization name, total member count, and seat count, plus a live summary of usage this period, your wallet balance, and any overage accrued.
-
-The member table below shows each person's name and email, their role, their usage this month, and a chip for each workspace they can access. You can:
-
-- **Change a role** — use the Role dropdown on any member's row. The change applies org-wide across all their workspaces.
-- **Remove from a workspace** — click the **×** on a workspace chip to remove access to that workspace only. This does not free a seat if they're still in other workspaces.
-- **Remove from the organization** — open the **⋯** menu at the end of a row and select **Remove from organization**. This removes all workspace access and frees the seat.
-
-### Adding a New Member
+## Setting Up an Organization
 
 <Steps>
-  <Step title="Open Members & Roles">
-    Go to **Settings → Organization → Members & Roles** and click **Add Member**.
-  </Step>
-  <Step title="Enter Their Email">
-    Type their work email address.
-  </Step>
-  <Step title="Choose an Organization Role">
-    Select Admin, Member, or Guest.
-  </Step>
-  <Step title="Assign Workspaces">
-    Tick at least one workspace. Every member must belong to at least one workspace.
-  </Step>
-  <Step title="Send the Invite">
-    Click **Send invite**. They'll receive an email to join the organization and the workspaces you selected.
-  </Step>
+  <Step title="Create">Go to **Account Settings > Organizations** and click **Create Organization**.</Step>
+  <Step title="Add Workspaces">Create new workspaces or move existing ones into the organization.</Step>
+  <Step title="Assign Admins">Designate organization-level admins who can manage all workspaces.</Step>
 </Steps>
 
-<Tip>
-  If you're adding someone who's already in your organization to an additional workspace, just assign the workspace from their existing row — no email invite is sent and no extra seat is consumed.
-</Tip>
-
-## Creating Workspaces
-
-Go to **Settings → Workspaces** and click **+**. Enter a workspace name and click **Create**. The new workspace:
-
-- Belongs to your organization automatically
-- Shares the org's plan, seats, and usage pool
-- Does **not** create a separate bill
-
-After creating it, assign members by editing their workspace chips on the **Members & Roles** page, or from the workspace's own **Members** settings.
-
-## Per-Workspace Spend Limits
-
-Because every workspace draws from the same shared pool, you can cap how much any single workspace is allowed to spend. This prevents one high-volume workspace from draining the budget for everyone else.
-
-To set a limit, open the workspace's settings and go to **Usage & Limits → Spend limit**. Enter a dollar amount and choose a reset period:
-
-- **All time** — the cap stays in place until you change or clear it
-- **Per month** — the cap resets automatically each month
-
-Use **Clear** to remove the limit entirely.
-
-## Analytics
-
-**Settings → Organization → Analytics** gives you a unified view of usage across all your workspaces.
-
-<CardGroup cols={2}>
-  <Card title="Aggregated Usage" icon="chart-bar" href="#analytics">
-    See total usage across all workspaces for a selected date range. Export a CSV for reporting or client billing.
-  </Card>
-  <Card title="Model Breakdown" icon="layer-group" href="#analytics">
-    View usage share and run count per model type (Text, Image, Audio, Video). Expand any row to drill into per-workspace and per-model detail.
-  </Card>
-  <Card title="Usage Trend" icon="chart-line" href="#analytics">
-    See daily usage across the selected period to spot spikes and plan capacity.
-  </Card>
-  <Card title="CSV Export" icon="file-csv" href="#analytics">
-    Download a full export of the selected period. CSV reports are the reliable source of record for billing reconciliation.
-  </Card>
-</CardGroup>
-
-## Seats and Billing
-
-Organizations have a single billing entity:
-
-- **One bill** — adding a workspace never creates a separate charge
-- **One shared usage pool** — every workspace draws from the same balance; spend is tagged to the originating workspace for reporting
-- **One plan** — all workspaces share the same plan and entitlements
-
-Seats are counted at the organization level. One person uses one seat no matter how many workspaces they're in. Guests never use a seat.
-
-## Enterprise Features
-
-Organizations come with the full Enterprise feature set:
-
-<Accordion title="SSO (Single Sign-On)">
-  Connect your identity provider so teammates log in through your company's centralized auth system. Contact support to configure SSO for your organization.
-</Accordion>
-<Accordion title="DPA (Data Processing Addendum)">
-  Enterprise organizations can request a signed DPA for formal data-processing compliance. Reach out to [support@florafauna.ai](mailto:support@florafauna.ai) to get started.
-</Accordion>
-<Accordion title="SOC-2 Documentation">
-  Request FLORA's SOC-2 compliance documentation for your security review process.
-</Accordion>
-<Accordion title="Audit Logs">
-  Access a full activity log for your organization — useful for compliance reviews and security investigations.
-</Accordion>
-<Accordion title="Invoice Billing">
-  Receive net-60 invoices instead of per-cycle card charges. Ideal for finance teams with standard procurement workflows.
-</Accordion>
-
-## Getting Started with Organizations
-
-Organizations are set up by the FLORA team as part of Enterprise onboarding.
-
-<Card title="Contact Support to Get Started" icon="envelope" href="mailto:support@florafauna.ai">
-  Email support@florafauna.ai to set up your Organization, discuss seat counts, and configure Enterprise features.
-</Card>
+<Note>Workspace-level settings (members, projects, Elements) remain independent within the organization.</Note>

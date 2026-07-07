@@ -1,89 +1,25 @@
 ---
-title: "How to Find, Run, and Customize Techniques in FLORA"
+title: "How to Find, Run, and Customize Techniques"
 sidebarTitle: "Using Techniques"
-description: "Learn how to find, run, customize, and extend Techniques — FLORA's pre-built AI workflow nodes — inside your canvas and in App Mode."
+description: "Learn how to browse, run, and customize pre-built Techniques in Canopy AI to accelerate your creative workflows."
 ---
 
-Techniques let you run complex multi-step AI pipelines with a single node. This guide walks you through every aspect of working with Techniques on your canvas — from picking one out of the library to detaching its internals for full customization.
+## Finding Techniques
+
+Browse Techniques from the sidebar panel or the Canopy AI homepage at [app.trycanopy.space](https://app.trycanopy.space). Filter by category, sort by popularity or recency, and preview the node graph before running.
 
 ## Running a Technique
 
 <Steps>
-  <Step title="Open the Technique Picker">
-    Access Techniques from any of these entry points:
-    - Click **+** on the canvas toolbar, then select **Technique** from the Media section.
-    - Press **Shift+T** to jump directly to the Technique picker.
-    - Open the **Techniques Library** from the sidebar to browse the full catalog by category.
-  </Step>
-  <Step title="Browse Categories and Select a Technique">
-    Use category filters or the search bar to find a Technique that fits your project. Hover over any card to see a preview with its thumbnail, description, and creator info. Click the card — or press its **1–9** shortcut key — to place it on your canvas.
-  </Step>
-  <Step title="Connect Required Inputs">
-    Each input slot on the Technique node shows the expected content type (image, video, or text) and its connection status. Drag a connection from a compatible node on your canvas to each slot. You can also right-click an input slot to upload a file directly or insert one of the Technique's built-in presets as a quick test.
-  </Step>
-  <Step title="Review the Usage Cost and Estimated Time">
-    The Technique node header displays the usage cost and estimated run time. Review these before proceeding — the cost is deducted when execution begins and refunded automatically if the run fails.
-  </Step>
-  <Step title="Click Run">
-    Once all required inputs are connected, click the **Run** button on the Technique node. FLORA validates your inputs and confirms your budget before starting execution.
-  </Step>
-  <Step title="Wait for Execution — Output Nodes Appear on Canvas">
-    A progress bar on the node tracks completion percentage and shows which internal step is currently running. When the Technique finishes, result nodes appear on your canvas connected to the output slots, ready to feed into the next stage of your workflow.
-  </Step>
+  <Step title="Select">Click on a Technique to see its description, required inputs, and expected outputs.</Step>
+  <Step title="Configure Inputs">Fill in the required fields -- text prompts, upload images, or select Elements.</Step>
+  <Step title="Run">Click **Run Technique**. The workflow executes and outputs appear on your canvas.</Step>
 </Steps>
 
-## Parameter Overrides
+<Tip>After running a Technique, all its nodes remain on your canvas. You can tweak prompts and re-run individual nodes without restarting the entire workflow.</Tip>
 
-If the Technique author has enabled **user-editable parameters** on one or more outputs, you can customize those outputs before running. Look for a settings icon on the output slot — click it to adjust settings such as:
+## Customizing Techniques
 
-- **Model** — Switch to a different generation model.
-- **Aspect ratio** — Change the output dimensions.
-- **Quality** — Adjust the fidelity or detail level.
+Every Technique is fully editable once it lands on your canvas. Add nodes, change models, adjust prompts, swap Elements, or rewire connections. Save your modified version as a new Technique to reuse later.
 
-Overrides are validated server-side, so only safe parameters are exposed. The usage cost in the node header updates automatically to reflect your choices.
-
-<Info>
-  Not all Techniques offer overrides — this feature is opt-in by the Technique author. If you don't see a settings icon on an output slot, the parameters for that output are fixed.
-</Info>
-
-## Collection Outputs
-
-When a Technique uses a **Batch node** internally, its outputs appear as a **scrollable collection** rather than a single result. You can:
-
-- Scroll through all items directly on the output slot.
-- Click any item to inspect it in the sidebar or detail view.
-- View the full collection in App Mode.
-
-## App Mode
-
-Every Technique has an **App link** — a dedicated URL that opens the Technique in a simplified standalone interface. In App Mode you provide your inputs and click Run without needing to set up a canvas or manage a project.
-
-To open App Mode, click the **App** link displayed on the Technique node (or on its library card). App Mode is ideal for sharing a Technique with collaborators or for repeated quick use of a favorite workflow.
-
-## Detaching a Technique
-
-Detaching expands a Technique into all of its individual internal nodes directly on your canvas, letting you inspect and modify every step of the pipeline.
-
-**To detach:**
-1. Select the Technique node.
-2. Click **Detach** in the node toolbar or context menu.
-3. The Technique node is replaced by all internal nodes, with connections preserved. Action nodes appear as labeled "Action" blocks.
-
-<Warning>
-  Detaching is irreversible — you cannot re-package the expanded nodes back into a Technique node. Duplicate the Technique node before detaching if you want to preserve the original.
-</Warning>
-
-Use Detach when parameter overrides aren't enough and you need direct control over the Technique's internals — for example, to swap a model mid-pipeline or add a custom processing step.
-
-## Batch Processing with Techniques
-
-To run a Technique on multiple inputs in one pass, connect a **Batch Node** to the Technique's input slot:
-
-1. Add a **Batch Node** to your canvas and populate it with your items (images, videos, or other media).
-2. Connect the Batch Node's output to the Technique Node's input slot.
-3. Click **Run** on the Technique — each batch item is processed through the full Technique pipeline independently.
-4. Outputs are created for every item, with carousel navigation to browse results.
-
-<Tip>
-  Batch + Technique combinations are powerful for production workflows: apply a product photography Technique to an entire catalog, or generate ad creatives from multiple source images in a single run.
-</Tip>
+<Note>Customizing a community Technique creates a private copy in your workspace -- your changes do not affect the original.</Note>

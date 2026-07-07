@@ -1,154 +1,36 @@
 ---
-title: "Action Node: Edit Media Without AI Generation Steps"
+title: "Action Node: Edit Media Without AI Generation"
 sidebarTitle: "Action Node"
-description: "Apply color grading, video trimming, frame extraction, text manipulation, and more directly as workflow steps — no AI generation required."
+description: "Apply deterministic edits to images, video, and text using Action Nodes in Canopy AI -- no AI credits consumed."
 ---
 
-Action Nodes bring traditional editing tools into your FLORA canvas as first-class workflow steps. Instead of exporting media to a separate app and reimporting the result, you drop an Action Node into your workflow, connect it like any other node, and get deterministic, repeatable edits — right alongside your generation nodes, Techniques, and Batch Nodes.
+## Overview
 
-## What Actions Cover
+Action Nodes perform deterministic media edits that do not use AI generation. They are instant, free, and predictable -- perfect for resizing, cropping, formatting, and other standard transformations.
 
-Actions handle the kinds of operations you'd normally reach for a dedicated editing app to perform:
+<Note>Action Nodes do not consume generation credits since they perform non-AI operations.</Note>
 
-- **Adjusting color and tone** on an image or video
-- **Splitting or stitching** video clips together
-- **Extracting frames** from a video as still images
-- **Changing aspect ratios** with crop or pad options
-- **Manipulating text** with find-and-replace, splitting, or concatenation
-- **Splitting or merging audio tracks** from video files
+## Action Categories
 
----
+### Image Actions
 
-## Adding an Action Node
+Resize, crop, rotate, flip, adjust brightness/contrast/saturation, add borders, convert formats, and apply standard filters.
+
+### Video Actions
+
+Trim, loop, reverse, change speed, extract frames, resize, mute audio, and concatenate clips.
+
+### Text Actions
+
+Change case, find and replace, split, join, format as markdown or JSON, count words, and extract patterns with regex.
+
+## Using Action Nodes
 
 <Steps>
-  <Step title="Open the Add Node menu">
-    Press the **+** button or use the canvas shortcut to open the node menu. Under the **Utilities** section, click **Action**.
-  </Step>
-  <Step title="Choose an action">
-    A picker panel opens showing all available actions. Browse or search by name. Each action displays its input and output modalities (image, video, or text) so you know exactly what to connect.
-  </Step>
-  <Step title="Connect your inputs">
-    Drag a noodle from any upstream node to the Action Node's input handle. The action processes whatever media is connected.
-  </Step>
-  <Step title="Configure parameters">
-    Each action exposes its own set of controls — sliders, dropdowns, color pickers, and toggles. Adjust them to dial in the result you want.
-  </Step>
-  <Step title="Run">
-    Click **Run** on the Action Node. Results appear in one or more output slots depending on the action.
-  </Step>
+  <Step title="Spawn">Open the Command Palette and search for the specific action (e.g., "Resize Image").</Step>
+  <Step title="Connect">Wire an upstream node's output into the Action Node's input.</Step>
+  <Step title="Configure">Set parameters like target dimensions, crop region, or text pattern.</Step>
+  <Step title="Run">Action Nodes execute instantly and pass the result downstream.</Step>
 </Steps>
 
----
-
-## Available Actions
-
-<Tabs>
-  <Tab title="Image Actions">
-    | Action | What It Does | Key Parameters |
-    |---|---|---|
-    | **Color Grade Image** | Cinematic color grading with adjustable tone | Warmth, Contrast, Saturation, Brightness |
-    | **Color Filter** | Apply 15+ preset filters: Grayscale, Sepia, Duotone, Clarendon, Moon, Nashville, Noir, Fade, and more | Filter preset, Intensity |
-    | **Color Tint** | Tint an image with a chosen color using blend modes | Tint Color, Intensity, Blend Mode (Multiply / Screen / Overlay / Soft Light) |
-    | **Filter Color** | Isolate, replace, or remove pixels matching a target color — chroma key, background removal, color swap | Target Color, Tolerance, Mode |
-    | **Change Image AR** | Change aspect ratio by center-cropping or padding without upscaling | Aspect Ratio, Fit (Crop / Pad), Background Mode |
-    | **Rotate Image** | Rotate by any angle with optional canvas expansion | Angle, Expand Canvas, Background Color |
-    | **Flip Image** | Mirror horizontally, vertically, or both | Direction |
-    | **Blur** | Gaussian, Box, Motion, Radial, Bilateral, Bokeh, Tilt-Shift, or Target Color blur | Blur Type, Radius / Amount |
-    | **Duplicate Image** | Output N copies of an image for branching into parallel workflow lanes | Number of Copies |
-  </Tab>
-  <Tab title="Video Actions">
-    | Action | What It Does | Key Parameters |
-    |---|---|---|
-    | **Color Grade Video** | Cinematic color grading for video | Contrast, Saturation, Brightness, Gamma |
-    | **Video Color Filter** | Preset color filters: Grayscale, Sepia, Invert, Clarendon, Moon, Nashville, and more | Filter preset |
-    | **Video Effect** | Stylistic effects: Vignette, Film Grain, Pixelate, Camera Shake, Chromatic Aberration, VHS | Effect type, Intensity |
-    | **Stitch Videos** | Join multiple clips into one with optional transitions and aspect-ratio normalization | Transition type, Duration, Aspect Ratio, Fit Mode |
-    | **Split Video** | Cut a video into segments by equal parts, fixed duration, or scene detection | Split Mode, Segment count, Sensitivity |
-    | **Extract Video Frames** | Pull still frames from video as PNG images | Mode (Single / Evenly Spaced / Interval / Scene Changes) |
-    | **Image to Video Ken Burns** | Animate a still image with a smooth pan/zoom into a video | Duration, Zoom Level, Pan Direction, Easing |
-    | **Video to Frame Grid** | Arrange extracted frames in a grid contact sheet | Rows, Columns, Cell Width, Gap |
-    | **Video to Long Exposure** | Stack all frames into a single long-exposure image | Blend Mode (Average / Lighten / Darken) |
-    | **Boomerang** | Play a video forward then in reverse for a looping clip | Loops, Speed, Frame Stride |
-    | **Reverse Video** | Play a video backwards | Reverse Audio, Keep Original Audio |
-    | **Speed Up Video** | Increase playback speed | Speed Factor, Keep Audio |
-    | **Slow Down Video** | Decrease playback speed | Slow Factor, Keep Audio |
-    | **Watermark** | Burn a text or image watermark into a video | Text / Image, Position, Opacity, Scale |
-    | **Greenscreen Remove** | Chroma-key out a background color and output transparent video | Color Preset, Similarity, Edge Blend |
-    | **Duplicate Video** | Output N copies of a video for branching workflows | Number of Copies |
-    | **Split Audio from Video** | Separate the audio track from a video into its own output | — |
-    | **Merge Audio into Video** | Replace or add an audio track to a video | — |
-  </Tab>
-  <Tab title="Text Actions">
-    | Action | What It Does | Key Parameters |
-    |---|---|---|
-    | **Split Text** | Split text into parts by separator, regex, paragraph, line count, or character count | Split Mode, Separator, Max Parts |
-    | **Find and Replace** | Find and replace text with optional regex, case-insensitive, and whole-word modes | Find, Replace, Use Regex, Case Sensitive |
-    | **Concat Text** | Combine multiple text inputs into one | Separator, Prefix, Suffix, Trim, Skip Empty |
-  </Tab>
-</Tabs>
-
----
-
-## Using Actions in Workflows
-
-### Chaining with Generation Nodes
-
-Actions slot naturally before or after AI generation for consistent, branded results:
-
-```
-[Text Node] → [Image Node: Generate] → [Color Grade Image] → Final Output
-              "product on white bg"     warmth=0.2, contrast=1.3
-```
-
-### Combining with Techniques
-
-Reformat or prepare media before feeding it into a multi-step Technique:
-
-```
-[Image Upload] → [Change Image AR] → [Technique: Product Lifestyle] → Final Output
-                  9:16 portrait
-```
-
-### Actions Inside Techniques
-
-You can include Action Nodes directly inside a Technique's workflow graph. The action executes via the sandbox as part of the Technique run, and its outputs flow through to downstream nodes automatically. This lets you package deterministic post-processing — color grading, frame extraction, audio splitting — into a reusable pipeline without asking users to configure those steps separately.
-
-### Batch Processing
-
-Connect a Batch Node upstream of an Action Node to apply the same operation across many items at once:
-
-```
-[Image 1] ─┐
-[Image 2] ─┼─→ [Batch Node] ─→ [Color Grade Image] → 4 graded outputs
-[Image 3] ─┤     (4 items)      warmth=0.15
-[Image 4] ─┘
-```
-
-Every item in the batch is processed with identical settings — perfect for maintaining visual consistency across a set of assets.
-
-### Audio Workflows
-
-The audio actions enable creative audio-visual pipelines:
-
-```
-[Video Upload] → [Split Audio from Video] → Audio track + muted video
-```
-
-```
-[Video] ─→ [Merge Audio into Video] → Video with new soundtrack
-[Audio] ─┘
-```
-
----
-
-## Tips
-
-<Tip>
-  Test your action on a single input first to dial in the parameters, then connect a Batch Node to scale across your full collection.
-</Tip>
-
-- **Chain actions freely** — they're lightweight and fast, so stacking multiple actions adds minimal processing time
-- **Use Duplicate Image / Video** to branch a single input into parallel workflow lanes with different downstream processing
-- **Dynamic outputs** (like Split Video or Extract Frames) produce multiple result nodes — each can feed its own downstream workflow
-- **Audio actions stream-copy** when source codecs are MP4-native (e.g., h264 + AAC), making them near-instant for common video formats
+<Tip>Chain multiple Action Nodes for complex edit pipelines -- e.g., crop, then resize, then add a border -- all without using any credits.</Tip>

@@ -1,171 +1,22 @@
 ---
-title: "Layer Editor: Professional Image Compositing in FLORA"
+title: "Layer Editor: Professional Image Compositing"
 sidebarTitle: "Layer Editor"
-description: "Combine multiple images into a single layered composition with precise control over positioning, transforms, opacity, and layer ordering."
+description: "Composite multiple images with layers, masks, and blend modes using the Layer Editor node in Canopy AI."
 ---
 
-The Layer Editor transforms any node into a full-featured compositing workspace. You can pull in images from anywhere on your canvas, arrange and transform each one independently, and output the finished composition as a single image ready to connect to the rest of your workflow — all without leaving FLORA.
+## Overview
 
-## What You Can Do
-
-The Layer Editor is ideal for any project that requires combining multiple visual elements into one polished result:
-
-<CardGroup cols={2}>
-  <Card title="Social Media Graphics" icon="image" href="/nodes/layer-editor#adding-a-layer-editor-node">
-    Combine multiple product photos into polished, on-brand layouts.
-  </Card>
-  <Card title="Mood Boards" icon="grid-2" href="/nodes/layer-editor#working-with-layers">
-    Arrange multiple reference images in one composition for creative direction.
-  </Card>
-  <Card title="Collages" icon="layer-group" href="/nodes/layer-editor#working-with-layers">
-    Create artistic arrangements from generated or uploaded images.
-  </Card>
-  <Card title="Before / After Comparisons" icon="arrows-left-right" href="/nodes/layer-editor#alignment-tools">
-    Position related images side by side within a single frame.
-  </Card>
-</CardGroup>
-
-<Note>
-  The Layer Editor cannot be used inside a Technique. Add it directly to your main canvas workflow.
-</Note>
-
----
-
-## Adding a Layer Editor Node
-
-<Steps>
-  <Step title="Add the node">
-    Open the node menu and select **Layer Editor** to place it on your canvas.
-  </Step>
-  <Step title="Connect source images">
-    Drag noodles from any upstream image nodes to the Layer Editor's input handle. Each connected source becomes its own layer in the composition.
-  </Step>
-  <Step title="Enter edit mode">
-    **Double-click** the Layer Editor node — or click **Layer Editor** in the node toolbar — to open the interactive editing interface. All your layers and editing controls become available on the canvas.
-  </Step>
-</Steps>
-
----
-
-## Canvas Settings
-
-The Layer Editor uses a compositor frame that defines your output dimensions:
-
-| Setting | Value |
-|---|---|
-| Default size | 2048 × 2048 px |
-| Maximum size | 4096 × 4096 px |
-| Minimum size | 100 × 100 px |
-
-Enable **Snap to Grid** to have layers automatically snap to nearby edges and center points as you move them — ideal for precise, consistent layouts.
-
----
+The Layer Editor node provides professional image compositing directly on the Canopy AI canvas. Stack multiple images as layers, apply masks, adjust blend modes, and export the composite as a single image for further processing.
 
 ## Working with Layers
 
-### The Layers Panel
+Connect multiple image sources to the Layer Editor's input ports. Each input becomes a layer that you can reorder, resize, and position. Use the built-in toolbar to adjust opacity, blend modes, and transformations.
 
-The Layers Panel lists every layer in your composition from top to bottom. The topmost entry in the panel appears in front on the canvas. Each layer in the panel includes:
+<Steps>
+  <Step title="Add Layers">Connect image outputs from upstream nodes -- each connection creates a new layer.</Step>
+  <Step title="Arrange">Drag layers in the stack to reorder them. Use the transform handles to position and scale.</Step>
+  <Step title="Mask and Blend">Apply masks to control visibility and select blend modes (multiply, screen, overlay, etc.).</Step>
+  <Step title="Export">The composited result flows out of the Layer Editor's output port to downstream nodes.</Step>
+</Steps>
 
-- **Visibility toggle** — show or hide the layer without deleting it
-- **Lock toggle** — prevent accidental edits while you work on other layers
-- **Layer name** — click to rename for better organization in complex compositions
-- **Drag handle** — drag the layer up or down to change its stacking order
-
-### Selecting Layers
-
-- **Single-click** a layer on the canvas or in the panel to select it
-- **Ctrl / Cmd + Click** to add or remove layers from the current selection
-- **Click empty canvas space** to deselect everything
-
----
-
-## Transforming Layers
-
-### Moving
-
-Drag any selected layer to reposition it. Use **Arrow keys** to nudge by 1 pixel, or **Shift + Arrow keys** to nudge by 10 pixels.
-
-### Resizing
-
-Click a layer to reveal its transform handles:
-
-- **Corner handles** — resize while maintaining the aspect ratio
-- **Edge handles** — resize in one direction only
-- **Double-click** a layer to automatically fit it to the canvas frame
-- Hold **Shift** while dragging to toggle aspect ratio lock on or off
-
-### Rotating
-
-Hover near any corner handle until the rotation cursor appears, then click and drag to rotate the layer freely.
-
-### Flipping
-
-Use the transform actions panel to **Flip Horizontal** (mirror left-to-right) or **Flip Vertical** (mirror top-to-bottom).
-
----
-
-## Alignment Tools
-
-Select one or more layers and use the alignment toolbar to snap them into position relative to the canvas:
-
-| Button | Action |
-|---|---|
-| Align Left | Align to the left edge of the canvas |
-| Align Right | Align to the right edge of the canvas |
-| Center H | Center horizontally on the canvas |
-| Align Top | Align to the top edge of the canvas |
-| Align Bottom | Align to the bottom edge of the canvas |
-| Center V | Center vertically on the canvas |
-| Center All | Center both horizontally and vertically |
-
----
-
-## Layer Ordering
-
-Control which layers appear in front of others using any of three methods:
-
-### Context Menu
-
-Right-click a layer to access ordering options:
-
-- **Send to Top** — move in front of all other layers
-- **Send to Bottom** — move behind all other layers
-- **Send Up** — move one position forward
-- **Send Down** — move one position backward
-
-### Keyboard Shortcuts
-
-| Action | Shortcut |
-|---|---|
-| Send Up | `Cmd / Ctrl + ]` |
-| Send Down | `Cmd / Ctrl + [` |
-| Delete selected layer | `Delete` or `Backspace` |
-| Undo | `Cmd / Ctrl + Z` |
-| Redo | `Cmd / Ctrl + Shift + Z` |
-
-### Drag Reordering
-
-In the Layers Panel, drag any layer entry up or down to change its stacking order directly.
-
----
-
-## Opacity
-
-Adjust a layer's transparency using the **Opacity** slider in the Appearance Panel. The range is 0% (fully transparent) to 100% (fully opaque). Changes preview in real time as you drag.
-
----
-
-## Generating Output
-
-When you're ready to export your composition:
-
-1. The Layer Editor automatically composites all **visible** layers into a single image.
-2. A preview of the composited result appears on the node.
-3. Connect the Layer Editor's output handle to any downstream node — an upscaler, export node, or generation node — using a noodle.
-
-Toggle layer visibility to exclude layers from the output without deleting them.
-
-<Tip>
-  The Layer Editor maintains a history of up to 50 changes, so undo freely as you experiment with your composition.
-</Tip>
+<Tip>Use the Layer Editor between an Image Node and an Export Node to add text overlays, watermarks, or composite multiple generated images into a single scene.</Tip>

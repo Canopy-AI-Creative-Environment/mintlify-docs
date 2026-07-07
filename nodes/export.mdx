@@ -1,169 +1,27 @@
 ---
-title: "Export Node: Download and Save All Your FLORA Outputs"
+title: "Export Node: Download and Save Your Outputs"
 sidebarTitle: "Export Node"
-description: "Download generated images, video, and audio in multiple formats, or push them straight to Google Drive — all without leaving FLORA."
+description: "Download generated media to your device or export directly to Google Drive using the Export Node in Canopy AI."
 ---
 
-The Export Node is the output destination on your canvas. Wire any generation node's output into it to download your media in the format you need, or stream it directly to a Google Drive folder — with real-time upload progress, automatic filename deduplication, and a direct link back to your Drive when it's done.
+## Overview
 
-<Note>
-  The Export Node is a **terminal node**. It has inputs but no outputs and cannot connect to further nodes. It also cannot be used inside a Technique — add it to your main canvas workflow only.
-</Note>
+The Export Node is the final step in your Canopy AI workflow. Connect any node's output to an Export Node to download the result or save it to an external service.
 
----
+## Export Options
 
-## Adding an Export Node
+### Direct Download
+
+Click **Download** on the Export Node to save the output file to your device. Supports all media types -- images (PNG, JPEG, WebP), video (MP4), audio (MP3, WAV), and text (TXT, Markdown).
+
+### Google Drive Export
+
+Connect your Google account in **Settings > Integrations** to enable one-click export to Google Drive. Choose a destination folder and the Export Node uploads automatically when the workflow completes.
 
 <Steps>
-  <Step title="Open the Add Node menu">
-    Press the **+** button or use the canvas shortcut to open the node menu. Under the **Utilities** section, click **Export**. You can also drag from any node's output handle onto empty canvas — the Export Node appears in the quick-add picker.
-  </Step>
-  <Step title="Place it on the canvas">
-    The Export Node appears as a gold-bordered block. It starts empty with the prompt: "Wire any node into here to save its outputs."
-  </Step>
-  <Step title="Connect an upstream node">
-    Drag a noodle from any generation node (Image, Video, Audio, or Text) to the Export Node's input handle. When that node produces output, the media becomes available for download or Drive export.
-  </Step>
+  <Step title="Connect">Wire any upstream node's output to the Export Node's input port.</Step>
+  <Step title="Configure">Select file format, quality settings, and export destination.</Step>
+  <Step title="Run">Execute the workflow -- the Export Node saves or downloads the final output.</Step>
 </Steps>
 
----
-
-## Downloading Media
-
-### Supported Formats
-
-<Tabs>
-  <Tab title="Images">
-    | Format | Description |
-    |---|---|
-    | **PNG** | Lossless — best for sharp graphics and transparency |
-    | **JPG** | Compressed — smaller file size, good for photos |
-    | **WEBP** | Modern web format — strong quality-to-size ratio |
-    | **SVG** | Vector format (transcoded from raster via AI) |
-
-    If the source image is already an SVG, SVG appears first in the format list.
-  </Tab>
-  <Tab title="Video">
-    | Format | Description |
-    |---|---|
-    | **MP4 (h264)** | Widely compatible — great for sharing and web |
-    | **MP4 (h265)** | Better compression — smaller files at similar quality |
-    | **MOV (h264)** | Apple-compatible container with h264 encoding |
-    | **MOV (ProRes)** | Professional editing format — highest quality |
-    | **GIF** | Animated image format — great for short loops |
-  </Tab>
-  <Tab title="Audio">
-    Audio downloads preserve the original generated or uploaded format. Supported formats include **MP3**, **M4A**, **WAV**, **AAC**, **OGG**, and **FLAC**.
-  </Tab>
-</Tabs>
-
-### Keyboard Shortcuts
-
-<Tip>
-  When the download format dropdown is open, press number keys **1–9** to instantly select the corresponding format — no clicking required.
-</Tip>
-
-### Bulk Download
-
-When a node has multiple items in its generation history, a **Download All** button appears in the toolbar. Clicking it bundles all history items into a single ZIP file for download.
-
----
-
-## Exporting to Google Drive
-
-The Export Node supports direct, streaming export to Google Drive. Once connected to a folder, your generated media is uploaded automatically whenever you run an export.
-
-### Connecting Google Drive
-
-<Steps>
-  <Step title="Click Connect to Google Drive">
-    On a new Export Node, click the gold **Connect to Google Drive** button to start the OAuth sign-in flow.
-  </Step>
-  <Step title="Authorize FLORA">
-    A Google sign-in window opens. Grant FLORA permission to access your Google Drive.
-  </Step>
-  <Step title="Pick a destination folder">
-    After authorization, a folder picker opens. Browse your Drive — folders appear grouped before files and you can navigate into nested subfolders. Switch to the **Shared Drives** tab to access any Shared Drive your account belongs to. Click **Select** to confirm your destination.
-  </Step>
-  <Step title="Done">
-    The Export Node updates to show the connected folder name, and the node icon switches to the Google Drive logo. You're ready to export.
-  </Step>
-</Steps>
-
-### Shared Drives
-
-Google Shared Drives (formerly Team Drives) are fully supported for both import and export. Browse to the **Shared Drives** tab in the folder picker to see all shared drives your Google account can access, navigate into any nested folder, and select it as your export destination.
-
-### How Drive Export Works
-
-When you export media to Google Drive:
-
-1. FLORA streams the file directly from its CDN to your selected Drive folder
-2. Multiple files are uploaded with bounded concurrency (up to 4 simultaneous uploads)
-3. Each file uploads independently — if one fails, the others still complete
-4. A progress bar tracks real-time upload progress with byte-level accuracy
-5. A toast notification confirms when the export is complete, with a direct **Open in Drive** link
-
-FLORA automatically deduplicates filenames across batch runs to prevent overwriting previous exports in the same Drive folder.
-
-### Managing Your Drive Connection
-
-Hover over a connected Export Node to reveal the toolbar. Click the **folder dropdown** to:
-
-- **Change folder** — open the folder picker to select a different destination
-- **Clear destination** — remove the Drive connection entirely
-- **Open in Drive** — jump directly to the connected Drive folder
-
-The dropdown also displays your connected Google account email for reference.
-
----
-
-## Importing from Google Drive
-
-FLORA also lets you pull files from Google Drive directly onto your canvas.
-
-<Steps>
-  <Step title="Open the Library panel">
-    Click **Library** in the sidebar toolbar.
-  </Step>
-  <Step title="Select the Google Drive tab">
-    If you haven't connected your Google account yet, the tab prompts you to authorize via OAuth — the same account used for export works here too.
-  </Step>
-  <Step title="Browse and select files">
-    Browse or search your Drive for the files you want to import. Select them and click **Import**.
-  </Step>
-  <Step title="Files appear as canvas nodes">
-    Imported files go through FLORA's standard upload pipeline and appear on your canvas as source nodes, ready to connect to any generation node, Technique, or workflow step.
-  </Step>
-</Steps>
-
-Drive imports continue running in the background even after you close the Library panel. A toast notification confirms when each batch of imports is complete.
-
----
-
-## Limitations
-
-| Limitation | Details |
-|---|---|
-| Terminal node | The Export Node has no outputs — it cannot connect to further nodes |
-| Not usable in Techniques | Export Nodes cannot be used inside Technique workflows |
-| Google Drive only | Google Drive is the only supported external destination for import and export |
-| Requires integration feature | Google Drive export requires the integrations feature to be enabled for your workspace |
-
----
-
-## How It Fits Into Workflows
-
-The Export Node sits at the very end of your workflow chain. A few example patterns:
-
-```
-[Text Prompt] → [Image Node] → [Export Node: Google Drive]
-```
-
-Generate an image and automatically push it to your Drive folder.
-
-```
-[Image Upload] → [Image Node: Upscale] → [Color Grade Action] → [Export Node]
-```
-
-Upscale, color-grade, and export — all in one connected pipeline.
+<Note>Export Nodes do not consume generation credits. You can add as many Export Nodes as needed to save outputs at different stages of your workflow.</Note>

@@ -1,145 +1,30 @@
 ---
-title: "FLORA Canvas: Spawn Nodes, Connect, and Build Workflows"
+title: "Canopy AI Canvas: Spawn Nodes, Connect, and Build Workflows"
 sidebarTitle: "Canvas"
-description: "Learn how to navigate FLORA's infinite node-based canvas, spawn and connect nodes, search, edit in bulk, and paint directly on images."
+description: "Learn how to navigate the infinite canvas, spawn nodes, connect them with noodles, and use keyboard shortcuts to build AI workflows in Canopy AI."
 ---
 
-The FLORA canvas is your infinite creative garden — a node-based workspace where every idea, model, and output lives side by side. You spawn nodes, wire them together with "noodles," and build workflows that span text, image, video, and audio all in one place. Everything you need to create, organize, and iterate is here on the canvas.
+## Navigating the Canvas
 
-## Toolbar Overview
+The Canopy AI canvas is an infinite 2D workspace where you build AI workflows visually. Pan by clicking and dragging the background, zoom with your scroll wheel or trackpad pinch, and use `Cmd/Ctrl + 0` to reset the view. Double-click empty space to open the **Command Palette** and spawn any node type instantly.
 
-The toolbar runs along the top of the canvas and gives you quick access to the most common editor tools.
+<Tip>Hold `Space` and drag to pan without deselecting nodes -- useful when working in tight layouts.</Tip>
 
-| Button | What It Does |
-|---|---|
-| **+** | Spawn a new node (Text, Image, Video, Audio, or Technique) |
-| **Assets** | Browse all visual assets you've uploaded to the canvas |
-| **Generation History** | Access all generated assets from your account — drag any asset into another project |
-| **Flows** | Browse FLORA's pre-made workflows by category |
-| **Split Into Layers** | Decompose a selected image into 2–5 editable layer components |
-| **#** (Elements) | Open the Element Library to manage reusable visual identity references |
-| **Comment** | Activate the comment cursor to drop text bubbles anywhere on the canvas |
+## Spawning and Connecting Nodes
 
-## Canvas Navigation
-
-### Mouse and Trackpad
-
-| Action | Result |
-|---|---|
-| Left click | Select a node or interact with a control |
-| Left click + drag on canvas | Box-select multiple nodes |
-| Left click + drag on node | Move the node |
-| Right click | Open context menu |
-| Right click + drag | Pan the canvas |
-| Middle mouse button | Pan the canvas |
-| Scroll wheel / trackpad | Pan up, down, left, right |
-| Ctrl/Cmd + scroll or pinch | Zoom in and out |
+Drag from any node's output port to create a **noodle** -- the colored connection line that carries data between nodes. Drop the noodle onto another node's input port to complete the connection. You can also right-click the canvas to access the full node menu organized by category.
 
 ### Keyboard Shortcuts
 
 | Shortcut | Action |
 |---|---|
-| `Enter` | Run selected nodes |
-| `Backspace` / `Delete` | Delete selected nodes |
-| `Ctrl/Cmd + C` | Copy selected nodes |
-| `Ctrl/Cmd + V` | Paste nodes or media (images, video) |
-| `H` | Toggle prompt overlay on selected image and video nodes |
-| `Ctrl/Cmd + F` | Open Canvas Search |
+| `Cmd/Ctrl + K` | Open Command Palette |
+| `Delete / Backspace` | Remove selected nodes |
+| `Cmd/Ctrl + D` | Duplicate selection |
+| `Cmd/Ctrl + Z` | Undo |
 
-## Spawning Nodes
+## Inpainting and Outpainting
 
-Double-click anywhere on an empty area of the canvas to open the node picker and spawn a node at that location. You can also click the **+** button in the toolbar to choose a node type. Hover over **Flows** in the toolbar to see recent pre-made workflows, or click through to browse by category.
+Select an Image Node output and use the **brush tool** to mask regions for inpainting -- regenerating only the masked area while preserving the rest. Switch to **outpainting mode** to extend an image beyond its original boundaries, letting the AI fill in new content seamlessly.
 
-## Connecting Nodes
-
-FLORA supports 50+ text, image, and video models — and you can wire them together freely. To connect two nodes, drag the **+** handle on a node's output. The connection line that appears is called a **noodle**. Release it onto a compatible input handle on another node to complete the connection.
-
-A few common pairings:
-
-- **Text → Image:** Feed a text node's output into an image generation node as a prompt.
-- **Image → Video:** Wire one or more image nodes into a video node as a reference frame (first frame, last frame, or both — depending on the model).
-
-<Tip>
-You can connect a node that is still processing to a downstream node. FLORA validates readiness at generation time, not at connection time, so you can keep building while earlier steps are still running.
-</Tip>
-
-## Color Tagging
-
-Assign color tags to nodes to visually organize your canvas by theme, status, or any system that works for your workflow.
-
-- **Single node:** Select the node and choose a color from the color tag picker in the node toolbar.
-- **Multiple nodes:** Drag-select or Shift+click to select several nodes. A multi-selection toolbar appears with a color picker — choose a color to apply it to all selected nodes at once.
-
-## Bulk Parameter Editing
-
-When you select **two or more nodes of the same type and mode**, a **Bulk Parameters Panel** appears in the right sidebar. Use it to edit shared parameters across all selected nodes in one step instead of updating each one individually.
-
-<Info>
-The panel shows **only** the parameters that exist on every selected node. If selected nodes have different values for a parameter, the field displays a **Mixed** indicator — editing it applies your new value to all of them. You can also switch the model for all selected nodes at once if they share compatible models.
-</Info>
-
-This is especially useful for applying consistent settings — seed, guidance, aspect ratio — across a batch of comparison nodes.
-
-### Reordering Connected Inputs
-
-When a node has multiple connected inputs (several images wired into a generation node, for example), you can **drag to reorder** them. Grab any connected input handle and drag it up or down to change the processing order.
-
-## Canvas Search
-
-Press `Ctrl/Cmd + F` to open Canvas Search. Type any part of a node's title or display name — matching nodes are highlighted on the canvas, making it easy to find specific nodes in large workflows.
-
-## Inpainting
-
-Inpainting lets you selectively regenerate portions of an image by painting a mask over the area you want to change — perfect for removing objects, replacing elements, or fixing artifacts.
-
-<Steps>
-  <Step title="Select an image node">
-    Click on an image node that contains a generated or uploaded image.
-  </Step>
-  <Step title="Activate the Inpaint tool">
-    Click the **Inpaint** tool in the image editing toolbar. Your cursor changes to a brush indicator.
-  </Step>
-  <Step title="Paint the mask">
-    Click and drag over the areas you want to regenerate. The painted region appears as a **green crosshatch** pattern. Adjust brush size between **5–100 px** using the slider. Press `Ctrl/Cmd + Z` to undo individual strokes, or click **Clear All** to start over.
-  </Step>
-  <Step title="Enter your prompt">
-    Describe what you want to appear in the painted area — for example, *"A red sports car"* or *"Blue sky with clouds"*.
-  </Step>
-  <Step title="Generate">
-    Click **Generate**. A new image node is created with the inpainted result; your original image is always preserved.
-  </Step>
-</Steps>
-
-**Supported inpainting models:** GPT Image 1.5, Nano Banana Pro, Ideogram
-
-<Tip>
-Paint slightly beyond the edges of the area you want to change — a generous mask helps the AI blend the result more naturally into the surrounding image.
-</Tip>
-
-## Outpainting
-
-Outpainting expands an image beyond its original boundaries. The AI generates new content that continues seamlessly from the edges of your existing image.
-
-<Steps>
-  <Step title="Select an image node">
-    Click on the image node you want to expand.
-  </Step>
-  <Step title="Activate the Outpaint tool">
-    Click the **Outpaint** tool. Green resize handles appear around the image.
-  </Step>
-  <Step title="Drag the handles">
-    Pull the edge or corner handles outward to set the expanded canvas area.
-  </Step>
-  <Step title="Enter your prompt">
-    Describe what should fill the expanded region — for example, *"Continue the beach scene with palm trees"*. Leave it empty and FLORA will use a default fill prompt.
-  </Step>
-  <Step title="Generate">
-    Click **Generate**. A new node appears with the expanded image.
-  </Step>
-</Steps>
-
-**Supported outpainting model:** Imagen 3 Outpainting
-
-<Warning>
-For large expansions, expand gradually in multiple steps rather than stretching the canvas in one massive jump — incremental outpainting produces much more consistent results.
-</Warning>
+<Note>Inpainting and outpainting use additional generation credits based on the output resolution.</Note>

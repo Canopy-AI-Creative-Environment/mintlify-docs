@@ -1,123 +1,39 @@
 ---
-title: "Audio Node: Voice, Music, and Sound Effects in FLORA"
+title: "Audio Node: Voice, Music, and Sound Effects"
 sidebarTitle: "Audio Node"
-description: "Generate voiceovers, sound effects, and music from text — or transcribe audio into text. Wire audio into video nodes for lipsync and scored clips."
+description: "Generate speech, music, sound effects, transcribe audio, and sync lip movements using the Audio Node in Canopy AI."
 ---
 
-The Audio Node closes the loop between what you see and what you hear on the FLORA canvas. Generate a voiceover from a script, produce a sound effect from a plain-language description, score a clip with a text-to-music prompt, or transcribe spoken audio back into text you can wire elsewhere. Audio nodes are fully integrated with the rest of the canvas — you can drive a lipsynced video performance, feed transcriptions into downstream text nodes, and let FAUNA chain audio nodes automatically as part of a multi-step workflow. No separate tools, no booking a recording session.
+## Overview
 
-## Capabilities
+The Audio Node handles all audio generation and processing within Canopy AI. It supports five distinct modes for different audio tasks.
 
-The Audio Node supports five distinct workflows. Select a tab to explore each one.
+## Modes
 
-<Tabs>
-  <Tab title="Text to Speech">
-    Text to Speech turns a written script into a playable voiceover. Type what you want said, pick a voice, and generate. Use it for narration, scratch VO on concept pitches, character dialogue, and any moment where a voice needs to land on the canvas without a recording session.
+### Text-to-Speech (TTS)
 
-    **How to use:**
-    - Type or paste your script into the prompt field
-    - Open the **voice selector** in the node's floating controls to browse all available voices for the selected model
-    - Click the **play button** next to any voice to preview it before committing
-    - Switch voices at any time without leaving the node — the voice list updates automatically when you change models
-    - Connect the output to a Video Node with a lipsync model to drive a lipsynced performance
+Convert text into natural-sounding speech. Choose from a library of voices or clone a custom voice with a reference audio sample.
 
-    **Expressive delivery:**
-    On models that support it, you can use expressive prompt tags (such as *whisper*, *shout*, or *happy*) to shape how the voice delivers the script.
+### Sound Effects (SFX)
 
-    <Warning>
-      **ElevenLabs Multilingual v2 has a 450-character limit per generation.** Text longer than 450 characters is truncated — if your script produces shorter audio than expected, split it across multiple Audio Nodes and chain them together.
-    </Warning>
+Describe a sound effect in natural language and the AI generates it -- footsteps, explosions, ambient rain, mechanical whirring, and more.
 
-    **Output format:** MP3 at 128 kbps. WAV output is not currently available for ElevenLabs voice models in FLORA.
+### Music Generation
 
-    **Explore speech models:**
-    Visit the [Audio Models](/models/audio-models) section for a full list of available voice models, supported languages, and capabilities.
-  </Tab>
+Generate original music tracks from text descriptions. Specify genre, tempo, mood, instruments, and duration.
 
-  <Tab title="Text to SFX">
-    Text to SFX generates individual sound effects from a plain-language description. Describe the sound, generate it, and use it as ambient texture, a hit sound, foley, or anywhere you'd otherwise be searching through a stock library.
+### Transcription
 
-    **Example prompts:**
-    - *"Heavy wooden door slamming shut in a stone hallway"*
-    - *"Rain on a tin roof at night, distant thunder"*
-    - *"Mechanical keyboard typing rapidly, in a quiet office"*
-    - *"Glass shattering on a marble floor"*
+Feed audio into the node to get accurate text transcription with timestamps and speaker identification.
 
-    **Best practices:**
-    - Be specific about the **source material**, **environment**, and **distance** — more detail produces more convincing results
-    - Generate a few variations using different seeds and pick the strongest
-    - Layer multiple SFX Audio Nodes together for richer, more textured atmospheres
+### Lip Sync
 
-    <Tip>
-      Think of your SFX prompt the way a sound designer thinks about Foley: material + space + action. *"Heavy wooden door"* + *"stone hallway"* + *"slamming"* is more useful than just *"door sound"*.
-    </Tip>
-  </Tab>
+Connect a video and an audio track to automatically sync lip movements to the audio. Useful for dubbing, voiceover replacement, and character animation.
 
-  <Tab title="Text to Music">
-    Text to Music generates short music tracks from a description of genre, mood, instrumentation, or reference. Use it for background beds on social clips, pitch videos, and mood-setting on ad concepts where you don't want to license a track.
+<Steps>
+  <Step title="Select Mode">Choose your audio task from the mode dropdown at the top of the node.</Step>
+  <Step title="Configure">Set model, voice (for TTS), or describe your desired output.</Step>
+  <Step title="Connect and Run">Wire up inputs from upstream nodes and click **Run**.</Step>
+</Steps>
 
-    **How to use:**
-    - Describe the track — genre, tempo, instruments, mood, and any stylistic references you have in mind
-    - Generate variations across different seeds to find the right feel
-    - Pair the music output with a Video Node to produce a fully scored clip on the canvas
-
-    **Example prompts:**
-    - *"Cinematic orchestral swell, building tension, strings and brass, no percussion"*
-    - *"Lo-fi hip hop, warm vinyl crackle, slow 70 BPM, late night study mood"*
-    - *"Upbeat indie pop, acoustic guitar, handclaps, energetic and optimistic"*
-    - *"Dark ambient drone, sparse piano notes, unsettling atmosphere"*
-  </Tab>
-
-  <Tab title="Audio to Text">
-    Connect an Audio Node's output to a Text Node and FLORA automatically routes the audio through a speech-to-text model, returning a transcript you can edit, prompt against, and wire into the rest of your workflow.
-
-    **How to connect:**
-    1. Add an Audio Node with generated or uploaded audio on your canvas.
-    2. Drag a noodle from the Audio Node's output handle to a Text Node's input.
-    3. The Text Node automatically switches to Audio to Text mode.
-    4. Run the Text Node to receive the transcription.
-
-    **Supported models:** ElevenLabs Scribe, Gemini
-
-    **What to do with the transcript:**
-    Once transcribed, connect the Text Node output to another Text Node and prompt it to:
-    - Summarize the content in bullet points
-    - Pull out key quotes or speaker names
-    - Translate into another language
-    - Extract any information worth routing downstream
-
-    <Tip>
-      Transcription is a powerful bridge between audio and image or video generation. Transcribe a voiceover → extract a scene description → wire it into an Image Node to visualize what the narration describes.
-    </Tip>
-  </Tab>
-
-  <Tab title="Lipsync">
-    Pair an Audio Node with a Video Node to drive a lipsynced performance. The Audio Node's output becomes the conditioning signal that synchronizes mouth movement and timing in the generated video.
-
-    **How to connect:**
-    1. Generate or upload your audio in an Audio Node (typically speech from Text to Speech).
-    2. Connect the Audio Node's output to a Video Node.
-    3. Connect a second input to the Video Node — a **Video Node** for lipsync on an existing clip, or an **Image Node** for a talking-avatar generation from a still.
-    4. Switch the Video Node's model to **WAN 2.6** or **WAN 2.7**.
-    5. Add a prompt to the Video Node to describe the setting and visual style.
-    6. Generate.
-
-    <Note>
-      The full Audio to Video workflow is documented in detail on the [Video Node](/nodes/video) page, including all available parameters and model options.
-    </Note>
-  </Tab>
-</Tabs>
-
-## Output Format
-
-<Info>
-  Audio nodes output **MP3 at 128 kbps**. WAV output is not currently available for ElevenLabs voice models in FLORA. The bitrate is fixed and cannot be changed.
-</Info>
-
-## Credit Costs
-
-Audio generation costs vary by model and duration. Before generating, hover over the **Generate** button to see a tooltip showing your estimated credit cost and your available balance. Credits are charged when generation starts. If a generation fails, credits are automatically refunded.
-
-## FAUNA Integration
-
-The Audio Node is **FAUNA-aware** — FLORA's AI agent can create and chain audio nodes for you automatically as part of a multi-step workflow. Ask FAUNA to build a workflow that includes narration, scoring, or transcription and it will place and wire the audio nodes on your behalf.
+<Tip>Chain TTS output into a Video Node with lip sync to create talking-head videos from a single text prompt.</Tip>

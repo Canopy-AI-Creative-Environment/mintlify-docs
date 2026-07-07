@@ -1,155 +1,25 @@
 ---
-title: "Batch Node: Process Multiple Inputs in Parallel Runs"
+title: "Batch Node: Process Multiple Inputs in Parallel"
 sidebarTitle: "Batch Node"
-description: "Aggregate multiple images, videos, or text items and process them all through downstream nodes simultaneously — FLORA's for-each loop."
+description: "Run a workflow across multiple inputs simultaneously using the Batch Node in Canopy AI."
 ---
 
-The Batch Node is FLORA's "for each" loop. You collect a set of images, videos, or text items, connect the batch to a downstream generation node, and FLORA processes every item in parallel — producing a separate output for each one. Instead of running the same operation over and over, you define it once and let the Batch Node do the rest.
+## Overview
 
-## What You Can Do with a Batch
+The Batch Node lets you process multiple inputs through the same downstream workflow in parallel. Feed it a list of prompts, images, or documents and it fans out each item to your connected nodes, then collects the results.
 
-<CardGroup cols={2}>
-  <Card title="Bulk Upscaling" icon="arrow-up-right-dots" href="/nodes/batch#adding-items">
-    Upscale an entire collection of images using the same enhancement model and settings.
-  </Card>
-  <Card title="Style Transfer" icon="paintbrush" href="/nodes/batch#adding-items">
-    Apply a consistent style prompt across multiple reference images at once.
-  </Card>
-  <Card title="Video Generation" icon="video" href="/nodes/batch#adding-items">
-    Turn a series of still images into animated video clips in a single run.
-  </Card>
-  <Card title="Prompt Pipelines" icon="text" href="/nodes/batch#uploading-a-csv">
-    Process multiple text prompts through the same generation pipeline simultaneously.
-  </Card>
-</CardGroup>
+<Tip>Batch Nodes are ideal for producing variations -- feed 10 different prompts into an Image Node to generate 10 images in one run.</Tip>
 
----
+## How It Works
 
-## Adding a Batch Node
+Connect a data source (text list, multiple images, or a Document Node with multiple pages) to the Batch Node's input. The Batch Node sends each item individually to all connected downstream nodes, runs them in parallel, and aggregates the outputs.
 
-<Steps>
-  <Step title="Add the node">
-    Open the node menu and select **Batch** to place it on your canvas.
-  </Step>
-  <Step title="Populate the batch">
-    Add items using any combination of these methods:
-    - **Connect upstream nodes** — drag noodles from image, video, or text nodes into the Batch Node's input handle
-    - **Upload files** — click the **Upload** button or drag and drop files directly onto the node (PNG, JPG, WEBP, SVG, MP4, WEBM, MOV, or CSV)
-    - **Drag from your asset library** — pull previously generated images, videos, or saved assets straight onto the node
-  </Step>
-  <Step title="Connect a downstream generation node">
-    Drag from the Batch Node's output handle to any compatible generation node. This defines the operation that will run on every item.
-  </Step>
-  <Step title="Run">
-    Click **Run** on the downstream node. FLORA validates your usage budget, creates a separate task for each item, and processes all of them in parallel.
-  </Step>
-</Steps>
+## Configuration
 
----
-
-## Adding Items
-
-### Uploading a CSV
-
-Upload a `.csv` file to quickly populate a text batch. FLORA reads the **first column** of each row and creates one batch item per row. All rows are included — there is no automatic header skip, so remove any header row you don't want processed.
-
-Drag-and-drop a CSV onto the node or click **Upload** and select the file. A confirmation message shows how many rows were added. New rows are appended to any existing items, up to the 100-item limit.
-
-### Splitting Text Inputs
-
-When text nodes are connected, a **text split toolbar** appears above the Batch Node. Use the **Input split** dropdown to split each connected text node's content into separate batch items:
-
-| Mode | Behavior |
+| Setting | Description |
 |---|---|
-| **None** (default) | Each connected text node counts as one batch item |
-| **By line** | Splits on newlines — each line becomes its own item |
-| **Custom** | Splits on any string you specify (e.g. `;`, `\|`, `//`) |
+| **Concurrency** | Number of items processed simultaneously (higher = faster, more credits) |
+| **Input mode** | List (one per line), JSON array, or connected multi-output node |
+| **Error handling** | Skip failed items or halt the entire batch |
 
-Empty and whitespace-only segments are filtered out automatically. CSV-uploaded items are preserved when you change the split mode, and vice versa.
-
----
-
-## Modality Locking
-
-The Batch Node locks to a single content type once you add your first item:
-
-- Add an image → the batch becomes an **image batch**
-- Add a video → the batch becomes a **video batch**
-- Connect a text node → the batch becomes a **text batch**
-
-You cannot mix images, videos, and text in the same batch. If you remove all items, the modality lock is released and you can start fresh with a different type.
-
----
-
-## Processing Limits
-
-<Warning>
-  Each batch execution supports a maximum of **100 items**. If your batch contains more than 100 items, split it across multiple runs.
-</Warning>
-
-FLORA validates your usage budget before starting. If you don't have enough budget for all items, the batch won't start. The total cost equals the cost per generation multiplied by the number of items.
-
----
-
-## Combining Two Batches (Batch × Batch)
-
-You can connect **two** Batch Nodes to the same downstream generation node to produce results for every pairing. This is ideal for exploring style × subject grids, prompt × reference comparisons, or any "every-of-these against every-of-those" workflow.
-
-When a generation node has exactly two Batch Nodes connected, a **Zip / Cross** toggle appears:
-
-<Tabs>
-  <Tab title="Cross Mode (default)">
-    Generates the **Cartesian product** of both batches. If Batch A has N items and Batch B has M items, the node produces N × M outputs — one for every possible pair. The generate button's item count and credit cost update in real time as you switch modes.
-  </Tab>
-  <Tab title="Zip Mode">
-    Pairs items **by position** — item 1 from Batch A with item 1 from Batch B, item 2 with item 2, and so on. Produces `min(N, M)` outputs. Zip mode is only available when both batches have matching item counts; when sizes differ, the node stays in Cross mode automatically.
-  </Tab>
-</Tabs>
-
-<Note>
-  Connecting three or more Batch Nodes to a single generation node is not supported.
-</Note>
-
-### Two-Way Sync
-
-Every result is tagged with its source pair, so you can navigate between inputs and outputs in either direction:
-
-- **Input → Output** — click an item in either parent batch to scroll the result carousel to the generation that used it
-- **Output → Input** — select a result to highlight the matching item in both parent batches
-
-This two-way sync works in both Zip and Cross mode, and stays correct even if you reorder items in either batch.
-
-### Matrix View
-
-When a generation node is in **Cross** mode, the fullscreen view adds a **Matrix** layout. The grid has rows for Batch A items and columns for Batch B items. Every cell shows the generation produced by that pair, with sticky row and column headers displaying each batch's thumbnails.
-
-In Matrix view you can:
-
-- **Hover a cell** to reveal both source thumbnails and a download button
-- **Click a completed cell** to open it in Single view with full metadata and keyboard navigation
-- **Download a cell** directly using the same formats and filename scheme as the rest of fullscreen
-
-Pending cells show a spinner; failed cells show an error icon with a tooltip.
-
----
-
-## Batch Nodes Inside Techniques
-
-You can include Batch Nodes inside a Technique to enable fan-out processing as part of a reusable workflow. Collection outputs are surfaced on the Technique node's output slots, and users can view each item from the sidebar, detail view, or App Mode.
-
-<Warning>
-  Chaining multiple Batch Nodes inside a Technique in a way that creates explosive fan-out (Batch → Batch → Batch) is blocked at publish time to prevent runaway costs.
-</Warning>
-
----
-
-## Tips
-
-<Tip>
-  Run your generation node with a single item first to confirm your parameters look right, then connect the full batch to scale up.
-</Tip>
-
-- **Keep sources consistent** — similar quality and dimensions across all source images produce more uniform results
-- **Monitor as it runs** — each item generates independently, so you'll see results appear as they complete
-- **Name your source nodes** — clear names make it easy to trace which outputs came from which inputs
-- **Use multiple downstream nodes** — a single Batch Node can connect to several generation nodes at once, each processing the full collection independently
+<Note>Batch processing consumes credits for each individual generation. A batch of 10 image generations costs the same as running 10 separate Image Nodes.</Note>

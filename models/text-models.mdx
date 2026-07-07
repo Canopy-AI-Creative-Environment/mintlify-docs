@@ -1,79 +1,33 @@
 ---
-title: "Text Generation Models Available in FLORA Workflows"
+title: "Text Generation Models Available in Canopy AI"
 sidebarTitle: "Text Models"
-description: "Explore every text model available in FLORA — from quick drafts with GPT-4o Mini to deep research with o3. All plans, including Free, get access."
+description: "Every text model in Canopy AI — from quick drafts with GPT-4o Mini to deep research with o3. All plans including Free."
 ---
 
-FLORA's Text Node connects your workflows to the most capable language models from Anthropic, Google, and OpenAI. Whether you feed it a plain text prompt, an image, a video clip, or an audio file, the Text Node produces polished written output — making it your go-to block for content generation, analysis, summarization, transcription, and reasoning tasks.
+Canopy AI's Text Node connects your workflows to the most capable language models from Anthropic, Google, and OpenAI.
+
+<Note>Text models are available on **all plans, including Free**.</Note>
 
 ## Available Models
 
-The table below shows every text model currently in FLORA, sorted by estimated generation time. Use the **Est. Time** column as a rough throughput guide when designing time-sensitive workflows.
-
 | Model | Provider | Est. Time | Best For |
-|---|---|---|---|
-| GPT 4o Mini | OpenAI | 20s | Quick drafts, instant summarization, lightweight chatbots |
-| Claude Sonnet 4.5 | Anthropic | 25s | Balanced performance, creative writing, code generation |
-| Gemini 3 Flash | Google | 25s | Real-time assistance, transcription, mobile-first interactions |
-| Claude Opus 4.5 | Anthropic | 25s | Complex reasoning, in-depth domain expertise, policy analysis |
-| Gemini 2.5 Pro | Google | 30s | Enterprise analytics, multimodal Q&A, data synthesis |
-| GPT-5.1 | OpenAI | 30s | Enhanced reasoning, complex analysis, multi-step problem-solving |
-| Claude Sonnet 5 | Anthropic | 35s | State-of-the-art results at fast speeds |
-| GPT-5.2 | OpenAI | 35s | Cutting-edge reasoning, highest accuracy |
-| GPT-5 | OpenAI | 40s | Advanced reasoning, long-context analysis, complex multi-step tasks |
-| Gemini 3.1 Pro | Google | 45s | Advanced reasoning, Google's most capable language model |
-| o3 Deep Research | OpenAI | 600s | In-depth research, comprehensive multi-source synthesis |
-
-## Plan Availability
-
-<Note>
-  Text models are available on **all plans, including Free**. You don't need a paid subscription to start generating text in FLORA.
-</Note>
-
-## Choosing the Right Model
-
-<Tabs>
-  <Tab title="Speed Priority">
-    Reach for **GPT 4o Mini** (20s) or **Claude Sonnet 4.5** (25s) when you need fast turnarounds — ideal for iterative drafting, chatbot prototypes, and real-time feedback loops inside larger workflows.
-  </Tab>
-  <Tab title="Quality Priority">
-    **Gemini 3.1 Pro** and **GPT-5.2** are best when accuracy and output fidelity matter most. Expect slightly longer generation times in exchange for significantly richer results.
-  </Tab>
-  <Tab title="Multimodal Input">
-    **Gemini 3 Flash** and **Gemini 2.5 Pro** excel when your Text Node receives image, video, or audio inputs from upstream nodes. Both handle cross-modal reasoning out of the box.
-  </Tab>
-  <Tab title="Research & Analysis">
-    Use **o3 Deep Research** for tasks that demand thorough investigation across multiple sources — detailed competitive analysis, legal reviews, or academic summaries.
-  </Tab>
-</Tabs>
-
-## Model Highlights
-
-<CardGroup cols={2}>
-  <Card title="Claude Sonnet 4.5" icon="bolt" href="/plans-and-billing/model-pricing">
-    The best starting point for most text workflows. Anthropic's balanced model delivers strong creative writing and reliable code generation with a solid balance of speed and quality.
-  </Card>
-  <Card title="Gemini 2.5 Pro" icon="building-columns" href="/plans-and-billing/model-pricing">
-    Google's reasoning powerhouse. Particularly effective for enterprise analytics and tasks that mix text with other data types from connected nodes.
-  </Card>
-  <Card title="GPT-5" icon="brain" href="/plans-and-billing/model-pricing">
-    OpenAI's advanced reasoning model handles long-context documents and complex multi-step problems with high precision — a strong pick for technical and analytical workflows.
-  </Card>
-  <Card title="o3 Deep Research" icon="magnifying-glass" href="/plans-and-billing/model-pricing">
-    The most thorough research model in FLORA. Feed it a question and it conducts multi-step web-assisted analysis to produce a comprehensive written report.
-  </Card>
-</CardGroup>
-
-<Tip>
-  **o3 Deep Research** takes up to **10 minutes** to generate. Build it into async workflows or use it as a terminal node rather than a step inside a real-time pipeline. The depth of output it returns is well worth the wait for research-heavy tasks.
-</Tip>
+|-------|----------|-----------|----------|
+| [GPT 4o Mini](/models/text/gpt-4o-mini) | OpenAI | 20s | Quick drafts, summarization |
+| [Claude Sonnet 4.5](/models/text/claude-sonnet-4-5) | Anthropic | 25s | Creative writing, code generation |
+| [Gemini 3 Flash](/models/text/gemini-3-flash) | Google | 25s | Multimodal, transcription |
+| [Claude Opus 4.5](/models/text/claude-opus-4-5) | Anthropic | 25s | Complex reasoning, domain expertise |
+| [Gemini 2.5 Pro](/models/text/gemini-2-5-pro) | Google | 30s | Enterprise analytics, data synthesis |
+| [GPT-5.1](/models/text/gpt-5-1) | OpenAI | 30s | Enhanced reasoning |
+| [Claude Sonnet 5](/models/text/claude-sonnet-5) | Anthropic | 35s | State-of-the-art, fast |
+| [GPT-5.2](/models/text/gpt-5-2) | OpenAI | 35s | Cutting-edge accuracy |
+| [GPT-5](/models/text/gpt-5) | OpenAI | 40s | Long-context analysis |
+| [Gemini 3.1 Pro](/models/text/gemini-3-1-pro) | Google | 45s | Most capable Google model |
+| [o3 Deep Research](/models/text/o3-deep-research) | OpenAI | 600s | Multi-source research synthesis |
 
 ## Pricing
 
-Text model costs are fixed per generation — they don't scale with resolution or clip length the way image and video models do. You can see the exact dollar amount for each model before you run by enabling **Preferences → Show generation costs in dollars** in your workspace menu.
-
-| Model | Cost per Generation |
-|---|---|
+| Model | Cost/Generation |
+|-------|----------------|
 | GPT 4o Mini | $0.0018 |
 | Claude Sonnet 4.5 | $0.0072 |
 | Gemini 3 Flash | $0.0072 |
@@ -81,9 +35,6 @@ Text model costs are fixed per generation — they don't scale with resolution o
 | Claude Sonnet 5 | $0.0108 |
 | Gemini 2.5 Pro | $0.0216 |
 | GPT-5 | $0.0234 |
-| GPT-5.1 | $0.0234 |
 | Gemini 3.1 Pro | $0.0252 |
 | GPT-5.2 | $0.0324 |
 | o3 Deep Research | $0.8102 |
-
-For a full breakdown of every model across all categories, see the [Model Pricing](/plans-and-billing/model-pricing) page.

@@ -1,96 +1,35 @@
 ---
-title: "Video Node: Generate Dynamic Video Content in FLORA"
+title: "Video Node: Generate Dynamic Video Content"
 sidebarTitle: "Video Node"
-description: "Generate video from text prompts, animate image sequences with IP-Adapter morphing, or drive lipsync performances from an audio node output."
+description: "Create videos from text prompts, images, or audio using the Video Node in Canopy AI."
 ---
 
-The Video Node brings motion to your FLORA canvas. Use it for dynamic storytelling, temporal exploration, emotional resonance, and immersive narrative construction. It bridges movement and sound, letting you craft experiences that evolve over time — experimenting with pacing, rhythm, and atmosphere through fluid transitions and sequential imagery. Connect text nodes to describe a scene, image nodes to animate a sequence, or audio nodes to sync a voiceover to a performance. Video outputs can feed into the Layer Editor for compositing, or go straight to an Export Node for delivery.
+## Overview
+
+The Video Node generates dynamic video content using AI models. Feed it a text description, a starting image, or an audio track and get back a video clip ready for editing or export.
 
 ## Modes
 
-The Video Node supports three distinct modes depending on what you wire into it. Select a tab to explore each one.
+### Text-to-Video
 
-<Tabs>
-  <Tab title="Text to Video">
-    Text to Video generates a video clip directly from a text prompt. The prompt guides scene composition, motion, style, and narrative pacing — resulting in dynamic video content that matches your described concept.
+Describe the video you want in the prompt field. Specify camera movement, scene transitions, and visual style. Select duration and resolution from the node settings.
 
-    **Parameters:**
+### Image-to-Video
 
-    | Parameter | Options | Effect |
-    |---|---|---|
-    | **Prompt** | Text | Describes the scene, motion, atmosphere, and style. Processed through the selected model to produce the video output. |
-    | **Aspect Ratio** | Landscape 16:9, Portrait 9:16, Square 1:1 | Sets the output dimensions. Choose based on your delivery format (16:9 for landscape video, 9:16 for vertical/social). |
-    | **Seed** | Number | A deterministic value that reproduces the same output when all other parameters match. Randomized by default; set manually to lock a result. |
+Connect an Image Node output to animate a still image. The AI infers motion from the image content and your prompt -- specify camera moves, character actions, or environmental effects.
 
-    **How to use:**
-    Connect a Text Node's output to the Video Node to populate the prompt automatically, or type directly into the prompt field. Prompting is the primary lever for Text to Video — describe motion, lighting, camera behavior, and atmosphere as specifically as you can.
+### Audio-to-Video
 
-    <Tip>
-      Use a Text Node in Text to Text mode to develop and refine your video prompt before wiring it in. Iterate on the description until it's precise, then connect it to the Video Node and generate.
-    </Tip>
+Feed an audio clip to generate video that matches the audio's rhythm, mood, and content. Useful for music visualizations and podcast content.
 
-    **Explore video models:**
-    Visit the [Video Models](/models/video-models) section for a full list of available text-to-video models and their capabilities.
-  </Tab>
+<Tip>For best results with image-to-video, use high-resolution source images and describe the desired motion explicitly in the prompt.</Tip>
 
-  <Tab title="Image(s) to Video">
-    Image(s) to Video animates one or more static images into a moving clip. You can input between 1 and 9 images, and the model fills in the motion between them using **IP-Adapter morphing** in the background — maintaining visual consistency across the sequence while generating fluid transitions.
+## Settings
 
-    **Parameters:**
+| Setting | Description |
+|---|---|
+| **Model** | Select from available video generation models |
+| **Duration** | Clip length (model-dependent, typically 2-10 seconds) |
+| **Aspect Ratio** | 16:9, 9:16, 1:1, or custom |
 
-    | Parameter | Options | Effect |
-    |---|---|---|
-    | **Images** | 1–9 images | The visual frames that anchor the output. The model morphs between them in the order you arrange them. |
-    | **Prompt** | Text | Optional guidance that helps steer the motion, atmosphere, and style of the generated transitions. |
-    | **Seed** | Number | A deterministic value for reproducible generations. Randomized by default. |
-
-    **Ways to add images:**
-    - Click the **upload button** inside the node to add images directly
-    - Drag a noodle from any Image Node's output to populate images via connection
-    - Once images are loaded, **reorder** them by dragging thumbnails to set the sequence
-    - **Delete** individual images from the input stack without removing the whole node
-
-    <Note>
-      The order of images determines the direction of motion. Place your starting composition first and your ending composition last — the model interpolates the journey between them.
-    </Note>
-
-    **Explore video models:**
-    Visit the [Video Models](/models/video-models) section to see which image-to-video models are available and their specific capabilities.
-  </Tab>
-
-  <Tab title="Audio to Video">
-    Audio to Video uses the output of an Audio Node as a conditioning signal for video generation — matching mouth movement to speech, aligning motion to rhythm, or syncing visual timing to a beat. This is how you create lipsynced performances, talking avatars, and scored clips without leaving the canvas.
-
-    **Parameters:**
-
-    | Parameter | Effect |
-    |---|---|
-    | **Audio** | The audio output from a connected Audio Node. Connect a voiceover, SFX, music track, or uploaded clip — this is the track that drives the video. |
-    | **Video / Image** | The visual source. Connect a Video Node for lipsync workflows, or an Image Node for talking-avatar generation. |
-    | **Prompt** | Optional text guidance for models that accept it alongside audio and visual inputs. Useful for steering delivery style or camera behavior. |
-    | **Duration** | Derived from the input audio length. Trim your audio track before generating if you need a shorter output. |
-
-    **How to connect:**
-    1. Generate or upload audio in an Audio Node.
-    2. Connect the Audio Node's output to the Video Node.
-    3. Connect a second input — a Video Node (for lipsync) or an Image Node (for a talking avatar).
-    4. Switch the Video Node's model to **WAN 2.6** or **WAN 2.7** for audio-driven generation.
-    5. Add a prompt to describe the setting, camera, and visual style.
-    6. Generate.
-
-    <Tip>
-      Your audio carries the dialogue and timing, but your prompt carries the scene. Describe the environment, camera angle, and lighting in the prompt to give the model enough context to render the right visual around your audio.
-    </Tip>
-  </Tab>
-</Tabs>
-
-## Continuing Your Video Workflow
-
-<CardGroup cols={2}>
-  <Card title="Layer Editor" icon="layer-group" href="/nodes/layer-editor">
-    Composite your Video Node output frames with other images in the Layer Editor to build polished compositions without leaving the canvas.
-  </Card>
-  <Card title="Export Node" icon="arrow-up-from-bracket" href="/nodes/export">
-    Connect to an Export Node to download your finished video as MP4, MOV, or GIF, ready for delivery or further post-production.
-  </Card>
-</CardGroup>
+<Note>Video generation uses more credits than image generation. Chain shorter clips in the [Timeline Editor](/editor/timeline-editor) for longer sequences.</Note>

@@ -1,57 +1,45 @@
 ---
-title: "FLORA API Authentication: API Keys and Bearer Tokens"
+title: "Canopy AI API Authentication: API Keys and Bearer Tokens"
 sidebarTitle: "Authentication"
-description: "FLORA uses API key authentication. Learn how to generate your key, pass it as a Bearer token in your requests, and keep your credentials secure."
+description: "Learn how to authenticate with the Canopy AI API using API keys and Bearer tokens."
 ---
 
-The FLORA API uses API key authentication. Every request you make to the API must include your API key as a Bearer token in the `Authorization` header. You generate and manage your API keys directly inside the FLORA app — no third-party service or OAuth flow required. Keep your key secure and rotate it immediately if you believe it has been exposed.
+## API Keys
 
-<Warning>
-  The FLORA API requires a **Starter plan or above**. Free plan users cannot generate API keys or make API requests.
-</Warning>
+Generate API keys from **Workspace Settings > API** in your Canopy AI dashboard at [app.trycanopy.space](https://app.trycanopy.space). Each key is scoped to a single workspace.
 
-## Generate your API key
+<Note>Keep your API keys secret. Do not commit them to version control or expose them in client-side code.</Note>
 
-<Steps>
-  <Step title="Log in to FLORA">
-    Sign in to your FLORA account at [flora.ai](https://flora.ai). Make sure your account is on the Starter plan or above — the API section will not appear for Free plan users.
-  </Step>
-  <Step title="Go to Settings → API">
-    Open your account menu and navigate to **Settings**, then select the **API** tab. This is where all your API credentials are managed.
-  </Step>
-  <Step title="Generate or copy your API key">
-    Click **Generate API Key** to create a new key, or copy an existing one. Store it somewhere safe — treat it like a password.
-  </Step>
-</Steps>
+## Authentication
 
-## Authenticate your requests
-
-Pass your API key in the `Authorization` header of every request using the `Bearer` scheme:
+Include your API key as a Bearer token in the `Authorization` header of every request:
 
 ```bash
-curl -H "Authorization: Bearer YOUR_API_KEY" https://api.flora.ai/v1/...
+curl https://developer.trycanopy.space/api/v1/techniques \
+  -H "Authorization: Bearer YOUR_CANOPY_API_KEY"
 ```
 
-Replace `YOUR_API_KEY` with the key you copied from **Settings → API**. All requests must be made over HTTPS.
+## Environment Variables
 
-## Keeping your key secure
+Store your key in an environment variable for convenience:
 
-<Note>
-  Never commit your API key to version control. Use environment variables or a secrets manager to inject the key at runtime, and add your `.env` file to `.gitignore` to avoid accidental exposure.
-</Note>
+```bash
+export CANOPY_API_KEY="your-api-key-here"
+```
 
-If you suspect your API key has been compromised:
+Then reference it in your code or scripts:
 
-1. Go to **Settings → API** in the FLORA app
-2. Click **Regenerate** to immediately invalidate the old key and issue a new one
-3. Update any services or applications that were using the old key
+```bash
+curl https://developer.trycanopy.space/api/v1/techniques \
+  -H "Authorization: Bearer $CANOPY_API_KEY"
+```
 
-Regeneration takes effect immediately — the old key stops working as soon as you regenerate.
+## Key Management
 
-## Next steps
+| Action | How |
+|---|---|
+| **Create** | Workspace Settings > API > **Generate Key** |
+| **Revoke** | Click the trash icon next to the key |
+| **Rotate** | Revoke the old key, generate a new one |
 
-For the full API reference, including every available endpoint and its request and response shapes, visit [developer.flora.ai](https://developer.flora.ai).
-
-<Tip>
-  If you're connecting a third-party AI tool like Claude or Cursor to FLORA, see the [MCP guide](/api/mcp) — it uses the same API key for authentication.
-</Tip>
+<Tip>Create separate API keys for development and production environments so you can rotate them independently.</Tip>

@@ -1,110 +1,26 @@
 ---
-title: "Document Node: Use PDFs as Workflow Inputs in FLORA"
+title: "Document Node: Use PDFs as Workflow Inputs"
 sidebarTitle: "Document Node"
-description: "Drop any PDF onto the canvas and wire its pages into text, image, or batch workflows. Browse, select, and extract content without leaving FLORA."
+description: "Drop PDFs onto the Canopy AI canvas and use their content as inputs for text, image, and video generation workflows."
 ---
 
-The Document Node brings PDFs onto your FLORA canvas as first-class citizens. Drop in a research paper, a brand book, a screenplay, or a slide deck — every page becomes immediately browsable and ready to feed the rest of your workflow. You can pass the full document as context to a text node, use a specific page as visual input to an image node, or send every page through a pipeline in parallel with a batch node. No external reader required, no copy-pasting between apps.
+## Overview
 
-## Adding a Document Node
+The Document Node lets you bring external documents into your Canopy AI workflows. Drop a PDF onto the canvas and it becomes a data source that downstream nodes can read, summarize, and transform.
 
-The fastest way to create a Document Node is to **drag a PDF file directly onto the canvas**. FLORA renders the first page instantly via an in-browser preview while the document uploads in the background, and the node is ready to wire in seconds.
+<Tip>Drag and drop a PDF directly onto the canvas to auto-create a Document Node.</Tip>
 
-You can also add one through **Add menu → Upload** if you prefer to browse for a file.
+## How It Works
 
-## Navigating Pages
+The Document Node extracts text and images from uploaded PDFs. Connect its output to a Text Node for summarization, a Batch Node for page-by-page processing, or any other node that accepts text input.
 
-<Steps>
-  <Step title="Use the thumbnail carousel">
-    Multi-page PDFs display a **thumbnail carousel** below the node. Click any thumbnail to jump to that page — the node updates its preview and sends the newly selected page downstream on your next generation.
-  </Step>
-  <Step title="Use arrow keys">
-    When the Document Node is selected, press the **left and right arrow keys** to move through pages one at a time.
-  </Step>
-  <Step title="Open the full-screen reader">
-    Click the **fullscreen button** on the node to open a focused, full-page reader. Scroll through the document, select text with your cursor, and right-click any selection to choose **Create text node** — FLORA spawns a text node on the canvas containing exactly the text you selected.
-  </Step>
-</Steps>
+## Supported Features
 
-## Connecting to Other Nodes
+| Feature | Details |
+|---|---|
+| **Text extraction** | Full text content from all pages |
+| **Image extraction** | Embedded images available as separate outputs |
+| **Page selection** | Process all pages or specify a range |
+| **Multi-document** | Upload multiple PDFs to a single node |
 
-The Document Node can connect to three types of downstream nodes, each behaving differently:
-
-<CardGroup cols={3}>
-  <Card title="Text Node" icon="text" href="/nodes/text">
-    The **full document** is passed as context to the downstream text model. Use this for summarization, Q&A, rewriting, and any task where the model needs to read the whole document.
-  </Card>
-  <Card title="Image Node" icon="image" href="/nodes/image">
-    The **currently open page** is used as visual input to the image generation model. Navigate to a different page on the Document Node to swap which page is sent downstream.
-  </Card>
-  <Card title="Batch Node" icon="list-check" href="/nodes/batch">
-    **Every page** is sent through the downstream pipeline in parallel — one generation per page, running simultaneously. Use this to process an entire document at scale.
-  </Card>
-</CardGroup>
-
-<Info>
-  More connection types are coming soon. If you have a specific workflow in mind, share your feedback with the FLORA team.
-</Info>
-
-## Extracting Pages
-
-You can drag any page thumbnail out of the carousel and onto the canvas to **extract it as a new, standalone Document Node**. FLORA creates a single-page PDF from that page and places a fresh node pointing to it — useful for isolating one figure, one slide, or one reference image and wiring it independently of the rest of the document.
-
-## PDF to Text Workflows
-
-Wire a Document Node into a Text Node to bring the document's content into language-model workflows. You can pass the full document as context, or use the fullscreen reader to hand-pick specific passages.
-
-<Tabs>
-  <Tab title="Connect downstream">
-    <Steps>
-      <Step title="Drop a PDF onto the canvas">
-        Drag your PDF file onto an empty area of the canvas to create a Document Node.
-      </Step>
-      <Step title="Connect to a Text Node">
-        Drag a noodle from the Document Node's output to a Text Node's input.
-      </Step>
-      <Step title="Prompt and generate">
-        The Text Node receives the full document as context. Write a prompt and generate — the model reads the entire document to produce its response.
-      </Step>
-    </Steps>
-  </Tab>
-  <Tab title="Extract selected text">
-    <Steps>
-      <Step title="Open the full-screen reader">
-        Click the fullscreen button on the Document Node.
-      </Step>
-      <Step title="Select text">
-        Click and drag to select any passage on the page.
-      </Step>
-      <Step title="Create a text node">
-        Right-click the selection and choose **Create text node**. FLORA spawns a text node on the canvas containing exactly the text you highlighted.
-      </Step>
-    </Steps>
-  </Tab>
-</Tabs>
-
-**Example workflows:**
-- **Research summarizer** — Document Node → Text Node: *"Summarize the methodology of this paper in three sentences"*
-- **Brand-voice rewrite** — Document Node (style guide) → Text Node: *"Rewrite this draft in the voice and tone described in the document"*
-- **Script breakdown** — Document Node (screenplay) → Batch Node → Text Node per scene: *"Pull out every prop and wardrobe note in this scene"*
-
-## PDF to Image Workflows
-
-Each page of a Document Node is rendered as a high-quality image. Connect a Document Node to an Image Node to use the current page as visual input for image generation.
-
-<Steps>
-  <Step title="Drop a PDF and navigate to a page">
-    Drag a PDF onto the canvas. Use the carousel or arrow keys to open the specific page you want to use as a visual reference.
-  </Step>
-  <Step title="Connect to an Image Node">
-    Drag a noodle from the Document Node's output to an Image Node's input. The currently open page is passed as visual input.
-  </Step>
-  <Step title="Prompt and generate">
-    Add a prompt to the Image Node and generate. Switch to a different page on the Document Node at any time to change the visual input for your next generation.
-  </Step>
-</Steps>
-
-**Drag-out shortcut:** Hover over the thumbnail carousel, grab any page thumbnail, and drag it directly onto the canvas. FLORA extracts that page into a new single-page Document Node — ready to wire into any Image Node independently.
-
-**Example workflow:**
-- **Reference-image generation** — Document Node (mood board PDF) → Image Node: *"Generate a frame that matches this composition and color palette"*
+<Note>Large documents (100+ pages) may take a few seconds to parse. The extracted content is cached for fast re-runs.</Note>
