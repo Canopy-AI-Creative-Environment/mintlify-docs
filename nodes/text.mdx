@@ -1,0 +1,118 @@
+---
+title: "Text Node: Analyze, Transform and Synthesize Content"
+sidebarTitle: "Text Node"
+description: "Use the Text Node as your workflow's information hub — combine ideas, analyze visuals, transcribe audio, and extract creative direction from any input."
+---
+
+The Text Node is FLORA's information hub. Use it for concepting, visual analysis, transcription, and any kind of information processing that drives the rest of your workflow. You can connect text nodes to other text nodes, image nodes, video nodes, audio nodes, and document nodes — the output of one becomes the context for the next. Get creative with how you chain them: the more precisely you prompt, the more useful the output.
+
+## Modes
+
+The Text Node automatically switches mode based on what you connect to its input. Select the tab below that matches your use case.
+
+<Tabs>
+  <Tab title="Text to Text">
+    Text to Text lets you combine and transform ideas through language. Feed in one text node or many, synthesize them into something new, or branch a single idea out into multiple directions for parallel exploration.
+
+    **What you can do:**
+    - Combine multiple text node outputs into a single synthesized concept
+    - Expand one idea into several variations by connecting one input to multiple downstream text nodes
+    - Write structured creative prompts, scripts, excerpts, and briefs
+
+    **Sample prompts:**
+    - *"An excerpt from a dystopian novel set in the future"*
+    - *"A creative script for an experimental film scene"*
+    - *"A surreal underwater scene with floating lanterns illuminating the deep"*
+    - *"Combine these two ideas"*
+    - *"Give me five visual directions based on this brief"*
+
+    <Tip>
+      Try connecting two or more text nodes into one to merge concepts, then branch the output into separate downstream nodes to explore each direction independently.
+    </Tip>
+
+    ### Prompt Splitter
+
+    When a Text Node's output contains a numbered or bulleted list, the **Node Toolbar** automatically displays a **Split list into nodes** button. Clicking it breaks the list apart, spawning one new text node for each list item on your canvas.
+
+    This is especially powerful when you use a text node to ideate multiple creative directions — generate a list of five visual concepts, split them, then wire each resulting node into its own image or video node to visualize all five at once.
+  </Tab>
+
+  <Tab title="Image to Text">
+    Connect any Image Node to a Text Node and FLORA switches to Image to Text mode. The text node receives the image as visual input and responds to whatever prompt you write — extracting information, analyzing composition, or abstracting the visual content into any form you ask for.
+
+    **What you can do:**
+    - Extract a detailed visual analysis of style, composition, and mood
+    - Abstract the image into poetry, haiku, or creative writing
+    - Pull descriptive metadata to feed into downstream prompts
+
+    **Sample prompts:**
+    - *"Give me a visual analysis of the style and composition of this image"*
+    - *"Capture the mood of this image in a haiku"*
+    - *"What hidden rhythm flows through this scene?"*
+    - *"Describe this image in a few sentences"*
+    - *"Conjure a visual poem for this"*
+
+    <Tip>
+      Use Image to Text as a bridge between your visual work and new creative directions — analyze a generated image, then feed that analysis into a new text node to prompt a completely different visual exploration.
+    </Tip>
+  </Tab>
+
+  <Tab title="Video to Text">
+    Connect a Video Node to a Text Node to analyze video content frame by frame. Like Image to Text, this mode lets you extract any information from the video — narrative, composition, mood, motion — or describe it at whatever level of detail your workflow needs.
+
+    **What you can do:**
+    - Generate a plain-language description of the video's content
+    - Request a numbered breakdown of frames with detailed visual notes
+    - Analyze composition, focal points, and how elements guide the viewer's eye
+    - Capture atmosphere, lighting, and sensory details across scenes
+
+    **Sample prompts:**
+    - *"Describe this video in a few sentences"*
+    - *"Give me a list of frames in this video and describe each visual composition"*
+    - *"Describe the composition and focal points of each frame"*
+    - *"Illustrate the atmosphere of each scene, focusing on lighting and spatial depth"*
+    - *"Describe how recurring motifs and visual patterns contribute to the thematic development"*
+
+    <Note>
+      Video to Text is ideal for generating shot lists, visual notes, and composition references you can use to guide downstream image or video generation.
+    </Note>
+  </Tab>
+
+  <Tab title="Audio to Text">
+    Connect an Audio Node to a Text Node and FLORA automatically routes the audio through a speech-to-text model, transcribing the spoken content into editable text on your canvas.
+
+    **What you can do:**
+    - Transcribe voiceovers, dialogue, and recorded speech
+    - Capture audio content as text to feed into downstream prompts
+    - Chain the transcription into a second text node to summarize, translate, extract quotes, or reformat
+
+    **How to connect:**
+    1. Add an Audio Node with generated or uploaded audio.
+    2. Drag a noodle from the Audio Node's output handle to a Text Node's input.
+    3. The Text Node switches to Audio to Text mode automatically.
+    4. Run the Text Node to receive the transcription.
+
+    **Supported models:** ElevenLabs Scribe, Gemini
+
+    <Tip>
+      After transcribing, wire the output into a new Text Node and prompt it with *"Summarize this in three bullet points"* or *"Pull out every name and location mentioned"* to turn raw transcription into structured creative material.
+    </Tip>
+  </Tab>
+</Tabs>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Visual Analysis" icon="magnifying-glass" href="/nodes/text#image-to-text">
+    Connect an image or video output to a text node to extract composition notes, mood descriptions, and visual direction you can reuse downstream.
+  </Card>
+  <Card title="Concepting & Ideation" icon="lightbulb" href="/nodes/text#text-to-text">
+    Use Text to Text to rapidly generate and iterate on creative directions. Split list outputs into separate nodes to explore every idea visually.
+  </Card>
+  <Card title="Transcription" icon="microphone" href="/nodes/text#audio-to-text">
+    Wire audio nodes through text nodes to capture dialogue and voiceover as editable, promptable text your workflow can act on.
+  </Card>
+  <Card title="Creative Direction Extraction" icon="wand-magic-sparkles" href="/nodes/text#video-to-text">
+    Ask a text node to distill an image or video into a one-sentence creative direction, a mood board brief, or a prompt for a new generation.
+  </Card>
+</CardGroup>

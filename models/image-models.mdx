@@ -1,0 +1,117 @@
+---
+title: "Image Generation Models Available in FLORA Workflows"
+sidebarTitle: "Image Models"
+description: "Browse every image model in FLORA — generation, editing, vector, and upscaling. Available on all plans including Free, from Flux to GPT Image 2."
+---
+
+FLORA's Image Node powers two core workflows: **text-to-image** (generate a new image from a prompt) and **image-to-image** (transform, edit, or enhance an existing image). With over 40 image models spanning generation, editing, vector output, and upscaling, you can build everything from rapid concept sketches to production-ready 4K assets — all inside the same canvas.
+
+<Note>
+  Image models are available on **all plans, including Free**. No subscription upgrade is required to start generating images in FLORA.
+</Note>
+
+## Generation Models
+
+These models create new images from text prompts, and many also accept an image input for style transfer or reference-guided generation.
+
+| Model | Est. Time | Best For |
+|---|---|---|
+| Flux Turbo | 10s | Fastest generations, quick previews, rapid iteration |
+| Ideogram 3.0 | 18s | Logos, text-in-image, stylized aesthetics with crisp typography |
+| Ideogram 4.0 | 18s | Latest Ideogram — sharp text rendering and crisp visuals |
+| Flux Dev | 20s | Default FLORA model — great for general creation and mood boards |
+| Seedream 3.0 | 20s | Cinematic, photoreal marketing content |
+| Imagen 4 | 25s | High-quality generation with Google's latest image AI |
+| Recraft V3 | 25s | Clean vector-style illustrations and concept art |
+| Imagen 3 | 26s | Google photoreal with accurate text rendering |
+| Flux 2 | 30s | Fast, high-quality generation with strong acceleration options |
+| Flux 2 Flex | 30s | Flexible resolution — consistent outputs across generations |
+| Seedream 4.0 | 40s | High-fidelity marketing visuals, consistent product-hero images |
+| Recraft V4 | 40s | Premium illustrations, brand work, detailed design assets |
+| Flux 2 Pro | 45s | Professional-grade generation, top BFL quality |
+| Nano Banana | 50s | Fast, intuitive multi-image blends for social-ready transformations |
+| Flux 2 Max | 60s | Premium photoreal outputs, maximum quality generation |
+| Seedream 4.5 | 65s | Sharp text rendering with 4K output, high-quality photoreal assets |
+| Stable Diffusion 3.5 | 70s | Open-source general creation and rapid iteration |
+| GPT Image 1.5 | 75s | Narrative visuals, precise inpainting, transparent backgrounds |
+| Nano Banana Pro | 90s | Premium 4K generation, professional multi-image composition |
+| GPT Image 2 | 220s | High-fidelity flagship from OpenAI — complex scenes, production assets |
+
+<Tip>
+  For the highest-quality results when working with [Elements](/editor/elements), **Nano Banana Pro** and **GPT Image 2** are the recommended models. Both are designed for multi-image composition and deliver strong prompt adherence at production resolution.
+</Tip>
+
+## Editing Models
+
+These models edit or transform an existing image rather than generating from scratch. Feed them an output from an upstream Image or Video node to continue refining your asset.
+
+<AccordionGroup>
+  <Accordion title="Structure & Composition">
+    - **Flux Canny** — edge detection for precise composition control
+    - **Flux Depth** — depth maps for 3D spatial consistency and accurate perspectives
+    - **Flux Kontext Max** — outpainting, style swaps, text edits, and character continuity
+  </Accordion>
+  <Accordion title="Face & Portrait">
+    - **Ideogram Character** — transfer a face between images while maintaining character identity
+    - **Enhancor V1** — subtle portrait retouching and skin smoothing
+    - **Enhancor V3** — professional-grade face enhancement
+    - **Enhancor V4** — advanced face enhancement with the latest capabilities
+  </Accordion>
+  <Accordion title="Text in Images">
+    - **Qwen Image Edit** — best for adding or changing text elements within an image
+    - **Qwen Image Edit Plus** — complex layouts with multiple text elements
+  </Accordion>
+  <Accordion title="Isolation & Cleanup">
+    - **Remove Background** — isolate clean subjects for transparent backgrounds and compositing
+  </Accordion>
+</AccordionGroup>
+
+## Vector & SVG Models
+
+Use these models when your output needs to be a scalable vector file rather than a raster image — ideal for logos, icons, and illustration systems.
+
+- **Arrow 1.0** — convert raster images to production-ready SVG vectors
+- **Arrow 1.1 Max** — premium vector generation for detailed and complex illustrations; also accepts up to 4 reference images for guided SVG creation
+- **Recraft V4 Pro Vector** — high-quality vector illustration generation for brand and design work
+- **Recraft V4 Vector** — detailed vector illustrations and graphic design
+
+## Upscaling Models
+
+These models increase resolution or enhance image quality on an existing asset. Connect them downstream of any generation or editing node to finalize your output.
+
+| Model | Scale | Best For |
+|---|---|---|
+| Magnific Creative Upscaler | 2×–16× (max 10,056px) | Artistic upscaling with stylistic enhancement |
+| Magnific Precision Upscaler | 2× | Sharp, faithful upscaling that preserves original detail |
+| Topaz Upscaler | 1×–4× | Industry-standard upscaling for professional workflows |
+| Topaz Generative Upscaler | 1×–4× | Reconstructs missing detail, faces, and textures |
+| Bria Video Upscaler | 2×/4× | Commercial video upscaling with licensing compliance |
+
+## Pricing
+
+Image model pricing is fixed per generation at default settings. Some models vary by resolution — the app always shows the exact cost before you run.
+
+| Model | Cost per Generation |
+|---|---|
+| Remove Background | $0.0018 |
+| Flux 2 Turbo | $0.0096 |
+| Flux 2 | $0.0094 |
+| Seedream 3.0 | $0.0252 |
+| Seedream 4.0 | $0.0252 |
+| Flux Dev | $0.0306 |
+| Seedream 4.5 | $0.0336 |
+| Flux 2 Pro | $0.0360 |
+| Flux 2 Flex | $0.0390 |
+| Recraft V3 | $0.0486 |
+| Recraft V4 | $0.0486 |
+| Flux 2 Max | $0.0546 |
+| Ideogram 3.0 | $0.0720 |
+| Ideogram 4.0 | $0.0720 |
+| Topaz Upscaler | $0.0954 |
+| Magnific Creative Upscaler | $0.1206 |
+| Magnific Precision Upscaler | $0.1206 |
+| GPT Image 1.5 | $0.1680 |
+| Nano Banana Pro | $0.1800 |
+| GPT Image 2 | $0.2635 |
+
+For the complete pricing table — including every editing, vector, and upscaling model — see [Model Pricing](/plans-and-billing/model-pricing).

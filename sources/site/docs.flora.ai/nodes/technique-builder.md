@@ -1,0 +1,505 @@
+# Source: https://docs.flora.ai/nodes/technique-builder
+
+For the complete documentation index, see [llms.txt](https://docs.flora.ai/llms.txt). This page is also available as [Markdown](https://docs.flora.ai/nodes/technique-builder.md).
+
+Technique Builder lets you package any multi-step workflow on your canvas into a reusable Technique. Define what goes in, what comes out, and publish it — so you or anyone else can reuse it as a single node on canvas or as a standalone app.
+
+---
+
+## 
+
+Overview
+
+If you've ever built a workflow you want to reuse — or share with your team — Technique Builder is how you turn it into a first-class Technique.
+
+**What you can do:**
+
+- **Compress workflows** — Collapse a multi-node pipeline into a single reusable step
+ 
+- **Publish to your Workspace** — Make it available in the Techniques Library for your team
+ 
+- **Reuse anywhere** — Drop your published Technique onto any canvas like a regular node
+ 
+- **Share as an app** — Others can run your Technique through a simplified app interface, no canvas required
+ 
+
+---
+
+## 
+
+Getting Started
+
+To open Technique Builder, click the **Build Technique** button at the bottom of the canvas. This button appears when you have a workflow on your canvas that's ready to be packaged.
+
+When you enter Technique Builder mode, your canvas nodes become **locked for editing**. This is by design — the builder needs a stable snapshot of your workflow to define inputs and outputs. You can exit at any time to resume editing.
+
+In **create mode**, the left tool palette (Add Node, Library, Techniques, History, etc.) is hidden to keep the focus on defining your technique's inputs and outputs. The palette returns when you exit the builder or switch to edit mode.
+
+---
+
+## 
+
+The Builder Flow
+
+Technique Builder walks you through four steps:
+
+Step
+
+What you do
+
+**Intro**
+
+Learn what Technique Builder does and how it works
+
+**Input**
+
+Select which nodes serve as inputs to your Technique
+
+**Output**
+
+Select which nodes serve as outputs of your Technique
+
+**Publish**
+
+Fill in details and publish your Technique
+
+A progress bar at the top of the panel tracks your current step. You can navigate back to previous steps at any time.
+
+---
+
+## 
+
+Step 1: Intro
+
+The intro screen gives you a quick walkthrough of what Technique Builder enables:
+
+1. **Compress your creative workflow into a single step**
+ 
+2. **Publish it to the Workspace library**
+ 
+3. **Reuse it anywhere on canvas**
+ 
+4. **Share with others as a simple app**
+ 
+
+Click **Start Building** to begin defining your Technique's inputs and outputs.
+
+---
+
+## 
+
+Step 2: Define Inputs
+
+**"What should be the inputs?"**
+
+Select the nodes on your canvas that should serve as the inputs to your Technique. Inputs are what the user provides when they run the Technique — for example, a reference image, a text prompt, or a style image.
+
+### 
+
+How input selection works
+
+When you're on the Input step, **click nodes directly on the canvas** to select them as inputs. A node qualifies as an input candidate if:
+
+- It has **no incoming connections** (i.e., it's a starting node in your workflow)
+ 
+- It has **generated output content** (an image, video, or text result)
+ 
+- It's a **supported node type** (standard generation nodes — not groups, comments, layer editors, collections, or technique nodes)
+ 
+
+Selected inputs appear as cards in the builder panel. You must select **at least one input** to continue.
+
+### 
+
+Configuring each input
+
+For each selected input, you can customize:
+
+- **Name** — Give the input a clear, descriptive label (e.g., "Reference Photo", "Style Prompt"). This is what users will see when running your Technique. Names are required and must not be empty.
+ 
+- **Description** (optional) — A short explanation of what this input expects (max 40 characters). This helps users understand what to provide.
+ 
+- **Preset** — A preview of the current content on this node. When someone uses your Technique, this content serves as the default/example value.
+ 
+
+To remove an input, click the trash icon on its card.
+
+---
+
+## 
+
+Step 3: Define Outputs
+
+**"What should be the outputs?"**
+
+Select the nodes on your canvas that represent the final results of your workflow. Outputs are what the Technique produces — the generated images, videos, or text that users will receive.
+
+### 
+
+How output selection works
+
+Click nodes on the canvas to select them as outputs. A node qualifies as an output candidate if:
+
+- It has **no outgoing connections** (i.e., it's an end node in your workflow)
+ 
+- It has **generated output content**
+ 
+- It's a **supported node type**
+ 
+
+You must select **at least one output** to continue.
+
+### 
+
+Configuring each output
+
+Output cards work the same as input cards:
+
+- **Name** — A descriptive label for the output (e.g., "Final Render", "Upscaled Video")
+ 
+- **Description** (optional) — What this output produces (max 40 characters)
+ 
+- **Preset** — A preview thumbnail of the current output content
+ 
+- **User-editable parameters** (toggle) — When enabled, viewers running your Technique can override the model and generation parameters on this output at run time. This is useful when you want to give users control over quality, style, or model choice for specific outputs while keeping the rest of the workflow fixed. The toggle is only available on outputs backed by generation nodes that have configurable parameters.
+ 
+
+### 
+
+Including Batch Nodes
+
+Techniques support Batch nodes for fan-out processing. When your workflow includes a Batch node, the builder records it as part of the technique graph. At runtime, the batch fan-out executes inside the technique and the resulting collection outputs are surfaced to the user.
+
+Explosive batch configurations — such as chaining multiple batch nodes that would multiply into an excessive number of tasks — are blocked at publish time. Keep batch workflows linear to avoid validation errors.
+
+### 
+
+Graph validation
+
+When you click **Continue** from the outputs step, the builder validates your Technique's graph to ensure it's well-formed. Validation checks include:
+
+- All inputs and outputs are properly connected
+ 
+- No circular dependencies exist in the workflow
+ 
+- All referenced nodes have valid configurations
+ 
+- Node types are compatible with the Technique format
+ 
+- Batch configurations do not create explosive fan-out chains
+ 
+
+If validation fails, you'll see an error message explaining what needs to be fixed before you can proceed.
+
+---
+
+## 
+
+Step 4: Publish
+
+**"Publish your Technique"**
+
+Review your Technique and fill in the details that help others discover, understand, and use it.
+
+### 
+
+Name
+
+The name of your Technique as it will appear in the library and on canvas.
+
+### 
+
+Description
+
+A description of what this Technique generates and how to use it (max 200 characters). This appears as a subtitle in the library. Name and description are both required to publish.
+
+### 
+
+Usage Cost
+
+The total usage cost to run your Technique, automatically calculated from the models and generation steps in your workflow. This is displayed to users before they run the Technique.
+
+### 
+
+Thumbnail
+
+A preview image for your Technique in the library. The builder automatically generates a thumbnail from your output nodes, but you can upload a custom one by clicking **Upload**.
+
+### 
+
+Category (optional)
+
+Assign your Technique to a category so users can find it when browsing the library:
+
+Category
+
+Best for
+
+Brand & Visual Design
+
+Logo, brand identity, and visual design workflows
+
+Product Visualization
+
+Product shots, mockups, and 3D renders
+
+Marketing & Ads
+
+Ad creatives, campaign assets, and promotional content
+
+Video & Animation
+
+Video generation, animation, and motion graphics
+
+Fashion & Apparel Editorial
+
+Fashion shoots, lookbooks, and apparel visualization
+
+Content Packaging
+
+Social media, thumbnails, and content formatting
+
+Film & VFX
+
+Film production, VFX, and cinematic content
+
+Space & Architecture
+
+Interior design, architecture, and spatial design
+
+Fun & Inspiration
+
+Creative experiments and artistic exploration
+
+### 
+
+Tags (optional)
+
+Add keyword tags to improve discoverability (e.g., `marketing`, `ads`, `film`). Type a tag and press **Enter**, **Tab**, or use a comma to add it. You can also paste multiple comma-separated tags at once. Remove tags by clicking the **x** on each badge.
+
+### 
+
+App Link
+
+A preview of the shareable URL for your Technique: `flora.ai/technique/your-technique-name`. The slug is automatically generated from the Technique name.
+
+### 
+
+Visibility
+
+Control who can access your Technique:
+
+Visibility
+
+Access
+
+**Private**
+
+Only you can access. This is the default.
+
+**Workspace**
+
+Everyone in your workspace can access.
+
+**Community**
+
+Listed in the Community Library for anyone to discover and use. Reviewed by the FLORA team before publishing.
+
+**Community review:** When you select Community visibility, your Technique is submitted for review by the FLORA team before it becomes publicly listed. You'll be notified once it's approved.
+
+---
+
+## 
+
+Publish Success
+
+After publishing, a confirmation dialog appears showing your Technique's thumbnail and status. The dialog varies based on your chosen visibility:
+
+- **Private** — "Your Technique is now in your Private Library." You can change the app link access from here.
+ 
+- **Workspace** — "Your Technique is now in your Workspace Library." You can adjust who can access the app link.
+ 
+- **Public (submitted for review)** — "Your Technique is now in review." A shareable URL is shown with a copy button.
+ 
+
+From the publish success dialog you can:
+
+- **Copy the app link** to share your Technique with others
+ 
+- **Change app link access** — control whether the app link is accessible to only you, workspace members, or everyone (for private and workspace techniques)
+ 
+- **Open the app** — launch the Technique's app-mode interface in a new tab
+ 
+- **Return to canvas** — close the dialog and go back to editing
+ 
+
+---
+
+## 
+
+Editing a Published Technique
+
+After publishing, you can edit your Technique to update its workflow, inputs, outputs, or listing details. Editing updates the existing Technique in place — it doesn't create a separate copy.
+
+### 
+
+How to start editing
+
+Hover over a Technique node on your canvas to reveal its toolbar. If you're the Technique's creator, you'll see an **Edit technique** button (pencil icon). Click it to enter edit mode.
+
+When you enter edit mode, the Technique node is **detached** — its internal workflow is expanded back onto your canvas as individual nodes inside a group, so you can modify them directly. A snapshot of the original state is saved so your changes can be reverted if you cancel.
+
+### 
+
+The edit flow
+
+Editing walks you through four steps, shown in a progress bar at the top of the panel:
+
+Step
+
+What you do
+
+**Workflow**
+
+Edit prompts, update nodes, connect or disconnect nodes
+
+**Input**
+
+Review and update which nodes serve as inputs
+
+**Output**
+
+Review and update which nodes serve as outputs
+
+**Publish**
+
+Update listing details (name, description, thumbnail, etc.) and republish
+
+#### 
+
+Step 1: Edit Workflow
+
+Your Technique's workflow is expanded onto the canvas. The canvas is unlocked during this step — you can:
+
+- Edit prompts and model parameters on any node
+ 
+- Change models on generation nodes
+ 
+- Add or remove nodes from the workflow
+ 
+- Connect or disconnect nodes to restructure the pipeline
+ 
+
+Click **Continue** when you're done editing the workflow to proceed to input selection.
+
+#### 
+
+Steps 2–4: Input, Output, Publish
+
+These steps work the same as when creating a new Technique. The builder pre-populates your previous input/output selections and listing details, so you only need to adjust what's changed.
+
+When you click **Publish**, the existing Technique is updated. Anyone using it will get the new version the next time they run it.
+
+### 
+
+Cancelling an edit
+
+Click **Cancel** or the **X** button at any time to discard your changes. The canvas reverts to its original state — the detached nodes are removed and the original Technique node is restored with its previous connections.
+
+### 
+
+Toolbar actions
+
+The Technique node toolbar also provides:
+
+- **Detach into nodes** — Expands the Technique into individual canvas nodes without entering edit mode. Useful for forking a Technique into a standalone workflow.
+ 
+- **View workflow** — Opens a read-only overlay showing the Technique's internal workflow graph. Action nodes appear as violet "Action" blocks so they're easy to distinguish from generation steps.
+ 
+
+---
+
+## 
+
+Tips & Best Practices
+
+- **Run your workflow first** — Make sure all nodes have generated outputs before entering Technique Builder. Nodes without output content can't be selected as inputs or outputs.
+ 
+- **Use clear names** — Input and output names are what users see when running your Technique. Be specific: "Product Photo" is better than "Input 1".
+ 
+- **Keep descriptions short** — You have 40 characters. Focus on what the user needs to know: "Upload a front-facing product shot" tells them exactly what to provide.
+ 
+- **Choose meaningful outputs** — Select the final, polished results — not intermediate steps. Users expect the output to be the finished product.
+ 
+- **Test before publishing** — Ensure your workflow produces consistent, high-quality results before packaging it as a Technique.
+ 
+- **Pick the right category** — Correct categorization helps users find your Technique when browsing the library.
+ 
+
+---
+
+## 
+
+Supported & Unsupported Node Types
+
+Techniques only support a specific set of node types. Your entire workflow — inputs, outputs, and all intermediate nodes — must be built using supported nodes.
+
+**Supported node types:**
+
+- Image nodes (text-to-image, image-to-image)
+ 
+- Video nodes (text-to-video, image-to-video)
+ 
+- Text nodes (text-to-text, image-to-text, video-to-text)
+ 
+- Action nodes (code blocks)
+ 
+- Element nodes
+ 
+- Static image blocks
+ 
+- Empty image blocks
+ 
+- Document nodes (PDF to Text, PDF to Image)
+ 
+- Router nodes (routers are included transparently — they function within the technique but are not exposed as user-facing inputs or outputs)
+ 
+- Batch nodes (fan-out processing within a technique)
+ 
+- Static image nodes
+ 
+- Empty image nodes
+ 
+
+**Action nodes in techniques** execute their code via the sandbox during the technique run. Their outputs flow through to downstream nodes or to technique output slots via result nodes. This lets you include deterministic post-processing steps (color grading, frame extraction, audio splitting, etc.) directly inside a technique pipeline.
+
+**Batch nodes and Layer Editor nodes are not supported anywhere in a Technique.** If your workflow uses any of these, you'll need to rebuild it using only the supported node types listed above before it can be packaged as a Technique.
+
+**Other unsupported node types:**
+
+- Comments
+ 
+- Groups
+ 
+- Inpaint/Outpaint image nodes
+ 
+- Result nodes (image, text, video)
+ 
+- Technique nodes (nested techniques)
+ 
+
+**Intermediate nodes are preserved.** Nodes that sit between your selected inputs and outputs are automatically included in the Technique graph — you don't need to select them. The builder traces the connections from outputs back to inputs and retains all nodes along the path.
+
+---
+
+## 
+
+Exiting the Builder
+
+You can exit Technique Builder at any time by clicking the **X** button in the panel header or clicking **Go Back** on the intro screen. If you have unsaved changes (selected inputs/outputs or publish details), you'll be asked to confirm before discarding your draft.
+
+[PreviousTechniques](https://docs.flora.ai/nodes/techniques) [NextEditor](https://docs.flora.ai/editor/editor)
+
+Last updated 1 month ago
+
+Was this helpful?

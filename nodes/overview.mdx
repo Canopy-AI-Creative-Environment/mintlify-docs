@@ -1,0 +1,99 @@
+---
+title: "Node Overview: Build AI Workflows with FLORA Nodes"
+sidebarTitle: "Overview"
+description: "Nodes are the building blocks of every FLORA workflow. Learn how to spawn nodes, wire them together with noodles, and navigate the full node library."
+---
+
+FLORA operates on a node-based system where you interconnect different AI models for greater creative control. Every piece of work you build — from a single image to a fully scored video — is a graph of nodes joined by connections called **noodles**. Understanding how to place, connect, and manage nodes is the foundation of everything you'll do on the canvas.
+
+## Spawning a Node
+
+You have two ways to add a node to your canvas:
+
+<Steps>
+  <Step title="Double-click the canvas">
+    Double-click any empty area of the canvas to open the node picker at that exact position. Select a node type and it drops in right where you clicked.
+  </Step>
+  <Step title="Use the + button in the toolbar">
+    Click the **+** button in the main toolbar at the top of the canvas to open the same node picker from the toolbar. The new node lands near the center of your current view.
+  </Step>
+</Steps>
+
+## Connecting Nodes with Noodles
+
+Connections between nodes are called **noodles** — the visual wires that carry output from one node into the input of another.
+
+<Steps>
+  <Step title="Locate the output handle">
+    Every node has a **+** handle on its right edge. Hover over the node to reveal it.
+  </Step>
+  <Step title="Drag to connect">
+    Click and drag from the **+** handle outward toward the target node. When you release over a compatible input, FLORA snaps the noodle into place and the connection is live.
+  </Step>
+  <Step title="Generate downstream">
+    Once wired, run the downstream node to process the output from its source. The noodle carries the data automatically.
+  </Step>
+</Steps>
+
+<Tip>
+  You can connect a single output to multiple downstream nodes — branch one image node into several text nodes for parallel analysis, or fan out one text node into multiple image nodes to explore variations simultaneously.
+</Tip>
+
+## Node Types
+
+FLORA's canvas is home to ten distinct node types, each serving a different role in your workflow. Click any card to dive into full documentation for that node.
+
+<CardGroup cols={2}>
+  <Card title="Text Node" icon="text" href="/nodes/text">
+    Concepting, visual analysis, transcription, and information synthesis. The information hub of every workflow.
+  </Card>
+  <Card title="Image Node" icon="image" href="/nodes/image">
+    Generate visuals from text, transform existing images, and explore styles with a library of aesthetic presets.
+  </Card>
+  <Card title="Video Node" icon="video" href="/nodes/video">
+    Create video from text prompts, animate image sequences, or drive lipsync performances from audio.
+  </Card>
+  <Card title="Audio Node" icon="waveform" href="/nodes/audio">
+    Generate voiceovers, sound effects, and music from text — or transcribe audio back into text.
+  </Card>
+  <Card title="Document Node" icon="file-pdf" href="/nodes/document">
+    Bring PDFs onto the canvas as browsable, connectable inputs. Wire pages into text or image workflows.
+  </Card>
+  <Card title="Layer Editor" icon="layer-group" href="/nodes/layer-editor">
+    Composite multiple images and elements together in a non-destructive layer stack.
+  </Card>
+  <Card title="Action Node" icon="bolt" href="/nodes/action">
+    Apply color grading, video trimming, frame extraction, text manipulation, and more — no AI generation required.
+  </Card>
+  <Card title="Batch Node" icon="list-check" href="/nodes/batch">
+    Process multiple inputs through the same pipeline in parallel — great for bulk generation.
+  </Card>
+  <Card title="Router Node" icon="split" href="/nodes/router">
+    Fan shared inputs out to multiple downstream nodes at once — a transparent pass-through with no generation.
+  </Card>
+  <Card title="Export Node" icon="arrow-up-from-bracket" href="/nodes/export">
+    Package and download your final outputs as MP4, MOV, GIF, PNG, and more.
+  </Card>
+</CardGroup>
+
+## The Node Toolbar
+
+Every node has a **Node Toolbar** that appears when you hover above it. The toolbar is contextual — its contents change depending on the type of node you're hovering over, surfacing the most relevant actions for that modality (for example, a Prompt Splitter option appears on text nodes whose output is a list, while image nodes show inpainting and outpainting shortcuts).
+
+<Info>
+  The Node Toolbar is always just a hover away. You never need to open a separate panel to access per-node actions.
+</Info>
+
+## General Tips
+
+<Accordion title="Color tagging nodes">
+  Right-click any node to assign it a color label. Color tagging is useful for visually grouping related nodes on large canvases — for example, tagging all concepting text nodes in blue and all output image nodes in green.
+</Accordion>
+
+<Accordion title="Bulk parameter editing">
+  Select multiple nodes of the same type by holding **Shift** and clicking each one, then edit shared parameters in the panel on the right. Changes apply to all selected nodes at once, saving time when you're adjusting seed, size, or model across a batch.
+</Accordion>
+
+<Accordion title="Wiring in-progress nodes">
+  You can draw noodle connections to and from a node before it has finished generating. FLORA queues the downstream generation and runs it automatically as soon as the upstream node completes. This lets you build out your full graph before running anything.
+</Accordion>

@@ -1,0 +1,106 @@
+---
+title: "Managing Your FLORA Workspace: Settings and Team Roles"
+sidebarTitle: "Workspaces"
+description: "Learn how workspaces organize your projects and team in FLORA, manage roles, control model access, and understand workspace limitations."
+---
+
+A workspace is the core organizational unit in FLORA — it holds all your projects, team members, usage budgets, and settings. Everything you create in FLORA lives inside a workspace, so knowing how to navigate and configure yours will save you time and keep your team running smoothly.
+
+## Switching Workspaces
+
+Use the **workspace selector** in the top-left corner of the dashboard to move between workspaces. The selector shows your current workspace's logo, name, and member count. Click it to open a dropdown listing every workspace you belong to, along with each workspace's plan type and member count. Your active workspace has a checkmark next to it.
+
+<Tip>
+  If you belong to many workspaces, use the search bar at the top of the dropdown to quickly find the one you need.
+</Tip>
+
+If you've been invited to a workspace you haven't joined yet, it appears in the list with a **Join** button. FLORA remembers the last workspace you used, so you'll land there automatically on your next login.
+
+## Workspace Roles
+
+Every member of a workspace is assigned one of three roles. Admins assign roles when inviting someone, and can change them at any time from the **People & Seats** page.
+
+| Role | Label | Permissions |
+|---|---|---|
+| Admin | Admin | Full permissions: manage billing, settings, and all workspace features. Can invite Admins, Editors, and Guests. |
+| Editor | Can Edit | Create and edit projects. Can invite Editors and Guests. Cannot manage billing. |
+| Guest | Can View | View-only access. Cannot edit projects or invite others. |
+
+## Workspace Settings
+
+Open workspace settings by clicking the **gear icon** in the workspace header. This area is only fully accessible to Admins and includes the following controls:
+
+<CardGroup cols={2}>
+  <Card title="Rename Workspace" icon="pen" href="#workspace-settings">
+    Edit the workspace name directly from the General settings panel.
+  </Card>
+  <Card title="Upload Logo" icon="image" href="#workspace-settings">
+    Click the workspace avatar to upload a custom image that appears in the selector.
+  </Card>
+  <Card title="Model Access Control" icon="sliders" href="#model-access-control">
+    Choose whether new AI models are available by default (opt-out) or must be manually enabled (opt-in), with per-model toggles.
+  </Card>
+  <Card title="Leave Workspace" icon="arrow-right-from-bracket" href="#workspace-limitations">
+    Any member can leave a workspace from settings, as long as it isn't their only workspace.
+  </Card>
+</CardGroup>
+
+### Model Access Control
+
+The **Model Access Control** setting lets Admins decide how newly released AI models become available to the workspace. You can choose between two defaults:
+
+- **Opt-out (default):** New models are enabled automatically. Members can use them right away, and Admins can disable individual models if needed.
+- **Opt-in:** New models are disabled until an Admin explicitly turns them on. Use this mode when you want tighter control over which models your team can access.
+
+Per-model toggles are available either way, so you can mix and match regardless of the default you choose.
+
+## Creating a Workspace
+
+<Steps>
+  <Step title="Open the Workspace Selector">
+    Click the workspace selector in the top-left corner of the dashboard.
+  </Step>
+  <Step title="Select Create a New Workspace">
+    Scroll to the bottom of the dropdown and click **Create a new workspace**.
+  </Step>
+  <Step title="Name Your Workspace">
+    Enter a name for the workspace (minimum 3 characters).
+  </Step>
+  <Step title="Choose a Plan">
+    Select a billing plan for the new workspace.
+  </Step>
+  <Step title="Invite Team Members (Optional)">
+    Invite team members by email, or skip this step and invite them later.
+  </Step>
+</Steps>
+
+## Inviting Team Members
+
+Make sure you're in the correct workspace before inviting anyone. You can start an invite from two places:
+
+- The **member count badge** in the top-right of the dashboard
+- The **Invite** button on the **People & Seats** page
+
+**Invite by email:** Enter one or more email addresses (separated by commas, semicolons, or spaces), choose a role, and send.
+
+**Invite by link:** Copy a shareable invite link. Choose between an edit link (Editor role) or a view link (Guest role).
+
+## Free Plan Limitations
+
+<Note>
+  On the Free plan, each workspace supports a maximum of **3 active projects**. Upgrade to a paid plan to unlock additional active projects.
+</Note>
+
+## Workspace Limitations
+
+<Warning>
+  Workspaces **cannot be deleted**. If you no longer need a workspace, you can leave it from the workspace settings page.
+</Warning>
+
+## Managing Multiple Workspaces
+
+If your team needs to run multiple workspaces under a single bill with a shared usage pool and unified seat management, that's available through **Organizations** — an Enterprise feature. Organizations let you group workspaces together so you pay once and manage everyone from one place.
+
+<Card title="Learn About Organizations" icon="building" href="/account/organizations">
+  Manage multiple FLORA workspaces under one Enterprise account with a shared plan, seats, and usage pool.
+</Card>

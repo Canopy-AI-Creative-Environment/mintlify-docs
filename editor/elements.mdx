@@ -1,0 +1,134 @@
+---
+title: "Elements: Reusable Visual Identity References in FLORA"
+sidebarTitle: "Elements"
+description: "Elements are reusable visual references that keep characters, products, and styles consistent across every generation — image and video alike."
+---
+
+Elements are reusable visual identity references that you create once and apply across your entire canvas. Instead of attaching raw images to every generation node, FLORA studies your input images and generates a single, high-signal **reference** that captures the key features of your subject — a character's face, a product's exact form, a style's color palette — while filtering out irrelevant details like poses, backgrounds, or specific outfits. You then connect that Element to any compatible node, and every generation pulls from the same reference automatically.
+
+## Element Categories
+
+When you create an Element, you assign it a **Category** that tells FLORA what kind of subject to focus on. Choose the one that best matches what you're capturing:
+
+| Category | Best For |
+|---|---|
+| **Model** | People — facial and physical features |
+| **Character** | Illustrated or stylized characters |
+| **Product** | Branded products — visual fidelity and accurate details |
+| **Object** | Props, tools, and generic items |
+| **Material** | Textures, surfaces, and finishes |
+| **Setting** | Environments and locations |
+| **Style** | Aesthetic direction and visual language |
+| **Moodboard** | Composite visual references |
+| **General** | Anything that doesn't fit a specific category |
+
+## Creating an Element
+
+There are three ways to create a new Element:
+
+<Tabs>
+  <Tab title="From the Element Library">
+    <Steps>
+      <Step title="Open the Element Library">
+        Click the **#** (Elements) button in the toolbar.
+      </Step>
+      <Step title="Create a new Element">
+        Click **Create New Element** or the **New Element** card.
+      </Step>
+      <Step title="Add reference images">
+        Upload one or more reference images of your subject (PNG, JPEG, WebP, or SVG supported).
+      </Step>
+      <Step title="Configure inputs">
+        Choose a **Category**, optionally add **Guidelines** (up to 40 characters), and give your Element a name.
+      </Step>
+      <Step title="Review the Element Preview">
+        FLORA generates an **Element Preview** — the reference image your generations will use. Once it looks right, click **Create**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="From the Canvas (Right-Click)">
+    <Steps>
+      <Step title="Select image nodes with outputs">
+        On the canvas, select one or more image nodes that have generated outputs.
+      </Step>
+      <Step title="Right-click and create">
+        Right-click to open the context menu and select **Create Element**. FLORA uses the selected outputs as reference images for the new Element.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="From an Element Node">
+    <Steps>
+      <Step title="Add an Element node">
+        Add an Element node to the canvas from the toolbar.
+      </Step>
+      <Step title="Create a new Element">
+        Open the node's picker and select **New Element** at the bottom of the list.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## The Element Editor
+
+The Element Editor is where you set inputs and shape how FLORA generates the reference.
+
+### Inputs
+
+- **Images** — add up to 8 reference images of the same subject. Vary angles, lighting, and framing (close-ups, wide shots, different perspectives) to help FLORA understand the subject fully. **5 or fewer images is recommended** — a small set of clear, varied images typically outperforms a large, noisy one.
+- **Category** — shapes what features FLORA focuses on when building the reference.
+- **Guidelines** *(optional)* — a short text note (max 40 characters) that highlights important aspects or describes how the Element should be used.
+
+### Element Preview
+
+As you set your inputs, FLORA generates an **Element Preview** — the reference image that will drive your generations. Treat it as your quality signal: if it captures the right details, your generations will too.
+
+- **Regenerate** — generate a fresh reference from the current inputs if the preview is missing detail or includes something it shouldn't.
+- **Set as Default** — when you've generated multiple references, choose which one the Element uses.
+- **Reference history** — every reference you generate is saved to a thumbnail strip below the preview. Click any past reference to view it and select it as the default.
+
+## Using Elements
+
+### On the Canvas
+
+Add an **Element Node** to the canvas and connect its output handle to a compatible image or video generation node. The model will use the Element's reference to maintain visual identity in every generated output.
+
+### In Prompts
+
+Mention an Element directly inside any prompt by typing `#` and selecting from the picker. The picker groups Elements by category to make them easy to find.
+
+## Supported Models
+
+<CardGroup cols={2}>
+  <Card title="Image Models" icon="image" href="#supported-models">
+    - Nano Banana Pro *(recommended)*
+    - Nano Banana 2 *(recommended)*
+    - GPT Image 2 *(recommended)*
+    - Seedream 4.5
+    - Riverflow 2.0 Fast and Pro
+  </Card>
+  <Card title="Video Models" icon="video" href="#supported-models">
+    - Seedance 2.0 — reference mode *(recommended)*
+    - Kling O1
+    - Kling O3
+  </Card>
+</CardGroup>
+
+<Tip>
+For images, **Nano Banana Pro**, **Nano Banana 2**, and **GPT Image 2** give the most consistent results. For video, use **Seedance 2 References** for best output.
+</Tip>
+
+## Managing Elements
+
+Open the Element Library by clicking the **#** button in the toolbar. From there you can:
+
+- **Switch** between the **Private** tab (your own Elements) and the **Shared** tab (Elements shared with your workspace).
+- **Search** for Elements by name.
+- **Sort** by name (A–Z, Z–A) or by date (Newest, Oldest).
+- **Share** an Element to your workspace — or unshare it — via the right-click context menu.
+- **Edit** any Element by hovering over its card and clicking **Edit element**, or via right-click.
+- **Add to canvas** by clicking **Add to canvas** on the card, or by dragging the Element card directly onto the canvas.
+- **Delete** an Element via the right-click context menu. Deleting an Element unbinds it from any canvas nodes that were referencing it.
+
+<Warning>
+Elements are **private to you by default**. Share an Element to your workspace explicitly if you want teammates to be able to use it. If an Element is deleted while still in use on the canvas, affected nodes will show an "Element unavailable" state.
+</Warning>

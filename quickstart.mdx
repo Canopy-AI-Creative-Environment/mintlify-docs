@@ -1,0 +1,92 @@
+---
+title: "Quickstart Guide: Create Your First FLORA AI Workflow"
+sidebarTitle: "Quickstart"
+description: "Sign up, open the canvas, place your first node, connect it, and run your first AI generation — this guide gets you there in minutes."
+---
+
+FLORA is the first AI-powered creative workflow system built for professionals who think in systems, not just outputs. This guide walks you through everything from creating your account to running your first generation on the infinite canvas. By the end, you'll have a working node, a connection, and your first AI output — ready to build on.
+
+<Steps>
+
+  <Step title="Sign up for FLORA">
+    Go to [app.flora.ai](https://app.flora.ai) and create your account. You can sign in with **Google OAuth** for instant access, or use your **email address** (you may need to verify your email before proceeding).
+
+    Once you're in, FLORA sets up your personal workspace automatically — no configuration required.
+  </Step>
+
+  <Step title="Welcome to your canvas">
+    After signing in, you land on the FLORA home screen. Open an existing project or click **New Project** to create one.
+
+    Your project opens on the **infinite canvas** — a blank, zoomable workspace where your entire workflow lives. You can pan by holding Space and dragging, zoom with the scroll wheel or trackpad, and press **F** at any time to fit everything back into view.
+
+    <Tip>
+      If this is your first time in FLORA, take a moment to explore the editor. The toolbar at the top gives you quick access to nodes, collaboration, and settings. The sidebar on the right shows node parameters when a node is selected.
+    </Tip>
+  </Step>
+
+  <Step title="Create your first node">
+    Nodes are the building blocks of every FLORA workflow. To add one, use either of these methods:
+
+    - **Double-click** anywhere on the canvas to open the node picker
+    - **Click the + button** in the toolbar to browse and add a node
+
+    In the node picker, you'll see categories for Text, Image, Video, Audio, and more. Select a model — for example, an **Image** node like **Flux 2** — and it appears on your canvas, ready to configure.
+
+    Type a prompt in the node's text field to describe what you want to generate.
+
+    <Note>
+      On the **Free plan**, you have access to text and image models. Video and audio models require a paid plan (Starter or above).
+    </Note>
+  </Step>
+
+  <Step title="Connect nodes with noodles">
+    Nodes become powerful when you chain them together. The connections between nodes are called **noodles**.
+
+    To connect two nodes:
+
+    1. Hover over a node until you see the **output handle** (the **+** icon on the right edge)
+    2. Click and drag from that handle
+    3. Drop the connection onto the **input handle** of another node
+
+    For example, connect a **Text** node's output to an **Image** node's prompt input — FLORA passes the text through automatically when you run the workflow.
+  </Step>
+
+  <Step title="Run your first generation">
+    When your node is configured and your prompt is ready, trigger a generation using either method:
+
+    - Press **Enter** while focused on the node
+    - Click the **Run** button inside the node panel
+
+    FLORA sends your request to the model and streams the result back to the canvas in real time. Your output — image, text, video, or audio — appears directly inside the node.
+
+    From here, you can connect the output to another node, fork a variation, or adjust parameters and run again.
+
+    <Tip>
+      See a flower icon (🌸) next to the Run button? That's the **flower meter** — it shows the approximate cost of the generation relative to your monthly budget. One flower is under $0.10; three flowers plus a "+" means $2 or more. You can switch to exact dollar amounts in **Preferences → Show generation costs in dollars**.
+    </Tip>
+  </Step>
+
+</Steps>
+
+## What's Next?
+
+You've got a node running and a workflow started. Here are the best places to go deeper:
+
+<CardGroup cols={2}>
+  <Card title="Nodes Overview" icon="circle-nodes" href="/nodes/overview">
+    Learn about every node type available in FLORA — inputs, outputs, models, and utilities.
+  </Card>
+  <Card title="The Canvas & Editor" icon="vector-square" href="/editor/canvas">
+    Master navigation, keyboard shortcuts, and the full suite of editor tools.
+  </Card>
+  <Card title="FAUNA AI Agent" icon="robot" href="/editor/fauna">
+    Let FAUNA help you build workflows, answer questions, and generate content hands-free.
+  </Card>
+  <Card title="Plans & Billing" icon="credit-card" href="/plans-and-billing">
+    Understand your usage budget, model costs, and how to upgrade your plan.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Press **Cmd /** (Mac) or **Ctrl /** (Windows) anywhere in the editor to open **FAUNA**, FLORA's built-in AI agent. Ask it to help you build a workflow, explain a node, or suggest next steps — FAUNA is free on every plan and never counts against your usage budget.
+</Tip>

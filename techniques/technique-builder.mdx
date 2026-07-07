@@ -1,0 +1,149 @@
+---
+title: "Technique Builder: Create and Publish Custom Workflows"
+sidebarTitle: "Technique Builder"
+description: "Use Technique Builder to package any multi-step canvas workflow into a shareable, reusable Technique — with defined inputs, outputs, and an App link."
+---
+
+Technique Builder lets you turn any multi-step workflow on your canvas into a first-class, reusable Technique. Once published, your Technique appears in the library as a single node that you — or anyone on your team — can drop onto any canvas, or run through a standalone app interface without touching the canvas at all.
+
+## What You Can Do with Technique Builder
+
+- **Compress workflows** — Collapse a multi-node pipeline into a single reusable step.
+- **Publish to your Workspace** — Make your Technique available in the library for your entire team.
+- **Reuse anywhere** — Drop your published Technique onto any canvas like any other node.
+- **Share as an app** — Every published Technique automatically gets an App link so others can run it through a simplified interface, no canvas required.
+
+## Getting Started
+
+To open Technique Builder, click the **Build Technique** button at the bottom of your canvas. When you enter builder mode, your canvas nodes are locked for editing — this gives the builder a stable snapshot of your workflow to work from. You can exit at any time to resume editing.
+
+<Note>
+  Make sure all nodes in your workflow have generated output content before entering Technique Builder. Nodes without output content cannot be selected as inputs or outputs.
+</Note>
+
+## The Publishing Flow
+
+Technique Builder walks you through four steps:
+
+<Steps>
+  <Step title="Intro — Start Building">
+    The intro screen explains what Technique Builder enables. Click **Start Building** to enter builder mode and begin defining your Technique's inputs and outputs. The left tool palette is hidden during this step to keep you focused on the task.
+  </Step>
+  <Step title="Input — Define Your Inputs">
+    **Click nodes directly on the canvas** to select them as inputs. A node qualifies as an input if it has no incoming connections, has generated output content, and is a supported node type.
+
+    For each selected input, configure:
+    - **Name** *(required)* — A clear, descriptive label users will see when running your Technique (e.g., "Reference Photo", "Style Prompt").
+    - **Description** *(optional, max 40 characters)* — A short hint explaining what the input expects (e.g., "Upload a front-facing product shot").
+    - **Preset** — The current content on the node becomes the default example value when someone uses your Technique.
+
+    You must select **at least one input** to proceed. Remove an input by clicking the trash icon on its card.
+  </Step>
+  <Step title="Output — Define Your Outputs">
+    Click nodes on the canvas to select them as outputs. A node qualifies as an output if it has no outgoing connections, has generated output content, and is a supported node type. You must select **at least one output** to proceed.
+
+    For each selected output, configure:
+    - **Name** *(required)* — A descriptive label for the result (e.g., "Final Render", "Upscaled Video").
+    - **Description** *(optional, max 40 characters)* — What this output produces.
+    - **Preset** — A preview thumbnail of the current output content.
+    - **User-editable parameters** *(toggle)* — When enabled, users running your Technique can override the model and generation parameters (aspect ratio, quality, style) for this output at run time. Only available on outputs backed by generation nodes with configurable parameters.
+
+    When you click **Continue**, the builder validates your Technique's graph — checking for circular dependencies, compatibility issues, and invalid batch configurations. If validation fails, an error message explains what to fix.
+
+    <Info>
+      Intermediate nodes — those sitting between your selected inputs and outputs — are automatically included in the Technique graph. You don't need to select them explicitly; the builder traces connections from outputs back to inputs and retains every node along the path.
+    </Info>
+  </Step>
+  <Step title="Publish — Set Details and Publish">
+    Fill in the listing details that help others discover and understand your Technique:
+
+    - **Name** *(required)* — How your Technique appears in the library and on canvas.
+    - **Description** *(required, max 200 characters)* — What this Technique generates and how to use it. Shown as a subtitle in the library.
+    - **Usage Cost** — Automatically calculated from the models and generation steps in your workflow. Displayed to users before they run.
+    - **Thumbnail** — Auto-generated from your output nodes. Click **Upload** to use a custom image instead.
+    - **Category** *(optional)* — Assign a category to improve discoverability in the library (Brand & Visual Design, Product Visualization, Marketing & Ads, Video & Animation, Fashion & Apparel Editorial, Content Packaging, Print Film/VFX, Space & Architecture, Fun & Inspiration).
+    - **Tags** *(optional)* — Add keyword tags to improve search results. Type a tag and press **Enter**, **Tab**, or use a comma to add it.
+    - **App Link** — A shareable URL auto-generated from your Technique name (`flora.ai/technique/your-technique-name`).
+    - **Visibility** — Control who can access your Technique (see [Visibility Options](#visibility-options) below).
+  </Step>
+</Steps>
+
+## Visibility Options
+
+<Tabs>
+  <Tab title="Private">
+    Only you can access the Technique. This is the default setting — ideal for personal workflows you're not ready to share.
+  </Tab>
+  <Tab title="Workspace">
+    Everyone in your workspace can discover and use the Technique via the Workspace Library. Best for team-shared workflows and internal tools.
+  </Tab>
+  <Tab title="Community">
+    Your Technique is submitted for review by the FLORA team. Once approved, it's listed in the Community Library for any FLORA user to discover and use.
+
+    <Note>
+      Community Techniques are reviewed before going live. You'll be notified when your submission is approved.
+    </Note>
+  </Tab>
+</Tabs>
+
+## Editing a Published Technique
+
+You can update a published Technique at any time — editing updates it in place rather than creating a new copy.
+
+**To start editing:**
+1. Hover over the Technique node on your canvas to reveal its toolbar.
+2. Click the **Edit technique** button (pencil icon). This button only appears if you're the Technique's creator.
+
+When you enter edit mode, the Technique is detached — its internal workflow expands onto your canvas as individual nodes so you can modify them directly. A snapshot of the original state is saved so you can revert if needed.
+
+The edit flow mirrors the publishing flow:
+
+| Step | What you do |
+|---|---|
+| **Workflow** | Edit prompts, swap models, add or remove nodes, restructure connections |
+| **Input** | Review and update input selections and configurations |
+| **Output** | Review and update output selections and toggle user-editable parameters |
+| **Publish** | Update listing details (name, description, thumbnail, etc.) and republish |
+
+When you click **Publish**, the existing Technique is updated immediately. Anyone using it will run the new version on their next execution.
+
+**To cancel:** Click **Cancel** or the **X** button at any time. The canvas reverts to its original state — detached nodes are removed and the original Technique node is restored with all its previous connections.
+
+## Supported Node Types
+
+Your entire workflow — inputs, outputs, and all intermediate nodes — must use supported node types.
+
+<Accordion title="Supported node types">
+  - Image nodes (text-to-image, image-to-image)
+  - Video nodes (text-to-video, image-to-video)
+  - Text nodes (text-to-text, image-to-text, video-to-text)
+  - Action nodes (code blocks — execute via sandbox during the Technique run)
+  - Element nodes
+  - Static image nodes
+  - Empty image nodes
+  - Document nodes (PDF to Text, PDF to Image)
+  - Router nodes (included transparently — not exposed as user-facing inputs or outputs)
+  - Batch nodes (fan-out processing within the Technique)
+</Accordion>
+
+<Accordion title="Unsupported node types">
+  The following node types cannot be used anywhere inside a Technique:
+
+  - **Comments**
+  - **Groups**
+  - **Inpaint / Outpaint nodes**
+  - **Result nodes** (image, text, video)
+  - **Technique nodes** — nested Techniques are not supported
+  - **Layer Editor nodes**
+  - **Export nodes**
+
+  If your workflow uses any unsupported node types, rebuild those steps using supported equivalents before entering Technique Builder.
+</Accordion>
+
+<Warning>
+  Explosive batch configurations — such as chaining multiple Batch nodes that would multiply into an excessive number of tasks — are blocked at publish time. Keep batch workflows linear to avoid validation errors.
+</Warning>
+
+## App Mode
+
+Every published Technique automatically receives an App link (`flora.ai/technique/your-technique-name`). Share this URL with anyone to let them run your Technique in a simplified interface — no canvas or FLORA project required. You can also control App link access separately from the library visibility setting after publishing.

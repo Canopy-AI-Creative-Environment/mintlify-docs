@@ -1,0 +1,113 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "FLORA",
+  "theme": "willow",
+  "colors": {
+    "primary": "#1be49c",
+    "light": "#0c8c5c",
+    "dark": "#0c0c0c"
+  },
+  "logo": {
+    "light": "https://media.brand.dev/07fcb57b-76a5-49f6-abdb-740da69c791f.svg",
+    "dark": "https://media.brand.dev/07fcb57b-76a5-49f6-abdb-740da69c791f.svg"
+  },
+  "favicon": "https://media.brand.dev/483ee27f-08fb-4d32-842d-86b4c40f9fb4.png",
+  "font": {
+    "headings": { "family": "Inter" },
+    "body": { "family": "Inter" }
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Open FLORA",
+      "href": "https://app.flora.ai"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "plans-and-billing"
+            ]
+          },
+          {
+            "group": "The Editor",
+            "pages": [
+              "editor/canvas",
+              "editor/fauna-agent",
+              "editor/elements",
+              "editor/timeline-editor",
+              "editor/collaboration"
+            ]
+          },
+          {
+            "group": "Nodes",
+            "pages": [
+              "nodes/overview",
+              "nodes/text",
+              "nodes/image",
+              "nodes/video",
+              "nodes/audio",
+              "nodes/document",
+              "nodes/layer-editor",
+              "nodes/action",
+              "nodes/batch",
+              "nodes/router",
+              "nodes/export"
+            ]
+          },
+          {
+            "group": "Techniques",
+            "pages": [
+              "techniques/overview",
+              "techniques/using-techniques",
+              "techniques/technique-builder"
+            ]
+          },
+          {
+            "group": "Models",
+            "pages": [
+              "models/text-models",
+              "models/image-models",
+              "models/video-models",
+              "models/audio-models"
+            ]
+          },
+          {
+            "group": "Account & Teams",
+            "pages": [
+              "account/workspaces",
+              "account/teams",
+              "account/organizations",
+              "account/data-and-privacy"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API & MCP",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api/overview",
+              "api/authentication",
+              "api/mcp"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "discord": "https://discord.gg/cHq6rmtDSh"
+    }
+  }
+}

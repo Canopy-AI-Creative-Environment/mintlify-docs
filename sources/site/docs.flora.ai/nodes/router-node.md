@@ -1,0 +1,247 @@
+# Source: https://docs.flora.ai/nodes/router-node
+
+For the complete documentation index, see [llms.txt](https://docs.flora.ai/llms.txt). This page is also available as [Markdown](https://docs.flora.ai/nodes/router-node.md).
+
+The Router Node lets you collect a set of source nodes once and fan them out to as many downstream nodes as you like. Instead of wiring the same images, videos, or text into every node that needs them, connect those sources into a Router and point your downstream nodes at the Router's single output. Update the sources in one place and every consumer stays in sync.
+
+### 
+
+Overview
+
+The Router Node is built for **one-to-many** workflows where the same inputs feed several different operations:
+
+- **Reuse a reference set** across multiple generation nodes without reconnecting each one
+ 
+- **Feed shared inputs** into both an image model and a text/LLM node for analysis
+ 
+- **Tidy up a busy canvas** by collapsing a tangle of edges into a single hub
+ 
+- **Swap inputs in one place** and have the change flow to every downstream node at once
+ 
+
+Think of it as a junction: many connections in, one connection out, and that one output can be branched to wherever you need it.
+
+The Router is a pass-through. It doesn't generate or transform anything—downstream nodes see the original source nodes exactly as if they were connected directly.
+
+---
+
+### 
+
+Getting Started
+
+1
+
+**Add the Node**
+
+From the node menu, select **Router** to add it to your canvas.
+
+2
+
+**Connect your sources**
+
+Drag from your source nodes (image, video, text, audio, or document) into the Router's input handle on the left. The Router locks to the modality of what you connect.
+
+3
+
+**Branch the output**
+
+Drag from the Router's output handle on the right to each node that should receive those inputs. One Router output can connect to as many downstream nodes as you need.
+
+4
+
+**Run downstream**
+
+Run any downstream node as usual. It processes the routed sources exactly as if they were wired in directly.
+
+---
+
+### 
+
+How Routing Works
+
+Routers are **transparent**. When a downstream node looks at its inputs, it resolves _through_ the Router to the actual source nodes text blocks, image blocks, collections, and so on. A chain like:
+
+AskCopy
+
+```
+[Source] → [Router] → [Image Node]
+```
+
+behaves identically to connecting the source straight to the Image Node. The Router adds no processing, no cost, and no extra step to your generation it only manages how the connection is drawn.
+
+This is what makes one-to-many reuse possible: a single Router output can branch to many nodes, and each of those nodes still receives the genuine upstream sources.
+
+---
+
+### 
+
+The Router Interface
+
+The Router Node is intentionally compact:
+
+#### 
+
+Label
+
+Every Router shows an editable label (default: **Router**). Double-click to rename it—useful when you have several Routers and want to track what each one carries (e.g. "Character refs", "Brand palette").
+
+#### 
+
+Modality
+
+Below the label, the Router displays its current modality:
+
+- **None** — no sources connected yet
+ 
+- **Text**, **Image**, **Video**, **Audio**, or **Document** — once a source is connected
+ 
+
+For image and video sources, the Router shows a thumbnail preview of the first item so you can identify it at a glance.
+
+#### 
+
+Handles
+
+- **Input handle (left)** — accepts your source connections
+ 
+- **Output handle (right)** — branches out to downstream nodes
+ 
+
+The output handle reflects its state: an empty circle when nothing is connected, a **+** once the Router has input and is ready to branch, and a filled dot when it's connected downstream.
+
+---
+
+### 
+
+Modality
+
+A Router carries a single modality at a time, matching the sources you connect:
+
+- Connect image sources → the Router becomes an **image router**
+ 
+- Connect video sources → a **video router**
+ 
+- Connect text sources → a **text router**
+ 
+
+A Router stays **None** until it has a source connected, and it can't connect to a downstream node until its modality is settled. Connect your sources first, then branch the output.
+
+---
+
+### 
+
+Connecting Routers
+
+#### 
+
+What a Router can connect to
+
+A Router's output can feed most generation and processing nodes Image, Video, Text, and Audio nodes just like a direct connection would. Elements can also be connected into a Router.
+
+#### 
+
+Chaining Routers
+
+A Router's output can feed another Router. Chained Routers stay transparent end-to-end, so the final downstream node still resolves all the way back to the original sources.
+
+#### 
+
+Current limitations
+
+Limitation
+
+Details
+
+No Batch connection
+
+A Router can't connect into a Batch Node yet. Connect sources directly to the Batch, or wire the Router to blocks first.
+
+No Layer Editor connection
+
+Routers can't connect to Layer Editor nodes—connect the source directly.
+
+Single modality
+
+A Router carries one modality at a time, matching its connected sources.
+
+Settles before branching
+
+A Router must have a source connected (modality settled) before it can connect downstream.
+
+---
+
+### 
+
+Workflow Examples
+
+#### 
+
+Example 1: Reuse a reference set across nodes
+
+AskCopy
+
+```
+[Char sheet] ─┐
+[Outfit ref] ─┼─→ [Router] ─┬─→ [Nano Banana]  "generate scene"
+[Moodboard] ──┘  (3 images) ├─→ [Text Node]     "describe the references"
+                            └─→ [Flux Kontext]  "restyle"
+```
+
+Connect the reference set into a Router once, then branch it to every node that needs it. No reconnecting the same images three times.
+
+#### 
+
+Example 2: Tidy a busy canvas
+
+AskCopy
+
+```
+[A] ─┐
+[B] ─┼─→ [Router] ─→ [Image Node]
+[C] ─┤
+[D] ─┘
+```
+
+Collapse many parallel edges into a single, clean connection into your generation node.
+
+#### 
+
+Example 3: Update sources in one place
+
+Swap what's feeding the Router and every downstream node picks up the change—no need to touch each connection.
+
+---
+
+### 
+
+Tips for Effective Routing
+
+- **Name your Routers** — a clear label ("Character refs", "Style set") makes a multi-Router canvas easy to read
+ 
+- **Connect sources first** — the Router needs a settled modality before it can branch downstream
+ 
+- **Branch freely** — one Router output can feed as many nodes as you need
+ 
+- **Use it to declutter** — when several nodes share the same inputs, a Router turns a web of edges into one tidy hub
+ 
+
+---
+
+### 
+
+Common Use Cases
+
+- **Shared reference libraries** — feed the same character, outfit, and environment references into every generation node in a workflow
+ 
+- **Parallel operations on one input set** — run the same sources through several models or prompts at once
+ 
+- **Analysis alongside generation** — point both an image model and a text/LLM node at the same references
+ 
+- **Canvas cleanup** — consolidate dense connection clusters into a single readable junction
+ 
+
+[PreviousExport Node](https://docs.flora.ai/nodes/export-node) [NextTechniques](https://docs.flora.ai/nodes/techniques)
+
+Last updated 1 month ago
+
+Was this helpful?

@@ -1,0 +1,127 @@
+---
+title: "Timeline Editor: Multi-Track Video Editing Inside FLORA"
+sidebarTitle: "Timeline Editor"
+description: "FLORA's Timeline Editor is a full multi-track video editor built into the canvas — trim, score, caption, and render to MP4 without leaving your workflow."
+---
+
+The Timeline Editor is FLORA's full video editor, built directly into the canvas as a node. You can assemble multi-track sequences, trim and split clips, add captions and audio, and render a finished MP4 — all without leaving your workflow. Because the Timeline Editor is itself a node, your finished cut flows right back onto the canvas as a new video you can continue building on.
+
+<Note>
+The Timeline Editor is a **paid feature** available on Starter plans and above. It is not available on the Free plan.
+</Note>
+
+## Getting Started
+
+<Steps>
+  <Step title="Add the Timeline Editor node">
+    From the node menu, select **Timeline** to add it to your canvas. You can add the node first and connect clips afterward — order doesn't matter.
+  </Step>
+  <Step title="Connect source clips">
+    Connect clip nodes to the Timeline node. Each connected input becomes a layer, in the order you connected them.
+
+    | You connect… | You get… |
+    |---|---|
+    | A video node | A video clip |
+    | An image node | A still clip (with thumbnail) |
+    | An audio node | An audio track |
+    | A text node | An editable text layer |
+  </Step>
+  <Step title="Open the editor">
+    **Double-click** the Timeline node, or click **Open Timeline Editor** in the node toolbar. The editor opens in place — the node becomes the editing surface while the canvas stays pannable around it.
+  </Step>
+  <Step title="Edit and render">
+    Arrange, trim, and style your clips, then open the **Export** panel and choose **Edited File** to render a finished MP4 back onto the canvas.
+  </Step>
+</Steps>
+
+## Multi-Track Timeline
+
+The Timeline Editor supports **up to 10 parallel tracks** of video, audio, text, captions, images, and shapes. Your connected clips start on a single track in connection order — a standard sequential assembly you then refine.
+
+The Timeline Editor **reads clips live from the nodes wired into it** and always uses each node's latest generation. Regenerate a clip while the editor is open and the layer refreshes automatically. Regenerate while it's closed and the layer is up to date the next time you open it.
+
+## Editing Clips
+
+- **Arrange:** Drag clips left or right to reorder or move them. Drag a clip up onto another track to layer it (overlays, text, picture-in-picture).
+- **Trim:** Drag a clip's left edge to change its start point, or its right edge to change its end point. Trimming is non-destructive — you're adjusting in/out points, not the source media.
+- **Split:** Move the playhead to the exact frame, select the clip, and click the **scissors button** (Split Clip at Playhead). The clip splits into two independent halves.
+- **Snapping:** Clips snap to each other and to the playhead. Toggle snapping with `N`.
+- **Reorder:** Right-click any clip for the context menu — **Cut**, **Copy**, **Duplicate**, **Bring to front**, **Send to back**, or **Go to Node** (which jumps the canvas view to the clip's source node).
+
+## Captions, Titles, and Text
+
+Add text directly to your video from within the editor. Press `T` to drop a new text item, or connect a text node to bring it in as a linked editable layer.
+
+Style any text item from the properties sidebar: **font** (Google Fonts), **stroke** (outline for legibility over busy footage), **alignment**, plus position, size, opacity, and layer order. Stack text above your video by placing it on a higher track.
+
+**Captions** work as timestamped caption pages — text blocks tied to specific points in time so each line appears at the right moment.
+
+## Audio
+
+Connect an audio node, drag an asset from your library, or upload a file directly into the editor. Each source becomes its own layer so you can run a music bed and a voiceover on separate tracks.
+
+Select any audio clip to adjust **volume**, **playback rate**, **fade in/out**, and **timing**. Video clips carry their own audio too — lower per-clip volume to balance dialogue and music, or use the track **Mute** toggle during playback to check picture on its own.
+
+## Export and Rendering
+
+<Tabs>
+  <Tab title="Render to MP4">
+    Open the **Export** panel and choose **Edited File**. FLORA renders your timeline **server-side** — on FLORA's infrastructure, not in your browser — so you can keep working or close the tab while it runs. The result is an **MP4 (H.264 video, AAC audio)**, saved back onto the canvas as a new version of the Timeline Editor node.
+
+    Rendering is the only metered action in the Timeline Editor — it draws on your workspace **credits**, scaled by the **length and resolution** of the output. The editor shows an estimated cost before you render. Editing and previewing are always free.
+  </Tab>
+  <Tab title="Export to a Pro Editor (NLE Bundle)">
+    To finish your project in a professional NLE, use the **Timeline + Assets** section in the Export panel. Choose a format and download a ZIP with the project file plus your source media:
+
+    | Format | Opens In |
+    |---|---|
+    | **EDL** (CMX3600) | Most NLEs |
+    | **XML** (FCP7 XML) | Premiere Pro |
+    | **FCPXML** | Final Cut Pro, DaVinci Resolve |
+
+    This export is client-side and runs no render — it's always free.
+  </Tab>
+</Tabs>
+
+<Tip>
+**Preview freely, render once.** Lock your cut before exporting — editing and previewing cost nothing, and you're only billed when you render.
+</Tip>
+
+## Plan Limits
+
+| Plan | Max Duration | Max Resolution | Max Video/Image Inputs |
+|---|---|---|---|
+| **Starter** | 60 s | 1080p | 10 |
+| **Pro** | 120 s | 1080p | 15 |
+| **Max** | 300 s (5 min) | 4K | 20 |
+| **Enterprise** | 600 s (10 min) | 4K | 40 |
+
+All paid plans share the following limits:
+
+| Setting | Value |
+|---|---|
+| Frame rate | 30 FPS |
+| Output format | MP4 — H.264 video, AAC audio |
+| Tracks (parallel layers) | 10 |
+| Timeline items (clip placements) | 100 |
+| Concurrent renders per user | 3 |
+
+## Keyboard Shortcuts
+
+| Action | Shortcut |
+|---|---|
+| Play / Pause | `Space` |
+| Undo | `Cmd/Ctrl + Z` |
+| Redo | `Cmd/Ctrl + Shift + Z` or `Cmd/Ctrl + Y` |
+| Select all | `Cmd/Ctrl + A` |
+| Duplicate | `Cmd/Ctrl + D` |
+| Cut / Copy / Paste | `Cmd/Ctrl + X` / `C` / `V` |
+| Delete | `Delete` or `Backspace` |
+| Toggle snapping | `N` |
+| Add text | `T` |
+| Add media (import) | `Cmd/Ctrl + I` |
+| Export EDL / XML / FCPXML | `7` / `8` / `9` (Export panel open) |
+
+<Warning>
+While the Timeline Editor is focused, standard canvas shortcuts are paused — so `Cmd/Ctrl + Z` undoes your last edit in the timeline, not on the canvas.
+</Warning>

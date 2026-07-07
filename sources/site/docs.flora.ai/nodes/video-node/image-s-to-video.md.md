@@ -1,0 +1,16 @@
+# Source: https://docs.flora.ai/nodes/video-node/image-s-to-video.md
+
+\> For the complete documentation index, see \[llms.txt\](https://docs.flora.ai/llms.txt). Markdown versions of documentation pages are available by appending \`.md\` to page URLs; this page is available as \[Markdown\](https://docs.flora.ai/nodes/video-node/image-s-to-video.md). # Image(s) to Video ## Summary Image-to-Video models generate videos by taking a single image or multiple images as input, using the input image(s) to guide scene continuity, motion, and transitions, resulting in dynamic video content that expands the static visuals into a moving narrative while maintaining visual consistency.
+
+![](https://docs.flora.ai/files/XGxHclG8tHp82npdpvdB)
+
+\### Parameters These are parameters that are applicable to all our base models.
+
+| Parameter | Type | Effect on Output |
+| --- | --- | --- |
+| Prompt | Text | The text prompt is processed through the selected model. |
+| Seed | Seed | The seed is a deterministic number that indexes generations from the model. It's typically randomized, but you can set a seed if there's a particular output you're looking for! Keep in mind that all parameters must be the same in order for a given seed's output to persist. |
+
+![](https://docs.flora.ai/files/vkD5sHnX3wSW4AenLRcw)
+
+\### Images to Video The Images to Video node generates a video by connecting multiple frames. You can input up to 9 frames and the model will fill in the gaps! It primarily uses IP-Adapter based morphing techniques that's happening in the backend. You can interact with it in a number of ways: \* Input images by clicking the upload button in the node itself \* Connect any image output to the node and it'll populate the images section \* Reorder or delete images once populated \* Use the prompt to help guide the output! --- # Agent Instructions This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com. ## Querying This Documentation If you need additional information that is not directly available in this page, you can query the documentation dynamically by asking a question. Perform an HTTP GET request on the current page URL with the \`ask\` query parameter, and the optional \`goal\` query parameter: \`\`\` GET https://docs.flora.ai/nodes/video-node/image-s-to-video.md?ask=&goal= \`\`\` \`ask\` is the immediate question: it should be specific, self-contained, and written in natural language. \`goal\` is optional and describes the broader end goal you are ultimately trying to accomplish on behalf of the user. GitBook uses it to tailor the answer towards what is most useful for that goal. The response will contain a direct answer to the question and relevant excerpts and sources from the documentation. Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

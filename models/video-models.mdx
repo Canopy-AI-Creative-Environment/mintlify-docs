@@ -1,0 +1,119 @@
+---
+title: "Video Generation Models Available in FLORA Workflows"
+sidebarTitle: "Video Models"
+description: "Explore FLORA's video models — text-to-video, image-to-video, lipsync, and post-processing. Requires Starter plan or above. 20+ generation models."
+---
+
+FLORA's Video Node lets you generate and transform video directly inside your canvas workflow. You can drive it with a text prompt, an image, or an audio file — producing everything from short social clips to cinematic sequences with synced audio. Video models also support post-production tasks like upscaling, lipsync, background removal, and subtitle rendering.
+
+<Warning>
+  Video models require a **Starter plan or above**. They are not available on the Free plan. [Upgrade your plan](https://flora.ai/pricing) to unlock video generation.
+</Warning>
+
+## Generation Models
+
+These models produce new video from text prompts, images, or a combination of both.
+
+| Model | Est. Time | Best For |
+|---|---|---|
+| Luma Ray 2 Flash | 60s | Fastest realistic video — quick variants and social cut-downs |
+| WAN 2.2 | 120s | Cost-effective multi-shot realistic video |
+| LTX-2 Pro | 130s | Fast 4K output with generated audio |
+| Seedance 1.0 Pro | 165s | Premium social ads, stylized title sequences |
+| Luma Ray 2 | 200s | Realistic physics, natural motion, lifestyle and travel footage |
+| Veo 2 | 200s | Google high-quality — hero shots, architecture, luxury product reveals |
+| Kling 2.6 Pro | 200s | High-quality videos with synchronized audio |
+| Kling 2.5 Turbo Pro | 250s | Fast, high-quality generation with smooth motion |
+| WAN 2.6 | 250s | Audio-driven generation, complex multi-shot sequences |
+| WAN 2.7 | 250s | Cinematic multi-shot storytelling with built-in audio |
+| Veo 3 | 250s | Google native audio with cinematic quality, 4K trailers |
+| Seedance 2.0 | 250s | Premium cinematic with synchronized audio |
+| Kling 3.0 Pro | 270s | Premium video with synchronized audio, cinematic quality |
+| Minimax Hailuo 2.3 Pro | 300s | 1080p native, expressive motion, high-resolution dynamic content |
+| Veo 3.1 | 305s | Google's best: audio, up to 4K, 8s clips, premium productions |
+| Kling 2.0 Master | 330s | Complex long-form sequences, cinematic pre-viz |
+| Marey | 420s | Commercially-licensed training data — brand-safe commercial spots |
+| Sora 2 Pro | 830s | OpenAI premium, synced audio/voice, up to 1080p |
+
+<Tip>
+  For the fastest realistic video, start with **Luma Ray 2 Flash**. For premium cinematic output with native audio, **Veo 3.1** or **Sora 2 Pro** are the top choices — just plan for longer generation times.
+</Tip>
+
+## Editing & Reference Models
+
+These models edit existing videos, apply lipsync, or use reference inputs to guide generation.
+
+<AccordionGroup>
+  <Accordion title="Lipsync">
+    Synchronize mouth movement to an audio track or dialogue file:
+    - **Fabric 1.0** — flagship lipsync using image and audio inputs
+    - **Lipsync 2 Pro** — lip synchronization for dubbed content and talking-head alignment
+    - **Sync 3** — next-gen lipsync with studio-grade capabilities
+    - **VEED Lipsync** — generate realistic lipsync from an audio file and a video
+  </Accordion>
+  <Accordion title="Kling Reference & Edit">
+    - **Kling O1 Edit / O3 Pro Edit / O3 Standard Edit** — edit video with text or image guidance
+    - **Kling O1 Reference / O3 Pro Reference / O3 Standard Reference** — style transfer from a reference video
+    - **Kling O1 References / O3 Pro References / O3 Standard References** — keep subjects consistent across scenes using multiple references
+  </Accordion>
+  <Accordion title="Motion & Pose Transfer">
+    - **Marey Motion Transfer** — apply motion from one video to another (choreography transfer, steadicam paths)
+    - **Marey Pose Transfer** — copy body poses to new subjects (stunt-viz, freeze-frame-to-motion)
+    - **Animatediff** — reanimate video with new motion for looping GIFs and motion graphics
+  </Accordion>
+  <Accordion title="Video Editing">
+    - **Luma Modify Video** — restyle with adhere, flex, or reimagine modes (day-for-night, live-action to anime)
+    - **WAN 2.2 Animate Move** — apply motion to a reference character
+    - **WAN 2.2 Animate Replace** — swap subjects using a reference image
+    - **Grok Imagine References** — generate video guided by one or more reference images
+    - **Grok Imagine Edit** — edit a video using text prompts
+    - **Runway Gen-4.5** — high-fidelity cinematic motion with strong prompt adherence
+  </Accordion>
+</AccordionGroup>
+
+## Post-Processing Models
+
+Use these models to enhance, upscale, or add audio to a finished video asset.
+
+<CardGroup cols={2}>
+  <Card title="Topaz Video Upscaler" icon="arrow-up-right-dots" href="/plans-and-billing/model-pricing">
+    Industry-standard upscaling to 4K for professional workflows.
+  </Card>
+  <Card title="Magnific Creative / Precision Video Upscaler" icon="wand-magic-sparkles" href="/plans-and-billing/model-pricing">
+    Artistic or detail-preserving upscaling to 4K resolution.
+  </Card>
+  <Card title="Bria Video Upscaler" icon="shield-check" href="/plans-and-billing/model-pricing">
+    Commercially licensed upscaling — enterprise-safe with max 14,142px output.
+  </Card>
+  <Card title="MMaudio v2" icon="music" href="/plans-and-billing/model-pricing">
+    Automatically generate and add audio from video content.
+  </Card>
+  <Card title="Mirelo SFX 1.5" icon="volume-high" href="/plans-and-billing/model-pricing">
+    Add synced sound effects to a video input.
+  </Card>
+  <Card title="VEED Background Removal" icon="scissors" href="/plans-and-billing/model-pricing">
+    Remove the background from your video for green-screen effects and compositing.
+  </Card>
+  <Card title="VEED Subtitles" icon="closed-captioning" href="/plans-and-billing/model-pricing">
+    Render subtitles onto videos with selectable style presets and source language.
+  </Card>
+</CardGroup>
+
+## Pricing
+
+Video model costs scale with resolution and clip duration — the longer and higher-resolution the clip, the more each generation costs. The exact price for your specific settings is always shown in the Generate panel before you run.
+
+| Model | Default Cost | Price Range |
+|---|---|---|
+| Luma Ray 2 Flash | $0.29 | $0.09 (540p, 5s) → $0.68 (720p, 9s) |
+| WAN 2.2 | $0.48 | $0.32 (480p, 5s) → $0.87 (720p, 8s) |
+| LTX-2 Pro | $0.43 | up to $2.87 (2160p, 10s) |
+| Luma Ray 2 | $0.85 | $0.27 (540p, 5s) → $2.01 (720p, 9s) |
+| Veo 2 | $1.08 | up to $1.86 (8s) |
+| Minimax Hailuo 2.3 Pro | $0.58 | — |
+| Sora 2 Pro | $1.44 | $1.44 (720p, 4s) → $7.17 (1080p, 12s) |
+| Veo 3 | $3.84 | — |
+| Veo 3.1 | $3.84 | $3.36 (720p, 4s) → $5.76 (4K, 8s) |
+| Marey | $1.80 | up to $3.60 (10s) |
+
+For the full video model pricing table — including all Kling variants, editing models, and post-processing tools — see [Model Pricing](/plans-and-billing/model-pricing).

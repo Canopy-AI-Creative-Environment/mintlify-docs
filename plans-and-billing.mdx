@@ -1,0 +1,223 @@
+---
+title: "FLORA Plans and Billing: Pricing, Usage, and Management"
+sidebarTitle: "Plans & Billing"
+description: "Everything you need to know about FLORA's plans, usage budgets, model costs, teams, on-demand spending, and how to manage your subscription."
+---
+
+FLORA offers a range of plans to fit individual creators, growing teams, and enterprise organizations. Every paid plan includes a monthly dollar-denominated usage budget you spend across any AI model in the app — one budget, no per-generation math in the flow. This page covers how plans work, what's included, and how to manage your subscription.
+
+<Note>
+  **Launch bonus extended through August 1, 2026.** Every paid plan currently includes extra usage on top of its standard monthly budget. See the [Launch Bonus](#launch-bonus) section below for full details.
+</Note>
+
+## Plans
+
+| Plan | Price | Monthly usage/seat | Max seats |
+|---|---|---|---|
+| **Free** | $0 | — (limited complimentary generations) | 1 |
+| **Starter** | $18/mo | $18 | 8 |
+| **Pro** | $50/mo | $50 | 8 |
+| **Max** | $200/mo | $200 | 8 |
+| **Enterprise** | Custom | Custom | Custom |
+
+Annual billing saves **20%** on Starter, Pro, and Max. Your monthly usage budget is the same whether you pay monthly or annually.
+
+For the full feature comparison — workspace controls, team features, and support tiers — see [flora.ai/pricing](https://flora.ai/pricing).
+
+### Free Plan Limits
+
+The Free plan lets you explore the canvas and try FLORA's core capabilities, with a few important restrictions:
+
+- **Models:** Text and image only — no video models in the app
+- **Usage:** Limited complimentary generations (not a monthly dollar pool)
+- **Projects:** Maximum 3 active projects
+- **API & MCP:** Not included — these start on Starter
+
+<Tip>
+  **FAUNA is free on every plan**, including Free. FAUNA messages and interactions never count against your usage budget, no matter which plan you're on.
+</Tip>
+
+### Enterprise
+
+Enterprise is for organizations that need custom seat counts, SSO, admin controls, audit logs, and invoice billing. Enterprise plans are negotiated annually. [Contact FLORA](https://flora.ai/contact) to start the conversation.
+
+## Launch Bonus
+
+Through **August 1, 2026**, every paid plan includes extra monthly usage on top of its standard budget. The bonus resets with your billing cycle, just like your standard budget.
+
+| Plan | Standard usage | Launch bonus | Total during launch |
+|---|---|---|---|
+| Starter | $18/seat | +$12/seat | **$30/seat** |
+| Pro | $50/seat | +$50/seat | **$100/seat** |
+| Max | $200/seat | +$100/seat | **$300/seat** |
+
+The bonus scales with seats. A 4-person Pro workspace gets **$400/month** in shared budget during the launch period (4 × $100), compared to $200/month at standard rates.
+
+When the launch bonus ends, your plan returns to its standard monthly budget with no change to subscription price.
+
+<Note>
+  Free, Enterprise, and custom plans are not part of the launch bonus.
+</Note>
+
+## How Usage Works
+
+On paid plans, your monthly budget is denominated in dollars. When you run a generation, the model's cost is deducted from your workspace budget automatically. You don't need to think about per-generation math — FLORA handles the accounting.
+
+**The flower meter** is the default way to see cost at a glance. Every model shows a small row of flowers indicating roughly what a generation will cost:
+
+| Meter | Cost per generation |
+|---|---|
+| 🌸 (1 flower) | Less than $0.10 |
+| 🌸🌸 (2 flowers) | $0.10 – $1.00 |
+| 🌸🌸🌸 (3 flowers) | $1.00 – $2.00 |
+| 🌸🌸🌸+ (3 flowers +) | $2.00 or more |
+
+**Prefer exact dollar amounts?** Toggle **Preferences → Show generation costs in dollars** to replace the flower meter with the precise per-run cost on every model and Run button.
+
+**What counts as usage:** Any successful generation from an AI model — images, video, audio, or text — based on the model's published cost. Failed generations are never charged. FAUNA interactions never count.
+
+**Where to see your usage:** A live percentage bar sits in the app header at all times. For full detail, open **Settings → People & Seats → Usage this period** to see included usage, how much remains, your reset date, and any overage for the current cycle. The **Usage History** view (under Plan & Usage) shows exact dollar cost per generation, per project, and per member.
+
+**Usage resets** on your workspace billing date each month. Unused included budget does not roll over. Extra usage from referrals, promotions, or support grants does persist across cycles.
+
+## Model Pricing Examples
+
+Pricing is dynamic — costs change based on parameters like resolution and clip length. The exact cost for your specific settings is always shown in the app before you generate. Here are some representative rates at default settings:
+
+| Model | Type | Cost |
+|---|---|---|
+| Flux 2 | Image | $0.0094 |
+| Flux Dev | Image | $0.0306 |
+| Nano Banana Pro | Image (1K) | $0.18 |
+| GPT Image 2 | Image (1K, high quality) | $0.2635 |
+| Minimax Hailuo | Video | $0.228 |
+| Veo 3.1 Lite | Video | $0.4807 |
+| Veo 3.1 | Video (720p, 8s) | $3.84 |
+| Claude Sonnet 4.6 | Text | $0.0072 |
+| ElevenLabs Multilingual v2 | Audio | $0.1206 |
+
+For the complete per-model rate table, see the [Model Pricing](/plans-and-billing/model-pricing) page.
+
+## Teams
+
+Every paid plan supports team collaboration, and each seat adds both cost and budget to your workspace at your plan's per-seat rate.
+
+**Example — Pro plan, 4 seats:**
+- Cost: 4 × $50 = **$200/month**
+- Shared usage budget: 4 × $50 = **$200/month** (or $400/month during the launch bonus period)
+
+Self-serve plans support up to **8 seats**. For more, contact [Enterprise](https://flora.ai/contact).
+
+Workspace admins have granular control over how usage flows:
+
+- **Pooled or per-user:** By default, all editors draw from the same shared pool. Admins can switch to per-user budgets at any time.
+- **Per-member caps:** Set a dollar cap on any individual member to prevent one person from draining the pool. That member's usage indicator shows their individual percentage (or "Limit reached") with a tooltip explaining the admin-set limit.
+
+## On-Demand Spending (Overage)
+
+When your monthly budget runs out, you can either upgrade your plan or enable **on-demand spending** (called Overage in workspace settings).
+
+On-demand spending is:
+
+- **Opt-in** — disabled by default; workspace admins enable it under **Settings → People & Seats**
+- **Capped** — you set a max overage dollar limit for the billing period, so there are no runaway charges
+- **Same rates** — no markup over included usage; you pay the same published model rates
+- **Card-required** (self-serve plans) — a payment method must be on file; Enterprise accounts follow their contract
+
+<Warning>
+  On self-serve plans, overage charges happen **mid-cycle**, not at the end of the billing period. Your card is charged when unpaid overage reaches your max overage cap, hits $200 (system safety threshold), reaches your workspace's monthly subscription total, or during a daily balance check if more than $5 is unpaid. You may see several charges in one period.
+</Warning>
+
+## Managing Your Subscription
+
+### Changing Plans
+
+You can upgrade or downgrade at any time from **Settings → People & Seats → Manage & Invoices**.
+
+- **Upgrades** take effect immediately. Your new budget is available right away, and you're charged a prorated amount for the remainder of the current cycle.
+- **Downgrades** apply at the end of your current billing cycle. You keep your existing plan's access until then.
+
+### Cancelling
+
+To cancel your subscription:
+
+<Steps>
+  <Step title="Open workspace settings">
+    From the home page, navigate to your workspace and click the **settings icon** (gear) in the workspace header.
+  </Step>
+  <Step title="Go to People & Seats">
+    In the sidebar, select **People & Seats**.
+  </Step>
+  <Step title="Open billing portal">
+    Click the **Manage & Invoices** button (next to "Next billing") to open the Stripe portal.
+  </Step>
+  <Step title="Cancel in Stripe">
+    In Stripe, click **Cancel Subscription** and follow the prompts.
+  </Step>
+</Steps>
+
+After cancellation, your plan stays active until the end of the current billing cycle. Any extra usage (from referrals or promotions) stays in your workspace and doesn't expire if you return. Your subscription won't auto-renew.
+
+<Note>
+  If your latest payment has failed (showing "Past Due"), the Cancel button may be hidden in the billing portal. Email [support@florafauna.ai](mailto:support@florafauna.ai) to resolve this.
+</Note>
+
+### Refunds
+
+All payments are final and non-refundable unless FLORA approves an exception. Refunds may be granted for duplicate charges, billing errors, a recent auto-renewal where you haven't used the service, or other exceptional circumstances at FLORA's sole discretion. If approved, refunds are issued to the original payment method.
+
+## Education Discounts
+
+FLORA offers dedicated plans for students and professors. Visit [flora.ai/edu](https://flora.ai/edu) to learn about the education program and apply. Professor accounts include unlimited editor seats for classroom use.
+
+## Frequently Asked Questions
+
+<Accordion title="Is FAUNA really free on every plan?">
+  Yes. FAUNA messages and interactions never count against your usage budget on any plan, ever. You can use FAUNA as much as you want on Free, Starter, Pro, Max, or Enterprise.
+</Accordion>
+
+<Accordion title="Do failed generations count against my usage?">
+  No. If a generation fails for any reason, nothing is deducted from your budget.
+</Accordion>
+
+<Accordion title="Does unused monthly budget roll over?">
+  No. Your plan's monthly included budget resets each billing cycle and does not carry over. However, extra usage from referrals, promotions, or support grants does persist across cycles.
+</Accordion>
+
+<Accordion title="What's the difference between monthly and annual billing?">
+  Annual billing saves 20% on the subscription price. Your monthly usage budget is exactly the same on both billing frequencies.
+</Accordion>
+
+<Accordion title="Can I change plans anytime?">
+  Yes. Upgrades take effect immediately and are prorated. Downgrades apply at the end of your current billing cycle.
+</Accordion>
+
+<Accordion title="Do all plans have access to every model?">
+  Starter and above include text, image, video, and audio models, plus API and MCP access. The Free plan includes text and image models only — no video models in the canvas — with limited complimentary generations and no API or MCP access.
+</Accordion>
+
+<Accordion title="What happens to my data and access if I cancel?">
+  Your plan stays active through the end of the billing period. Any extra usage in your workspace doesn't expire if you come back. After the cycle ends, you revert to the Free plan's capabilities.
+</Accordion>
+
+<Accordion title="What if I need more than 8 seats?">
+  Self-serve plans support up to 8 seats. For larger teams, [contact FLORA](https://flora.ai/contact) about an Enterprise plan. In some cases FLORA can raise the seat cap on a per-workspace basis — email [support@florafauna.ai](mailto:support@florafauna.ai) to ask.
+</Accordion>
+
+<Accordion title="Can I set spending caps for individual team members?">
+  Yes. Workspace admins can set per-member usage caps to prevent any single person from consuming the shared pool. Admins can also toggle between a pooled budget and per-user budgets at any time.
+</Accordion>
+
+<Accordion title="Is on-demand (overage) spending the same price as included usage?">
+  Yes. There is no markup — you pay the same published model rates whether you're spending from your included budget or going over it on demand.
+</Accordion>
+
+<Accordion title="Do you offer student or education discounts?">
+  Yes. Visit [flora.ai/edu](https://flora.ai/edu) for information on student and professor plans. Professor accounts include unlimited editor seats for classroom collaboration.
+</Accordion>
+
+## Questions?
+
+- **General support:** [support@florafauna.ai](mailto:support@florafauna.ai)
+- **Enterprise inquiries:** [flora.ai/contact](https://flora.ai/contact)
+- **Full feature comparison:** [flora.ai/pricing](https://flora.ai/pricing)

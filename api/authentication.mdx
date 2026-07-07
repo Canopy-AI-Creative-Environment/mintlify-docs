@@ -1,0 +1,57 @@
+---
+title: "FLORA API Authentication: API Keys and Bearer Tokens"
+sidebarTitle: "Authentication"
+description: "FLORA uses API key authentication. Learn how to generate your key, pass it as a Bearer token in your requests, and keep your credentials secure."
+---
+
+The FLORA API uses API key authentication. Every request you make to the API must include your API key as a Bearer token in the `Authorization` header. You generate and manage your API keys directly inside the FLORA app — no third-party service or OAuth flow required. Keep your key secure and rotate it immediately if you believe it has been exposed.
+
+<Warning>
+  The FLORA API requires a **Starter plan or above**. Free plan users cannot generate API keys or make API requests.
+</Warning>
+
+## Generate your API key
+
+<Steps>
+  <Step title="Log in to FLORA">
+    Sign in to your FLORA account at [flora.ai](https://flora.ai). Make sure your account is on the Starter plan or above — the API section will not appear for Free plan users.
+  </Step>
+  <Step title="Go to Settings → API">
+    Open your account menu and navigate to **Settings**, then select the **API** tab. This is where all your API credentials are managed.
+  </Step>
+  <Step title="Generate or copy your API key">
+    Click **Generate API Key** to create a new key, or copy an existing one. Store it somewhere safe — treat it like a password.
+  </Step>
+</Steps>
+
+## Authenticate your requests
+
+Pass your API key in the `Authorization` header of every request using the `Bearer` scheme:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" https://api.flora.ai/v1/...
+```
+
+Replace `YOUR_API_KEY` with the key you copied from **Settings → API**. All requests must be made over HTTPS.
+
+## Keeping your key secure
+
+<Note>
+  Never commit your API key to version control. Use environment variables or a secrets manager to inject the key at runtime, and add your `.env` file to `.gitignore` to avoid accidental exposure.
+</Note>
+
+If you suspect your API key has been compromised:
+
+1. Go to **Settings → API** in the FLORA app
+2. Click **Regenerate** to immediately invalidate the old key and issue a new one
+3. Update any services or applications that were using the old key
+
+Regeneration takes effect immediately — the old key stops working as soon as you regenerate.
+
+## Next steps
+
+For the full API reference, including every available endpoint and its request and response shapes, visit [developer.flora.ai](https://developer.flora.ai).
+
+<Tip>
+  If you're connecting a third-party AI tool like Claude or Cursor to FLORA, see the [MCP guide](/api/mcp) — it uses the same API key for authentication.
+</Tip>

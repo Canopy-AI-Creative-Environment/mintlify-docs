@@ -1,0 +1,15 @@
+# Source: https://docs.flora.ai/editor/collaboration-and-sharing.md
+
+\> For the complete documentation index, see \[llms.txt\](https://docs.flora.ai/llms.txt). Markdown versions of documentation pages are available by appending \`.md\` to page URLs; this page is available as \[Markdown\](https://docs.flora.ai/editor/collaboration-and-sharing.md). # Collaboration & Sharing ## Real-Time Collaboration FLORA is optimized for team collaboration. Our canvas supports multiple team members to work on the same design file simultaneously. Changes are visible in real time, ensuring that everyone stays on the same page without version conflicts. ## Annotation Tool FLORA allows team members to leave comments on the canvas, creating a seamless real-time collaboration on the most updated version of your team's creative process. Learn how to put a comment on the canvas \[here\](/editor/toolbar.md#comment).
+
+![](https://docs.flora.ai/files/AWjSWvNBG8kc3DD2dt77)
+
+\## Share You can \*\*share your project\*\* via copying the link or you can \*\*publish your project\*\* to the community page. ### Share a link To copy the link, navigate to the parameter bar in the top right corner of the canvas and click the \*\*Copy Link\*\* button.
+
+![](https://docs.flora.ai/files/vlNjvpVU3abB1hao71GN)
+
+\### Publish to Community To publish to community, navigate to the parameter bar in the top right corner of the canvas and click \*\*Publish to Community\*\* button. This makes your project visible to all FLORA users on the Community tab.
+
+![](https://docs.flora.ai/files/QxNdpgs3UmhXjnji7umR)
+
+\--- # Agent Instructions This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com. ## Querying This Documentation If you need additional information that is not directly available in this page, you can query the documentation dynamically by asking a question. Perform an HTTP GET request on the current page URL with the \`ask\` query parameter, and the optional \`goal\` query parameter: \`\`\` GET https://docs.flora.ai/editor/collaboration-and-sharing.md?ask=&goal= \`\`\` \`ask\` is the immediate question: it should be specific, self-contained, and written in natural language. \`goal\` is optional and describes the broader end goal you are ultimately trying to accomplish on behalf of the user. GitBook uses it to tailor the answer towards what is most useful for that goal. The response will contain a direct answer to the question and relevant excerpts and sources from the documentation. Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

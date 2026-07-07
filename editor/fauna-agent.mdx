@@ -1,0 +1,132 @@
+---
+title: "FAUNA Agent: Build and Run Workflows in Natural Language"
+sidebarTitle: "FAUNA Agent"
+description: "FAUNA is FLORA's built-in AI agent. Describe what you want and it builds, modifies, and runs workflows on your canvas — free on every plan."
+---
+
+FAUNA is an AI agent that lives directly inside the FLORA canvas. Rather than manually dragging nodes, picking models, and wiring prompts together, you describe what you want in plain language and FAUNA does the work for you. It's not a chatbot — it has hands. It reads your canvas, adds and connects nodes, changes models, runs generations, and organizes the output, all through a conversation. The closest analogy is [Cursor](https://www.cursor.com/) for code.
+
+<Note>
+FAUNA is **free on every FLORA plan** and never counts against your usage budget. The only costs that apply are for the actual generation nodes FAUNA proposes to run — which you approve before anything executes in Assist mode.
+</Note>
+
+## Opening FAUNA
+
+Press `Cmd /` (Mac) or `Ctrl /` (Windows/Linux) anywhere on your canvas to toggle the FAUNA sidebar open. It appears on the right side of the screen. You can also open it from the **FAUNA** button in the bottom-right corner of the canvas.
+
+The sidebar has two layout modes — toggle between them with `Cmd \` / `Ctrl \`:
+
+- **Floating** — overlays the canvas as a panel in the bottom-right corner
+- **Docked** — attaches to the right edge of the screen at full height
+
+## Two Operating Modes
+
+Select your preferred mode from the mode selector in the chat input:
+
+<CardGroup cols={2}>
+  <Card title="Assist Mode" icon="hand" href="#two-operating-modes">
+    The default. FAUNA shows you the list of nodes it plans to run and the estimated usage cost, then waits for your approval before executing anything.
+  </Card>
+  <Card title="Auto Mode" icon="bolt" href="#two-operating-modes">
+    FAUNA runs generations immediately without pausing for confirmation. Best when you want maximum speed and trust the plan FAUNA has laid out.
+  </Card>
+</CardGroup>
+
+## What FAUNA Can Do
+
+FAUNA has full access to your canvas and the complete FLORA model library. Here's what you can ask it to do:
+
+<Accordion title="Build and modify workflows">
+  - Generate complete workflows from scratch based on a description
+  - Add, modify, or remove individual nodes
+  - Change models, labels, prompts, and aspect ratios
+  - Reconnect or restructure existing workflows
+  - Create variations of existing nodes
+  - Extend a workflow with additional steps
+  - Group related nodes into containers
+</Accordion>
+
+<Accordion title="Work with the Layer Editor">
+  FAUNA can operate Layer Editor tools directly — adding text layers, shapes, and adjustments to Layer Editor nodes already on your canvas.
+</Accordion>
+
+<Accordion title="Run generations">
+  FAUNA can execute image, video, and text nodes — up to **50 at a time**. Ask it to run specific nodes or entire sections of your workflow. In Assist mode, you see a cost estimate and approve before anything runs.
+</Accordion>
+
+<Accordion title="Upload and use reference images">
+  Attach images directly in the chat via drag-and-drop, paste, or the attachment button. FAUNA accepts JPEG, PNG, WebP, and GIF — up to **5 attachments per message**, **20 MB each**. Attached images can be placed onto the canvas as source nodes for downstream generation nodes.
+</Accordion>
+
+### Starter Prompts
+
+When you first open FAUNA, quick-action buttons help you get started right away:
+
+- **What's new in FLORA** — get up-to-date information about the latest features
+- **How does FLORA work?** — learn about FLORA's capabilities
+- **What are the best models?** — get model recommendations for your use case
+- **Create a starter workflow** — FAUNA generates a multi-step workflow you can customize
+
+## Providing Context
+
+There are three ways to give FAUNA context about what you're working with:
+
+<Steps>
+  <Step title="Select nodes on the canvas">
+    Select nodes before you type your message — they're automatically included as context. This is the easiest and most common method.
+  </Step>
+  <Step title="Mention nodes with @">
+    Type `@` in the chat input to open the node picker. Search by node name or type, then select the node you want to reference. Useful when you want to reference a specific node without selecting it on the canvas.
+  </Step>
+  <Step title="Upload images">
+    Attach images via drag-and-drop, paste, or the attachment button to use as reference material or source images directly in the conversation.
+  </Step>
+</Steps>
+
+<Info>
+You can include up to **15 nodes** as context in a single message.
+</Info>
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|---|---|
+| `Cmd /` / `Ctrl /` | Toggle FAUNA sidebar open/close |
+| `Cmd \` / `Ctrl \` | Dock or float the sidebar |
+| `Escape` | Cancel pending execution, or close the sidebar if nothing is pending |
+| `Cmd Enter` / `Ctrl Enter` | Approve a pending execution |
+| `Enter` | Send message |
+| `Shift Enter` | New line in chat input |
+| `@` | Open node picker to mention a specific canvas node |
+
+## Memory and Sessions
+
+FAUNA remembers your conversation history within each project. When you return to a project, you can pick up right where you left off.
+
+- **Per-project sessions:** Each project has its own FAUNA session and conversation history.
+- **Persistent messages:** Your messages and FAUNA's responses are saved automatically.
+- **Session history:** Access previous chat sessions from the dropdown in the sidebar header.
+- **Rename sessions:** Give sessions descriptive names from the session dropdown.
+- **Start fresh:** Click the **new chat** button in the top-right corner of the sidebar to begin a new session without previous context. Your prior session history remains accessible from the dropdown.
+
+## Canvas Awareness
+
+FAUNA understands your canvas in detail and tracks changes between conversation turns. When you add, remove, or modify nodes between messages, FAUNA automatically detects the changes and factors them into its next response — you don't need to re-explain what you've done.
+
+When reading your canvas, FAUNA surfaces newly added and recently modified nodes first, marked with **[NEW]** and **[MODIFIED]** annotations, so it focuses on what has changed rather than treating all nodes equally.
+
+<Tip>
+While FAUNA is processing, you'll see a real-time indicator showing what it's currently doing (e.g., "Reading canvas…", "Adding nodes…"). After it responds, click **View steps** to see the full reasoning timeline, including which tools it used and what decisions it made.
+</Tip>
+
+## Current Limitations
+
+<Warning>
+FAUNA currently operates in **single-project scope** only — it can only see and work with the project you have open. It cannot access other projects, workspaces, or external websites.
+</Warning>
+
+## Coming Soon
+
+- **Cross-project asset access** — pull assets and context from other projects, not just the one you have open.
+- **Generation history and past assets** — FAUNA will have access to your existing project context and previous generations.
+- **Multiple parallel FAUNA agents** — run multiple agents and threads at the same time to direct a whole team of creatives working in parallel.

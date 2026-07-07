@@ -1,0 +1,128 @@
+---
+title: "Router Node: Branch Your Inputs to Many Downstream Nodes"
+sidebarTitle: "Router Node"
+description: "Collect source nodes once and fan them out to as many downstream nodes as you need — no reconnecting, no duplication, no transformation."
+---
+
+The Router Node is a one-to-many pass-through hub. You connect your source nodes — images, videos, text, audio, or documents — into a Router once, then branch that single output to as many downstream nodes as you like. Update the sources in one place and every consumer on your canvas stays in sync automatically.
+
+## What the Router Does
+
+The Router is completely transparent. It performs no generation and no transformation. When a downstream node resolves its inputs, it looks straight through the Router to the original source nodes — exactly as if you had wired those sources in directly. All the Router does is manage how connections are drawn.
+
+This is what makes one-to-many reuse possible: one Router output can branch to any number of nodes, and each of those nodes still receives the genuine upstream sources.
+
+<Tip>
+  Use Routers to clean up a busy canvas. When several nodes share the same inputs, a Router turns a web of overlapping noodles into a single, tidy hub.
+</Tip>
+
+---
+
+## Adding a Router Node
+
+<Steps>
+  <Step title="Add the node">
+    Open the node menu and select **Router** to place it on your canvas.
+  </Step>
+  <Step title="Connect your sources">
+    Drag noodles from your source nodes (image, video, text, audio, or document) into the Router's input handle on the left. The Router locks to the modality of the first source you connect.
+  </Step>
+  <Step title="Branch the output">
+    Drag from the Router's output handle on the right to each downstream node that should receive those inputs. One output handle can connect to as many nodes as you need.
+  </Step>
+  <Step title="Run downstream">
+    Run any downstream node as usual. It processes the routed sources exactly as if they were wired in directly — no extra steps, no added cost.
+  </Step>
+</Steps>
+
+---
+
+## The Router Interface
+
+The Router Node is intentionally compact so it stays readable on a busy canvas.
+
+<Accordion title="Label">
+  Every Router displays an editable label (default: **Router**). Double-click it to rename — for example, "Character refs" or "Brand palette" — so you can identify each Router at a glance when a workflow has several.
+</Accordion>
+
+<Accordion title="Modality indicator">
+  Below the label, the Router displays its current modality:
+
+  - **None** — no sources connected yet
+  - **Text**, **Image**, **Video**, **Audio**, or **Document** — once a source is connected
+
+  For image and video sources, the Router shows a thumbnail preview of the first item so you can identify the content without opening the source node.
+</Accordion>
+
+<Accordion title="Input and output handles">
+  - **Input handle (left)** — accepts your source connections
+  - **Output handle (right)** — branches to downstream nodes
+
+  The output handle reflects its state: an empty circle when nothing is connected, a **+** once the Router has a settled modality and is ready to branch, and a filled dot when it is connected downstream.
+</Accordion>
+
+---
+
+## Modality
+
+A Router carries a single modality at a time, matching whatever sources you connect:
+
+- Connect image sources → **image router**
+- Connect video sources → **video router**
+- Connect text sources → **text router**
+
+The Router stays **None** until a source is connected, and it can't connect to a downstream node until its modality is settled. Connect your sources first, then branch the output.
+
+---
+
+## Limitations
+
+<Warning>
+  Routers cannot connect to **Batch Nodes** or **Layer Editor** nodes. Connect those source nodes directly instead.
+</Warning>
+
+| Limitation | Details |
+|---|---|
+| No Batch connection | A Router cannot feed into a Batch Node. Connect sources directly to the Batch. |
+| No Layer Editor connection | Routers cannot connect to Layer Editor nodes. Connect the source directly. |
+| Single modality | A Router carries one modality at a time, matching its connected sources. |
+| Modality must settle first | The Router needs at least one source connected before it can branch downstream. |
+
+---
+
+## Workflow Examples
+
+### Reuse a reference set across multiple nodes
+
+```
+[Char sheet] ─┐
+[Outfit ref]  ─┼─→ [Router] ─┬─→ [Image Node]   "generate scene"
+[Moodboard]  ─┘  (3 images) ├─→ [Text Node]     "describe the references"
+                             └─→ [Image Node]    "restyle"
+```
+
+Connect your reference images into a Router once, then branch it to every node that needs them — no reconnecting the same images multiple times.
+
+### Swap sources in one place
+
+Update what's feeding the Router and every downstream node picks up the change immediately. You never need to touch the individual connections.
+
+### Tidy a crowded canvas
+
+```
+[A] ─┐
+[B] ─┼─→ [Router] ─→ [Image Node]
+[C] ─┤
+[D] ─┘
+```
+
+Collapse many parallel noodles into a single, clean connection into your generation node.
+
+---
+
+## Tips
+
+- **Name every Router** — a clear label makes a multi-Router canvas much easier to read and maintain
+- **Connect sources first** — the Router must have a settled modality before you can branch its output
+- **Branch freely** — one Router output can feed as many downstream nodes as your workflow requires
+- **Chain Routers if needed** — a Router's output can feed another Router; the chain stays fully transparent end-to-end

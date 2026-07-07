@@ -1,0 +1,64 @@
+---
+title: "FLORA MCP: Connect Claude and Cursor to Your Workflows"
+sidebarTitle: "MCP"
+description: "FLORA's Model Context Protocol integration lets you connect Claude, Cursor, VS Code, and other AI tools directly to your FLORA workflows via MCP."
+---
+
+FLORA's MCP (Model Context Protocol) integration lets you connect AI coding tools and assistants — including Claude Desktop, Claude Code, Cursor, VS Code, and any other MCP-compatible client — directly to your FLORA workflows. Instead of switching to the FLORA canvas, you can trigger generations, interact with your workflows, and receive outputs without leaving the tool you're already working in. FLORA MCP is out of public beta and available on the Starter plan and above. Full MCP documentation, including the server URL and all configuration options, is at [developer.flora.ai/mcp](https://developer.flora.ai/mcp).
+
+<Warning>
+  The legacy `/mcp` beta endpoint has been **deprecated**. If you previously configured an MCP client using the beta endpoint, update your configuration to use the new `/api/v1`-backed endpoint documented at [developer.flora.ai/mcp](https://developer.flora.ai/mcp).
+</Warning>
+
+## What you can do with FLORA MCP
+
+Once connected, your AI tools can interact with FLORA directly from their own interfaces:
+
+- **Connect Claude Code or Claude Desktop to FLORA workflows** — trigger generations and retrieve outputs from within your Claude session
+- **Use Cursor to interact with FLORA** — invoke FLORA capabilities as part of your Cursor-based development workflow
+- **Trigger generations from any MCP-compatible AI tool** — FLORA MCP works with any client that supports the Model Context Protocol
+
+## Getting started
+
+<Steps>
+  <Step title="Ensure you have a Starter plan or above">
+    FLORA MCP requires an active Starter plan or higher. The Free plan does not include API or MCP access. Visit your account's billing settings to upgrade if needed.
+  </Step>
+  <Step title="Get your API key">
+    Navigate to **Settings → API** in the FLORA app and generate or copy your API key. The MCP server uses the same API key as the REST API for authentication.
+  </Step>
+  <Step title="Get the MCP server URL and setup instructions">
+    Visit [developer.flora.ai/mcp](https://developer.flora.ai/mcp) for the current MCP server URL, the full list of supported tools, and client-specific setup instructions.
+  </Step>
+  <Step title="Add FLORA to your AI tool's MCP configuration">
+    Follow the setup guide for your specific client. For most tools, this means editing an MCP configuration file and supplying your API key as an environment variable. See the example below for Claude Desktop.
+  </Step>
+</Steps>
+
+## Example: Claude Desktop configuration
+
+Add the following to your Claude Desktop MCP configuration file to connect it to FLORA:
+
+```json
+{
+  "mcpServers": {
+    "flora": {
+      "command": "npx",
+      "args": ["-y", "@florafauna/mcp"],
+      "env": {
+        "FLORA_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+Replace `your-api-key-here` with the API key from **Settings → API**. For configuration file locations and setup guides for other clients (Cursor, VS Code, etc.), refer to [developer.flora.ai/mcp](https://developer.flora.ai/mcp).
+
+<Note>
+  FLORA MCP requires a **Starter plan or above**. Free plan accounts cannot generate API keys and are not able to use the MCP integration.
+</Note>
+
+## Full MCP reference
+
+For the complete MCP server documentation — including all available tools, parameters, and client setup guides — visit [developer.flora.ai/mcp](https://developer.flora.ai/mcp).
