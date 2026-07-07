@@ -2,48 +2,280 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Canopy AI",
-  "description": "Documentation for Canopy AI — the node-based creative workflow platform with 50+ AI models across text, image, video, and audio.",
+  "description": "Documentation for Canopy AI \u2014 the node-based creative workflow platform with 50+ AI models across text, image, video, and audio.",
   "colors": {
     "primary": "#22c55e",
     "light": "#4ade80",
     "dark": "#16a34a"
   },
-  "appearance": { "default": "light" },
-  "favicon": "/favicon.svg",
-  "logo": { "light": "/logo/light.svg", "dark": "/logo/dark.svg" },
-  "navbar": {
-    "links": [{ "label": "Discord", "href": "https://discord.gg/cHq6rmtDSh", "icon": "discord", "type": "discord" }],
-    "primary": { "type": "button", "label": "Open Dashboard", "href": "https://app.trycanopy.space" }
+  "appearance": {
+    "default": "light"
   },
-  "feedback": { "thumbsRating": true, "suggestEdit": true },
-  "search": { "prompt": "Search Canopy AI docs..." },
+  "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Discord",
+        "href": "https://discord.gg/cHq6rmtDSh",
+        "icon": "discord",
+        "type": "discord"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Open Dashboard",
+      "href": "https://app.trycanopy.space"
+    }
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true
+  },
+  "search": {
+    "prompt": "Search Canopy AI docs..."
+  },
   "navigation": {
     "tabs": [
-      { "tab": "Docs", "groups": ["Get Started", "The Editor", "Nodes", "Techniques", "Models", "Text Model Library", "Image Model Library", "Video Model Library", "Audio Model Library", "Account & Teams", "About"] },
-      { "tab": "API & MCP", "groups": ["API"] }
-    ],
-    "pages": [
-      { "group": "Get Started", "pages": ["introduction", "quickstart", "plans-and-billing", "help-and-support", "tips-and-tricks"] },
-      { "group": "The Editor", "pages": ["editor/canvas", "editor/roots-agent", "editor/elements", "editor/timeline-editor", "editor/collaboration"] },
-      { "group": "Nodes", "pages": ["nodes/overview", "nodes/text", "nodes/image", "nodes/video", "nodes/audio", "nodes/document", "nodes/layer-editor", "nodes/action", "nodes/batch", "nodes/router", "nodes/export"] },
-      { "group": "Techniques", "pages": ["techniques/overview", "techniques/using-techniques", "techniques/technique-builder"] },
-      { "group": "Models", "pages": ["models/text-models", "models/image-models", "models/video-models", "models/audio-models"] },
-      { "group": "Text Model Library", "pages": ["models/text/claude-sonnet-4-5", "models/text/claude-opus-4-5", "models/text/claude-sonnet-5", "models/text/gpt-4o-mini", "models/text/gpt-5", "models/text/gpt-5-1", "models/text/gpt-5-2", "models/text/o3-deep-research", "models/text/gemini-3-flash", "models/text/gemini-2-5-pro", "models/text/gemini-3-1-pro"] },
-      { "group": "Image Model Library", "pages": ["models/image/flux-dev", "models/image/flux-2", "models/image/flux-2-flex", "models/image/flux-2-pro", "models/image/flux-2-max", "models/image/flux-turbo", "models/image/flux-kontext-max", "models/image/gpt-image-2", "models/image/gpt-image-1-5", "models/image/nano-banana", "models/image/nano-banana-pro", "models/image/seedream-3", "models/image/seedream-4", "models/image/seedream-4-5", "models/image/ideogram-3", "models/image/ideogram-4", "models/image/imagen-3", "models/image/imagen-4", "models/image/recraft-v3", "models/image/recraft-v4", "models/image/stable-diffusion-3-5"] },
-      { "group": "Video Model Library", "pages": ["models/video/veo-3-1", "models/video/veo-3", "models/video/veo-2", "models/video/sora-2-pro", "models/video/kling-2-6-pro", "models/video/kling-3-pro", "models/video/kling-2-5-turbo-pro", "models/video/kling-2-master", "models/video/luma-ray-2", "models/video/luma-ray-2-flash", "models/video/seedance-2", "models/video/seedance-1-pro", "models/video/minimax-hailuo", "models/video/marey", "models/video/ltx-2-pro", "models/video/wan-2-2", "models/video/wan-2-6", "models/video/wan-2-7"] },
-      { "group": "Audio Model Library", "pages": ["models/audio/elevenlabs-multilingual-v2", "models/audio/elevenlabs-scribe-v2", "models/audio/gemini-flash-tts", "models/audio/elevenlabs-music-v1", "models/audio/elevenlabs-sound-effects"] },
-      { "group": "Account & Teams", "pages": ["account/workspaces", "account/teams", "account/organizations", "account/data-and-privacy", "account/education"] },
-      { "group": "About", "pages": ["about/manifesto", "about/philosophy", "about/community"] },
-      { "group": "API", "pages": ["api/overview", "api/authentication", "api/mcp"] }
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "plans-and-billing",
+              "help-and-support",
+              "tips-and-tricks"
+            ]
+          },
+          {
+            "group": "The Editor",
+            "pages": [
+              "editor/canvas",
+              "editor/roots-agent",
+              "editor/elements",
+              "editor/timeline-editor",
+              "editor/collaboration"
+            ]
+          },
+          {
+            "group": "Nodes",
+            "pages": [
+              "nodes/overview",
+              "nodes/text",
+              "nodes/image",
+              "nodes/video",
+              "nodes/audio",
+              "nodes/document",
+              "nodes/layer-editor",
+              "nodes/action",
+              "nodes/batch",
+              "nodes/router",
+              "nodes/export"
+            ]
+          },
+          {
+            "group": "Techniques",
+            "pages": [
+              "techniques/overview",
+              "techniques/using-techniques",
+              "techniques/technique-builder"
+            ]
+          },
+          {
+            "group": "Models",
+            "pages": [
+              "models/text-models",
+              "models/image-models",
+              "models/video-models",
+              "models/audio-models"
+            ]
+          },
+          {
+            "group": "Text Model Library",
+            "pages": [
+              "models/text/claude-sonnet-4-5",
+              "models/text/claude-opus-4-5",
+              "models/text/claude-sonnet-5",
+              "models/text/gpt-4o-mini",
+              "models/text/gpt-5",
+              "models/text/gpt-5-1",
+              "models/text/gpt-5-2",
+              "models/text/o3-deep-research",
+              "models/text/gemini-3-flash",
+              "models/text/gemini-2-5-pro",
+              "models/text/gemini-3-1-pro"
+            ]
+          },
+          {
+            "group": "Image Model Library",
+            "pages": [
+              "models/image/flux-dev",
+              "models/image/flux-2",
+              "models/image/flux-2-flex",
+              "models/image/flux-2-pro",
+              "models/image/flux-2-max",
+              "models/image/flux-turbo",
+              "models/image/flux-kontext-max",
+              "models/image/gpt-image-2",
+              "models/image/gpt-image-1-5",
+              "models/image/nano-banana",
+              "models/image/nano-banana-pro",
+              "models/image/seedream-3",
+              "models/image/seedream-4",
+              "models/image/seedream-4-5",
+              "models/image/ideogram-3",
+              "models/image/ideogram-4",
+              "models/image/imagen-3",
+              "models/image/imagen-4",
+              "models/image/recraft-v3",
+              "models/image/recraft-v4",
+              "models/image/stable-diffusion-3-5"
+            ]
+          },
+          {
+            "group": "Video Model Library",
+            "pages": [
+              "models/video/veo-3-1",
+              "models/video/veo-3",
+              "models/video/veo-2",
+              "models/video/sora-2-pro",
+              "models/video/kling-2-6-pro",
+              "models/video/kling-3-pro",
+              "models/video/kling-2-5-turbo-pro",
+              "models/video/kling-2-master",
+              "models/video/luma-ray-2",
+              "models/video/luma-ray-2-flash",
+              "models/video/seedance-2",
+              "models/video/seedance-1-pro",
+              "models/video/minimax-hailuo",
+              "models/video/marey",
+              "models/video/ltx-2-pro",
+              "models/video/wan-2-2",
+              "models/video/wan-2-6",
+              "models/video/wan-2-7"
+            ]
+          },
+          {
+            "group": "Audio Model Library",
+            "pages": [
+              "models/audio/elevenlabs-multilingual-v2",
+              "models/audio/elevenlabs-scribe-v2",
+              "models/audio/gemini-flash-tts",
+              "models/audio/elevenlabs-music-v1",
+              "models/audio/elevenlabs-sound-effects"
+            ]
+          },
+          {
+            "group": "Account & Teams",
+            "pages": [
+              "account/workspaces",
+              "account/teams",
+              "account/organizations",
+              "account/data-and-privacy",
+              "account/education"
+            ]
+          },
+          {
+            "group": "About",
+            "pages": [
+              "about/manifesto",
+              "about/philosophy",
+              "about/community"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API & MCP",
+        "groups": [
+          {
+            "group": "API",
+            "pages": [
+              "api/overview",
+              "api/authentication",
+              "api/mcp"
+            ]
+          }
+        ]
+      }
     ]
   },
   "footer": {
-    "socials": { "discord": "https://discord.gg/cHq6rmtDSh", "website": "https://trycanopy.space", "x": "https://x.com/canopyai" },
+    "socials": {
+      "discord": "https://discord.gg/cHq6rmtDSh",
+      "website": "https://trycanopy.space",
+      "x": "https://x.com/canopyai"
+    },
     "links": [
-      { "header": "Product", "items": [{ "label": "Pricing", "href": "https://trycanopy.space/pricing" }, { "label": "Education", "href": "https://trycanopy.space/edu" }, { "label": "API Reference", "href": "https://developer.trycanopy.space" }] },
-      { "header": "Resources", "items": [{ "label": "Quickstart", "href": "/quickstart" }, { "label": "Models", "href": "/models/text-models" }, { "label": "Community", "href": "https://discord.gg/cHq6rmtDSh" }] },
-      { "header": "Support", "items": [{ "label": "Email Support", "href": "mailto:prateek@justvouch.club" }, { "label": "Report a Bug", "href": "https://tally.so/r/mOoova" }, { "label": "Request Feature", "href": "https://tally.so/r/wvKxjg" }] }
+      {
+        "header": "Product",
+        "items": [
+          {
+            "label": "Pricing",
+            "href": "https://trycanopy.space/pricing"
+          },
+          {
+            "label": "Education",
+            "href": "https://trycanopy.space/edu"
+          },
+          {
+            "label": "API Reference",
+            "href": "https://developer.trycanopy.space"
+          }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Quickstart",
+            "href": "/quickstart"
+          },
+          {
+            "label": "Models",
+            "href": "/models/text-models"
+          },
+          {
+            "label": "Community",
+            "href": "https://discord.gg/cHq6rmtDSh"
+          }
+        ]
+      },
+      {
+        "header": "Support",
+        "items": [
+          {
+            "label": "Email Support",
+            "href": "mailto:prateek@justvouch.club"
+          },
+          {
+            "label": "Report a Bug",
+            "href": "https://tally.so/r/mOoova"
+          },
+          {
+            "label": "Request Feature",
+            "href": "https://tally.so/r/wvKxjg"
+          }
+        ]
+      }
     ]
   },
-  "contextual": { "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"] }
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  }
 }
